@@ -39,7 +39,7 @@ EDIT_TOOLS = {"Edit", "Write", "MultiEdit", "NotebookEdit"}
 # Gate only likely application source. Broader than services/** because applied
 # workspaces may be single-repo apps, CLIs, libs, data jobs, or Go/Rust layouts.
 SOURCE_DIR_TOKENS = (
-    "services", "src", "app", "packages", "apps", "cmd", "internal", "pkg",
+    "source", "services", "src", "app", "packages", "apps", "cmd", "internal", "pkg",
     "lib", "libs", "crates", "notebooks", "dags", "jobs", "pipelines", "tests",
 )
 VENDOR_TOKENS = ("node_modules", ".git", "dist", "build", ".next", "__pycache__")

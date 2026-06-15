@@ -7,6 +7,7 @@ Dev Verification, Coder Leader, Coordinator, QC Handoff.
 ## Rules
 
 ```text
+R-007-18: CHANGE-INTEGRITY critical check (R-026): reject Code Done when a logic change left dead code (unused imports/vars/branches/helpers), orphan references to removed/renamed symbols, un-updated callers, or an old code path still reachable beside the new one. Require the coder's grep-for-old-refs (zero) + build/lint evidence.
 R-007-01: Code Done requires dev verification score >= 80%.
 R-007-02: Code Done requires all critical checks to pass.
 R-007-03: Code Done requires zero known blockers.

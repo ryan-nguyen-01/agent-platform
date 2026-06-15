@@ -136,7 +136,7 @@ On conflict, prioritize:
 .claude/{agents,commands,skills}/
 docs/{product,requirements,experience,architecture,quality,delivery,operations,governance}/
 apps/
-services/
+source/
 packages/
 infra/
 tests/
@@ -318,7 +318,7 @@ They are only created after:
 
 ```text
 /onboard
--> detect services/modules
+-> detect source/modules
 -> user approve
 -> /create-coders
 ```
@@ -615,7 +615,7 @@ Is there a pattern/common util that should be reused?
 | ------------------------- | --------------------------------------------------------------------------------------- |
 | `.maestro/knowledge/index.yaml`       | Index read first to avoid opening the entire memory                                       |
 | `.maestro/knowledge/project.yaml` | Overall memory of the project                                                          |
-| `.maestro/registry/components.yaml`   | List of services/modules, source path, coding boundary                              |
+| `.maestro/registry/components.yaml`   | List of source/modules, source path, coding boundary                              |
 | `.maestro/registry/agents.yaml` | List of coder agents and their scope                                              |
 | `.maestro/knowledge/test-policy.yaml` | Unit/manual test rules per service                                                    |
 | `.maestro/runtime/workflow-state.yaml` | Current state of the workflow                                                       |

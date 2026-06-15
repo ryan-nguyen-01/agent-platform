@@ -3,7 +3,7 @@
 > Language policy: framework docs are English; the agent replies in the user's language. See .maestro/engine/docs/language-policy.md
 
 > **Variant: Maestro Brownfield** — Maintain an EXISTING, running project: deep onboarding first, execute assigned tasks precisely, ask when unclear — never infer.
-> Generated bundle — do not edit by hand; rebuild from the maestro platform (variants/brownfield.yaml).
+> Self-contained workspace — its folder tree (source/ for the existing project's code, intake/ for raw user material) is purpose-fit for maintaining a running project.
 
 ## Variant Profile: Brownfield (existing project — precise, ask-don't-infer)
 
@@ -11,11 +11,12 @@ This bundle maintains a project that is ALREADY running. The contract: understan
 do exactly what the task says, and when anything is unclear — ASK. Never guess, never invent.
 
 ```text
-- LAYOUT (deliberately minimal — exactly two working folders):
-    services/  ALL service source code (one folder per service)
-    docs/      documents + bug/error info files the user drops in (onboarding reads them as evidence)
-- APPLY: copy this folder somewhere -> move the project's code into services/ -> drop any docs,
-  bug reports, error logs into docs/ -> run claude (or codex) -> /onboard. Nothing else to set up.
+- LAYOUT (deliberately minimal — exactly two working folders, named for what they hold):
+    source/  the EXISTING project's code you maintain (one folder per service/app/package)
+    intake/  raw material the user drops in — specs, bug reports, error logs, screenshots, data
+             dumps (onboarding triages and reads them as evidence; never the project's own code)
+- APPLY: copy this folder somewhere -> move the project's code into source/ -> drop any docs,
+  bug reports, error logs into intake/ -> run claude (or codex) -> /onboard. Nothing else to set up.
 - ONBOARDING IS MANDATORY before any product task: scan the code, build the project brain,
   record the REAL conventions/layout/test policy. No Direction gate (the product already exists).
 - FOLLOW THE EXISTING PROJECT, not framework defaults: match the repo's current folder layout,
@@ -28,9 +29,9 @@ do exactly what the task says, and when anything is unclear — ASK. Never guess
   the task scope, no dependency upgrades unless asked. Anything extra is scope expansion (hard-stop).
 - REGRESSION FIRST: every change runs the existing test suite; QC covers the changed scope plus
   regression on touching features. Do not break what already works.
-- INTAKE TRIAGE (/intake, R-002-D07): users may dump ANYTHING into docs/ — classify before learning;
-  secret-risk files are flagged and never quoted (R-013); source code dumped into docs/ needs user
-  confirmation before being treated as a component; docs that contradict code are stale-candidates
+- INTAKE TRIAGE (/intake, R-002-D07): users may dump ANYTHING into intake/ — classify before learning;
+  secret-risk files are flagged and never quoted (R-013); source code dumped into intake/ needs user
+  confirmation before being moved into source/ as a component; docs that contradict code are stale-candidates
   (code is runtime truth, R-018). Docs living inside a service folder are fine — indexed, never moved.
 - BASELINES (R-002-D08): git baseline commit before the first code task (rollback path) and a test
   baseline during onboarding (pre-existing failures recorded, so regressions are attributable).
@@ -247,7 +248,7 @@ slash commands are internal phase contracts and optional power-user shortcuts. N
 | --- | --- |
 | "dự án này thế nào", "tình hình?", "what's the status" | status / overview briefing |
 | "tìm hiểu/giải thích X", "X hoạt động ra sao", "how does X work" | investigate (read-only, cited) |
-| "tôi vừa thả tài liệu/bug log vào docs" | intake triage |
+| "tôi vừa thả tài liệu/bug log vào intake/" | intake triage |
 | "phân tích dự án", "onboard đi" | onboarding (intake first) |
 | "sửa bug X", "thêm tính năng Y", "làm task này: ..." | full pipeline: analyze -> approve -> IN_DEV -> code -> QC |
 | "build cho tôi app ..." (ý tưởng mới) | Direction gate (blueprint) trước, rồi pipeline |
@@ -266,7 +267,7 @@ Commands at `.claude/commands/`:
 | /coord         | Universal entrypoint; route a request through the workflow with gates |
 | /git           | Git-flow workflow: branch / commit / sync / PR; outward git is user-gated (R-020) |
 | /onboard       | Initial fetch/refresh memory + component contracts |
-| /intake        | Triage dropped files in docs//inputs/: classify, flag secrets/misplaced code, index — never moves files without approval |
+| /intake        | Triage dropped files in intake/: classify, flag secrets/misplaced code, index — never moves files without approval |
 | /investigate   | Read-only: current state + options + impact with citations — no code change |
 | /analyze-task  | Normalize a task into a spec |
 | /create-coders | Create service coder agents |
@@ -381,7 +382,7 @@ After DONE or meaningful workflow changes:
 
 ---
 
-## Rules (26 workflow rules)
+## Rules (27 workflow rules)
 
 Rules at `.maestro/engine/rules/` define the constraints for the workflow:
 
@@ -412,6 +413,7 @@ Rules at `.maestro/engine/rules/` define the constraints for the workflow:
 23-agent-collaboration-rules.md ← A2A envelopes: validated handoffs, evidence-bearing results
 24-purpose-chain-rules.md     ← Orphan-work gate + intent ledger; claims cite sources
 25-working-agreements-rules.md ← Echo-back, WIP=1, DoR/DoD, honest status, escalation
+26-change-integrity-rules.md  ← Read whole unit, trace callers, remove dead code, one path not two
 ```
 
 ---
@@ -437,7 +439,7 @@ Rules at `.maestro/engine/rules/` define the constraints for the workflow:
 
 ```text
 .maestro/                           ← Product control plane
-├── engine/                    ← Workflow, 26 rules, 62 templates
+├── engine/                    ← Workflow, 27 rules, 62 templates
 ├── registry/                  ← Components, agents, all 225 skills, inputs, artifacts
 ├── knowledge/                 ← Durable project and component knowledge
 ├── work/                      ← Initiative, epic, task, subtask, bug evidence
@@ -446,10 +448,8 @@ Rules at `.maestro/engine/rules/` define the constraints for the workflow:
 └── runtime/                   ← Local-only state, telemetry, cache, reports
 
 .claude/                       ← Native Claude agents, skills, commands, hooks
-docs/                          ← PRD, requirements, UX, HLD/LLD/ADR, quality, operations
-apps/ services/ packages/      ← Product applications, services, and shared libraries
-infra/ tests/                  ← Infrastructure and cross-component test suites
-inputs/                        ← External references awaiting curation
+source/                        ← The existing project's code you maintain (one folder per service/app/package)
+intake/                        ← Raw material the user drops in (specs, bug reports, error logs, data dumps) — triaged, never the project's own code
 ```
 
 # >>> maestro (auto) >>>

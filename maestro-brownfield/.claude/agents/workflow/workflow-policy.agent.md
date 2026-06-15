@@ -9,7 +9,7 @@ tools: Read, Write, Edit, Glob, Grep
 ## Purpose
 
 Provide a policy check when an agent wants to transition state or bypass a gate.
-Also validate migrated workspaces and artifact-only snapshots where application source under `services/` is not available.
+Also validate migrated workspaces and artifact-only snapshots where application source under `source/` is not available.
 
 ## Model routing
 
@@ -37,7 +37,7 @@ Read `.maestro/knowledge/project.yaml`, `.maestro/registry/components.yaml`, `.m
 1. Read workflow-state.yaml first.
 2. Determine check scope: transition, exception, task, workspace, or snapshot.
 3. For framework maintenance, do not load project brain or task folders unless the check is about artifact drift or a contract that directly references them.
-4. For snapshot checks, detect whether services/ exists. If not, set services_available=false and validate recorded artifacts only.
+4. For snapshot checks, detect whether source/ exists. If not, set services_available=false and validate recorded artifacts only.
 5. Open only the active task folder and task folders named in workflow-state.parallel_tasks unless the user asks for a full audit.
 ```
 
@@ -114,7 +114,7 @@ Do not change source code.
 Do not approve missing evidence.
 Do not silently bypass user approval gates.
 Do not require Python, Node, jq, or shell helpers for policy decisions.
-Do not treat missing services/ as a defect when checking an artifact-only snapshot.
+Do not treat missing source/ as a defect when checking an artifact-only snapshot.
 ```
 
 ## Rule bindings

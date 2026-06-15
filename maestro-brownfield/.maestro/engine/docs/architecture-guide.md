@@ -110,7 +110,7 @@ The **project brain** is the central knowledge store. It is created by onboardin
 ### Knowledge lifecycle
 
 ```text
-1. Onboarding scans `inputs/` and `services/<repo>/` → creates project brain
+1. Onboarding scans `intake/` and `source/<repo>/` → creates project brain
 2. Task analysis reads brain → understands impacted services
 3. Coder leader reads brain → selects correct coders
 4. Service coders read component knowledge → follow conventions
@@ -238,7 +238,7 @@ See also: [folder-guide.md](folder-guide.md) for detailed folder descriptions.
 ```text
 .maestro/engine/
 ├── workflow.md      ← End-to-end workflow policy
-├── rules/           ← 26 workflow rules (constraints and governance)
+├── rules/           ← 27 workflow rules (constraints and governance)
 ├── templates/       ← 51 artifact templates
 └── docs/            ← Documentation and visual diagrams
 
@@ -256,8 +256,8 @@ See also: [folder-guide.md](folder-guide.md) for detailed folder descriptions.
 ├── commands/       ← 17 workflow commands (user entry points)
 └── settings.json    ← Claude Code settings
 
-inputs/             ← User-provided reference docs scanned by onboarding
-services/           ← Registered deployable product services, workers, and gateways
+intake/             ← User-provided reference docs scanned by onboarding
+source/           ← Registered deployable product services, workers, and gateways
 ```
 
 ## Related documents

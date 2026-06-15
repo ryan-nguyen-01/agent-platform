@@ -50,8 +50,8 @@ agents:
       forbidden_paths:
         - "src/**"
         - "app/**"
-        - "services/*/src/**"
-        - "services/*/app/**"
+        - "source/*/src/**"
+        - "source/*/app/**"
         - "packages/*/src/**"
         - "apps/*/src/**"
         - "db/**"
@@ -69,7 +69,7 @@ agents:
         - ".maestro/engine/**"
         - ".maestro/**"
         - ".codex/**"
-        - "inputs/**"
+        - "intake/**"
       requires_leader_approval:
         - "production environment changes"
         - "destructive Terraform operations (destroy, taint, force-replace)"
@@ -136,8 +136,8 @@ agents:
         - "src/components/**"
         - "app/**"
         - "frontend/**"
-        - "services/*/src/api/**"
-        - "services/*/src/controllers/**"
+        - "source/*/src/api/**"
+        - "source/*/src/controllers/**"
         - "packages/*/src/ui/**"
         - "apps/*/src/**"
         - "terraform/**"
@@ -159,7 +159,7 @@ agents:
         - ".maestro/engine/**"
         - ".maestro/**"
         - ".codex/**"
-        - "inputs/**"
+        - "intake/**"
       requires_leader_approval:
         - "destructive migration (drop table, drop column, truncate, irreversible data rewrite)"
         - "production data backfill or long-running migration"
@@ -235,7 +235,7 @@ agents:
         - ".claude/**"
         - ".maestro/**"
         - ".codex/**"
-        - "inputs/**"
+        - "intake/**"
       requires_leader_approval:
         - "loading data into a shared/remote/production database (local only by default)"
         - "datasets large enough to need a migration or perf-infra change"

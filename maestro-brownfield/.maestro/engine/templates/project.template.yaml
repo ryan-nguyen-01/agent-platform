@@ -105,15 +105,15 @@ freshness:
   last_drift_check_result: "unknown"            # fresh | stale | unknown
 
 # User-provided reference docs scanned by Onboarding (R-002-09..12).
-# Detailed index lives in .maestro/registry/inputs.yaml.
+# Detailed index lives in .maestro/registry/intake.yaml.
 inputs:
   root: "inputs"
-  index: ".maestro/registry/inputs.yaml"
+  index: ".maestro/registry/intake.yaml"
   categories: ["product", "architecture", "api", "domain", "runbooks", "misc"]
   last_scanned_at: ""
   file_count: 0
 
-# Conflicts between inputs/ and source code (R-002-11).
+# Conflicts between intake/ and source code (R-002-11).
 # Each entry: {fact, code_source, inputs_source, resolution, decided_at}
 conflicts: []
 

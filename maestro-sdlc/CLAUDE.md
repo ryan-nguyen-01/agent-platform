@@ -361,7 +361,7 @@ After DONE or meaningful workflow changes:
 
 ---
 
-## Rules (26 workflow rules)
+## Rules (27 workflow rules)
 
 Rules at `.maestro/engine/rules/` define the constraints for the workflow:
 
@@ -392,6 +392,7 @@ Rules at `.maestro/engine/rules/` define the constraints for the workflow:
 23-agent-collaboration-rules.md ← A2A envelopes: validated handoffs, evidence-bearing results
 24-purpose-chain-rules.md     ← Orphan-work gate + intent ledger; claims cite sources
 25-working-agreements-rules.md ← Echo-back, WIP=1, DoR/DoD, honest status, escalation
+26-change-integrity-rules.md  ← Read whole unit, trace callers, remove dead code, one path not two
 ```
 
 ---
@@ -417,7 +418,7 @@ Rules at `.maestro/engine/rules/` define the constraints for the workflow:
 
 ```text
 .maestro/                           ← Product control plane
-├── engine/                    ← Workflow, 26 rules, 62 templates
+├── engine/                    ← Workflow, 27 rules, 62 templates
 ├── registry/                  ← Components, agents, all 237 skills, inputs, artifacts
 ├── knowledge/                 ← Durable project and component knowledge
 ├── work/                      ← Initiative, epic, task, subtask, bug evidence

@@ -52,8 +52,8 @@ Inputs (read):
   .maestro/work/tasks/<task-id>/task-analysis.yaml
   .maestro/engine/templates/advisory.template.yaml
   .maestro/work/tasks/<task-id>/coder-results.yaml (changes to document, if any)
-  inputs/api/ (OpenAPI/Swagger specs, contracts, if any)
-  inputs/architecture/ (existing HLD/LLD/ADRs, if any)
+  intake/api/ (OpenAPI/Swagger specs, contracts, if any)
+  intake/architecture/ (existing HLD/LLD/ADRs, if any)
 
 Output (write exactly one file, your own):
   .maestro/work/tasks/<task-id>/advisories/technical-writer.yaml   (per advisory.template.yaml)

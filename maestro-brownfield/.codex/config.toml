@@ -38,7 +38,7 @@ sandbox_mode = "workspace-write"
 
 [sandbox_workspace_write]
 # Intended workspace-level writable roots. Application source under
-# services/<repo>/ is intentionally not listed here; generated coders manage
+# source/<repo>/ is intentionally not listed here; generated coders manage
 # their own scopes via .maestro/registry/agents.yaml.
 writable_roots = [
   ".maestro",
@@ -64,7 +64,7 @@ persistence = "save-all"
 max_bytes = 10485760   # 10 MB
 
 # ── Web search ───────────────────────────────────────────────────────────────
-# Off by default. Workflow agents pull from .maestro/ indexes and inputs/, not
+# Off by default. Workflow agents pull from .maestro/ indexes and intake/, not
 # the open web. Enable per-session if a task needs it.
 web_search = "disabled"
 

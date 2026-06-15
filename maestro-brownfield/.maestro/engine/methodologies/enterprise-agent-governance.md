@@ -38,7 +38,7 @@ until the substrate is ready.
 | Component ownership | `.maestro/registry/components.yaml` |
 | Agent capability and write scope | `.maestro/registry/agents.yaml` |
 | Skill routing | `.maestro/registry/skills.yaml` |
-| Enterprise agent governance artifacts | `docs/governance/enterprise-agent-governance/` |
+| Enterprise agent governance artifacts | `.maestro/governance/enterprise-agent-governance/` |
 | Decisions and design | `.maestro/decision/`, `.maestro/design/`, `docs/architecture/` |
 | Operations | `docs/operations/`, `infra/`, `.maestro/knowledge/environments.md` |
 | Audit trail | `.maestro/history/`, `.maestro/work/` |
@@ -76,14 +76,14 @@ silence audit, or grant autonomy beyond the mission need.
 
 | Artifact | Purpose | Suggested root |
 | --- | --- | --- |
-| Governance Policy | Values, hard refusals, and owner obligations. | `docs/governance/enterprise-agent-governance/policies/` |
-| Agent Mission | Goal, success criteria, non-goals, termination, owner. | `docs/governance/enterprise-agent-governance/missions/` |
-| Behavior Contract | Typed I/O, refusal, escalation, forbidden tools, tone, SLA. | `docs/governance/enterprise-agent-governance/behavior-contracts/` |
-| Autonomy Policy | Reactive, proactive, autonomous, or self-improving boundaries. | `docs/governance/enterprise-agent-governance/autonomy-policies/` |
-| Agent Definition | Persona, skills, tools, knowledge, memory bounds, guards, model routing. | `docs/governance/enterprise-agent-governance/agent-definitions/` |
-| Eval Suite | Golden, adversarial, regression, and drift checks. | `docs/governance/enterprise-agent-governance/eval-suites/` |
-| Audit Log | Append-only behavior, version, eval, deploy, incident, and drift record. | `docs/governance/enterprise-agent-governance/audit-logs/` |
-| Interaction Protocol | Agent-human, agent-agent, and agent-system protocol specs. | `docs/governance/enterprise-agent-governance/interaction-protocols/` |
+| Governance Policy | Values, hard refusals, and owner obligations. | `.maestro/governance/enterprise-agent-governance/policies/` |
+| Agent Mission | Goal, success criteria, non-goals, termination, owner. | `.maestro/governance/enterprise-agent-governance/missions/` |
+| Behavior Contract | Typed I/O, refusal, escalation, forbidden tools, tone, SLA. | `.maestro/governance/enterprise-agent-governance/behavior-contracts/` |
+| Autonomy Policy | Reactive, proactive, autonomous, or self-improving boundaries. | `.maestro/governance/enterprise-agent-governance/autonomy-policies/` |
+| Agent Definition | Persona, skills, tools, knowledge, memory bounds, guards, model routing. | `.maestro/governance/enterprise-agent-governance/agent-definitions/` |
+| Eval Suite | Golden, adversarial, regression, and drift checks. | `.maestro/governance/enterprise-agent-governance/eval-suites/` |
+| Audit Log | Append-only behavior, version, eval, deploy, incident, and drift record. | `.maestro/governance/enterprise-agent-governance/audit-logs/` |
+| Interaction Protocol | Agent-human, agent-agent, and agent-system protocol specs. | `.maestro/governance/enterprise-agent-governance/interaction-protocols/` |
 
 These artifacts are for production or enterprise autonomous agents. They do not replace the developer
 workflow agents under `.claude/agents/workflow/`.

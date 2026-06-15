@@ -53,7 +53,7 @@ Inputs (read):
   .maestro/work/tasks/<task-id>/task-analysis.yaml
   .maestro/engine/templates/advisory.template.yaml
   .maestro/registry/skills.yaml (current stack, to frame the comparison in the right context)
-  inputs/architecture/ (existing HLD/LLD, ADRs if internal precedent is needed)
+  intake/architecture/ (existing HLD/LLD, ADRs if internal precedent is needed)
 
 Output (write exactly one file, your own):
   .maestro/work/tasks/<task-id>/advisories/tech-researcher.yaml   (per advisory.template.yaml)

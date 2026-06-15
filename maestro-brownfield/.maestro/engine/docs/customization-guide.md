@@ -22,8 +22,8 @@ The current runtime lives in:
 .maestro/runtime/reports/status.html Generated browser status dashboard
 .maestro/work/tasks/     Task artifacts
 .maestro/work/bugs/      Bug artifacts
-inputs/            User-provided PRD/HLD/ADR/OpenAPI/glossary/runbooks
-services/          Registered deployable product services, workers, and gateways
+intake/            User-provided PRD/HLD/ADR/OpenAPI/glossary/runbooks
+source/          Registered deployable product services, workers, and gateways
 ```
 
 ## When to customize
@@ -46,7 +46,7 @@ Do not customize just to route faster. Routing must still go through the Coordin
 Service coders should be created through the workflow:
 
 ```text
-1. Clone the service into services/<service-name>/
+1. Clone the service into source/<service-name>/
 2. Run /onboard
 3. Review the component registry and coder candidates
 4. Approve /create-coders
@@ -194,8 +194,8 @@ memory_updates_enabled
 
 ```text
 □ Clone maestro
-□ Clone service repositories into services/<service-name>/
-□ Put PRD/HLD/ADR/specs in inputs/
+□ Clone service repositories into source/<service-name>/
+□ Put PRD/HLD/ADR/specs in intake/
 □ Run /coord or /onboard
 □ Review project brain, component registry, test policy, coder candidates
 □ Approve /create-coders for the right services

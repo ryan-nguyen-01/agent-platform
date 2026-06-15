@@ -142,4 +142,4 @@ python3 scripts/architecture-health-check.py --strict
 ```
 
 Current distribution: 12 workflow agents, 20 specialist advisors, 3 built-in coders, 237 skills,
-26 rules, 62 templates, and 22 commands.
+27 rules, 62 templates, and 22 commands.

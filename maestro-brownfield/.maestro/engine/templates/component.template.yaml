@@ -3,8 +3,8 @@ component:
   id: "{{COMPONENT_ID}}"
   name: "{{COMPONENT_NAME}}"
   type: "backend|frontend|worker|library|database|infrastructure|mobile|desktop|cli|data-pipeline|ml-model|analytics|embedded|docs|plugin|unknown"
-  path: "{{COMPONENT_PATH}}"          # relative path from workspace root (e.g. services/service-a)
-                                      # Resolve from .maestro/registry/components.yaml; do not assume services/.
+  path: "{{COMPONENT_PATH}}"          # relative path from workspace root (e.g. source/service-a)
+                                      # Resolve from .maestro/registry/components.yaml; do not assume source/.
                                       # This is where the coder works; the component knowledge only describes it.
   responsibilities: []
   owners: []
@@ -34,7 +34,7 @@ stack:
   package_manager: "{{PACKAGE_MANAGER}}"
 
 boundaries:
-    # allowed_write_paths_for_coder: relative path from workspace root (e.g. services/service-a/src).
+    # allowed_write_paths_for_coder: relative path from workspace root (e.g. source/service-a/src).
   allowed_write_paths_for_coder: []
   shared_read_paths: []
   forbidden_paths: []

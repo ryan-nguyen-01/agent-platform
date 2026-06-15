@@ -1,7 +1,7 @@
 # `.maestro` Product Control Plane
 
-`.maestro/` contains the agent-readable control plane for one product workspace. Product code remains in
-peer roots such as `apps/`, `services/`, `packages/`, `infra/`, and `tests/`.
+`.maestro/` contains the agent-readable control plane for one product workspace. The existing project's
+code remains under `source/`, and raw user material awaiting triage lives under `intake/`.
 
 ## Domains
 
@@ -35,7 +35,7 @@ The skill registry is the canonical address book for capabilities. The component
 canonical address book for product code.
 
 Methodology names are local overlays mapped to current production-agent patterns in
-`docs/governance/methodologies/industry-alignment.md`.
+`.maestro/engine/methodologies/industry-alignment.md`.
 
 The architecture is run-centric: tasks describe work, runs record attempts, checkpoints preserve
 progress, traces and evals support quality claims, and governance records ownership and approval

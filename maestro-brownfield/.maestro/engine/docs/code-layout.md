@@ -11,7 +11,7 @@ in core/shared.** A feature owns its API, business logic, data access, types, an
 
 ```text
 apps/        user-facing applications (web, mobile, admin)
-services/    deployable backend services / APIs / workers
+source/    deployable backend services / APIs / workers
 packages/    shared libraries reused across apps/services (ui, config, types, sdk)
 infra/       IaC, docker, CI/CD, deployment manifests
 tests/       cross-component integration / e2e suites
@@ -19,13 +19,13 @@ docs/        PRD, requirements, UX/wireframes, HLD/LLD/ADR, ops
 ```
 
 Monolith → one service (or app) with many feature modules. Microservices → one folder per service under
-`services/`, each self-contained with the same internal layout; shared contracts/types live in
+`source/`, each self-contained with the same internal layout; shared contracts/types live in
 `packages/`.
 
-## Backend service — `services/<service>/`
+## Backend service — `source/<service>/`
 
 ```text
-services/<service>/
+source/<service>/
 ├── src/
 │   ├── modules/<feature>/          one folder per feature (vertical slice)
 │   │   ├── <feature>.controller.*  API/route layer (HTTP in/out, validation)
@@ -112,7 +112,7 @@ Pick the depth from the blueprint's scope_target; do not over-engineer an MVP.
 
 ```text
 NestJS    : modules/<feature> with *.module/controller/service/repository — native fit.
-FastAPI   : modules/<feature> with routers/services/repositories; core/ for settings/db.
+FastAPI   : modules/<feature> with routers/source/repositories; core/ for settings/db.
 Express/Koa: same module shape, explicit layers.
 Go        : internal/<feature> packages with handler/service/repo; cmd/ for main.
 Next.js   : src/features/<feature> + app/ router; shared/ for ui/lib.

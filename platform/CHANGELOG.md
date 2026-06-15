@@ -57,7 +57,7 @@ Format: `## [version] - YYYY-MM-DD`
 ### Fixed
 
 - **Current count drift** - Synchronized docs and health-check expectations to 33 agents, 237 skills,
-  26 rules, 62 templates, and 22 commands.
+  27 rules, 62 templates, and 22 commands.
 - **Runtime semantics** - Reframed `.maestro/runtime/` as local-only active state, telemetry, cache, and
   reports. Durable knowledge now lives under `.maestro/knowledge/`, and work artifacts live under `.maestro/work/`.
 - **Component-root semantics** - Clarified that `apps/`, `services/`, `packages/`, `infra/`, and

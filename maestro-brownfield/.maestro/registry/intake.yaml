@@ -6,4 +6,4 @@ root: "inputs"
 files: []
 notes:
   - "Placeholder index shipped with the framework distribution."
-  - "Onboarding replaces this file after scanning workspace inputs/."
+  - "Onboarding replaces this file after scanning workspace intake/."

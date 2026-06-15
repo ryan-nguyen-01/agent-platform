@@ -7,8 +7,8 @@ status: "needs_onboarding"
 discovery:
   source_of_truth: true
   scan_roots:
-    - path: "services"
-      kinds: ["service", "worker", "gateway"]
+    - path: "source"
+      kinds: ["service", "worker", "gateway", "app", "package", "module"]
 
   fallback_rule: "Scan roots only during onboarding or registry repair. Runtime agents read this registry first."
 

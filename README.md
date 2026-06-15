@@ -12,7 +12,7 @@ in it — the agent follows that template's workflow, gates, and identity.
 | [`maestro-adlc/`](maestro-adlc/) | Build AI products/agents with an **eval gate** before done | eval-driven-ai | 132 |
 | [`maestro-enterprise/`](maestro-enterprise/) | Operate governed/production agents: compliance, audit, accountability | enterprise-agent-governance | 166 |
 | [`maestro-lite/`](maestro-lite/) | Ship a small tool/prototype fast, minimal ceremony (no specialist advisors) | risk-based-routing | 39 |
-| [`maestro-brownfield/`](maestro-brownfield/) | Maintain an EXISTING project: deep onboarding, precise tasks, **ask-don't-infer** | risk-based-routing | 231 |
+| [`maestro-brownfield/`](maestro-brownfield/) | Maintain an EXISTING project (`source/` + `intake/`): deep onboarding, precise tasks, **ask-don't-infer** | risk-based-routing | 225 |
 
 ## Use it
 
@@ -32,8 +32,12 @@ operating your project.
 [`platform/`](platform/) holds the framework source and the generator. Maintain Maestro there:
 
 ```bash
-cd platform && python3 scripts/build-variant.py --all   # rebuild all maestro-* templates
+cd platform && python3 scripts/build-variant.py --all   # rebuild the generated maestro-* templates
 ```
+
+`build-variant.py --all` builds the four generated templates (sdlc, adlc, enterprise, lite).
+`maestro-brownfield/` is **independent and hand-maintained** — it has its own purpose-fit tree
+(`source/` + `intake/`) and is edited directly, not generated.
 
 Template manifests and the build contract: [platform/variants/README.md](platform/variants/README.md).
 

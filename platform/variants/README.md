@@ -14,7 +14,11 @@ maintenance template.
 | `maestro-adlc/` | AI products/agents with an eval gate before done | eval-driven-ai | 132 | delivery + observability/evals (no enterprise governance) |
 | `maestro-enterprise/` | Agentic Enterprise: governance, compliance, audit, production agents | enterprise-agent-governance | 166 | full, including governance + audit + enterprise docs |
 | `maestro-lite/` | Small tools/prototypes: direct mode, mini-brief instead of full blueprint | risk-based-routing | 39 | minimal core (no scaffolding) |
-| `maestro-brownfield/` | EXISTING project maintenance: onboard deeply, execute precisely, **ask-don't-infer** | risk-based-routing | 231 | minimal core — never stamps structure onto an existing repo |
+| `maestro-brownfield/` † | EXISTING project maintenance: onboard deeply, execute precisely, **ask-don't-infer** | risk-based-routing | 225 | `source/` (existing code) + `intake/` (raw user material) — purpose-fit, never stamps structure onto a repo |
+
+† `maestro-brownfield/` is an **independent, hand-maintained** template — it has no manifest here and
+is NOT built by `build-variant.py`. Its folder tree (`source/` + `intake/`) is deliberately different
+from the generated variants below; edit that bundle directly.
 
 ## How to use a template
 
@@ -24,8 +28,8 @@ cp -R maestro/maestro-sdlc my-app && cd my-app && claude     # or codex
 
 # Option B (brownfield) — copy the template, then move the existing code INTO it:
 cp -R maestro/maestro-brownfield ~/work/my-app-ws
-#   move your project's code inside (services/, apps/ — or keep its layout and register paths in
-#   .maestro/registry/components.yaml), then run claude + /onboard
+#   move your project's code into source/ and drop any specs/bug-reports/logs into intake/,
+#   then run claude + /onboard
 
 # Option C — or apply the contract INTO your existing repo without moving code:
 cd my-existing-app

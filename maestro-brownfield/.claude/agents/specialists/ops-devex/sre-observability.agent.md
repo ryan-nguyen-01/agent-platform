@@ -53,8 +53,8 @@ Inputs (read):
   .maestro/work/tasks/<task-id>/task-analysis.yaml
   .maestro/engine/templates/advisory.template.yaml
   .maestro/registry/components.yaml (boundaries, deployment targets)
-  inputs/runbooks/ (ops playbooks, incident response, if any)
-  inputs/architecture/ (HLD/LLD for deployment topology, if any)
+  intake/runbooks/ (ops playbooks, incident response, if any)
+  intake/architecture/ (HLD/LLD for deployment topology, if any)
 
 Output (write exactly one file, your own):
   .maestro/work/tasks/<task-id>/advisories/sre-observability.yaml   (per advisory.template.yaml)

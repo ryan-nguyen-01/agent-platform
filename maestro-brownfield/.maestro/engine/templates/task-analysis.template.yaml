@@ -17,8 +17,8 @@ methodology:
   overlays: []
   industry_patterns: []
   reason: ""
-  playbook: "docs/governance/methodologies/selection-matrix.md"
-  alignment: "docs/governance/methodologies/industry-alignment.md"
+  playbook: ".maestro/engine/methodologies/selection-matrix.md"
+  alignment: ".maestro/engine/methodologies/industry-alignment.md"
   required_artifacts: []
   accountable_owner_required: false
   production_agent_lifecycle: false
@@ -41,10 +41,10 @@ classification:
   class: "slice|integration"
   # cut: which layer(s) the change touches. A horizontal-* task must not mix BE + FE.
   #   vertical      — one feature end-to-end across layers/services (BE + FE + data).
-  #   horizontal-be — backend boundaries only (api/services/db), consumed by later FE.
+  #   horizontal-be — backend boundaries only (api/source/db), consumed by later FE.
   #   horizontal-fe — frontend experiences only, consuming contracts already ACTIVE.
   cut: "vertical|horizontal-be|horizontal-fe"
-  # Keep scope tight: at most ~3 target services/experiences per task (context-budget guard, R-014-20).
+  # Keep scope tight: at most ~3 target source/experiences per task (context-budget guard, R-014-20).
   target_count: 0
   reason: ""
 
@@ -101,7 +101,7 @@ context_plan:
     - path: ".maestro/memory/project/feedback/anti-patterns.md"
       reason: "avoid previously observed coding errors when relevant"
   required_source: []
-    # - path: "services/<service>/src/entrypoint.ts"
+    # - path: "source/<service>/src/entrypoint.ts"
     #   reason: "acceptance criterion AC-1 maps here"
   optional_source: []
   excluded_paths:

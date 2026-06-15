@@ -54,7 +54,7 @@ Inputs (read):
   .maestro/config/model-routing.yaml
   .maestro/work/tasks/<task-id>/task-analysis.yaml
   .maestro/engine/templates/advisory.template.yaml
-  inputs/product/**            (PRD, business specs, user stories if any)
+  intake/product/**            (PRD, business specs, user stories if any)
   .maestro/work/tasks/<task-id>/advisories/discovery-analyst.yaml   (if present, to inherit context)
 
 Output (write your advisory):
@@ -74,7 +74,7 @@ Use stable IDs (<KEY>-BRD/PRD/UC/US/BR/NFR/RTM-NNN); build governed work only fr
 Granularity & completeness (R-022): SPLIT per feature — one user story per file, one use case per file,
 business rules per area; never cram everything into one file. Every story gets multiple specific
 Given/When/Then ACs (happy + alternate/negative + boundary, >= 3 typical, each with id AC-<story>.<n>,
-concrete inputs/outputs and Error Catalog codes). Write detailed like a team would; a one-paragraph
+concrete intake/outputs and Error Catalog codes). Write detailed like a team would; a one-paragraph
 multi-feature doc is insufficient and will be treated as a missing prerequisite (R-021).
 
 Decision values: approved | recommendations | blocked

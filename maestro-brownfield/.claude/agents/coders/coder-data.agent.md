@@ -46,7 +46,7 @@ of sensitive shapes, and record the reason in `.maestro/runtime/agent-activity.y
 .maestro/engine/docs/code-layout.md                  (where seeds/fixtures live)
 .maestro/engine/docs/ba-documentation-standard.md    (business rules, NFR volume)
 docs/requirements/                                    (business rules, acceptance data shapes)
-inputs/domain/                                        (entity definitions/glossary, if present)
+intake/domain/                                        (entity definitions/glossary, if present)
 ```
 
 ## Permission contract
@@ -107,7 +107,7 @@ forbidden_paths:
   - ".claude/**"
   - ".maestro/**"
   - ".codex/**"
-  - "inputs/**"
+  - "intake/**"
 
 requires_leader_approval:
   - "loading data into a shared/remote/production database (local only by default, R-019-00c)"

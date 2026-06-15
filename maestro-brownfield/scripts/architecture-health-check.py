@@ -32,7 +32,7 @@ REPORT_MD = RUNTIME / "reports" / "architecture-health-report.md"
 EXPECTED_COUNTS = {
     "agents": 32,
     "skills": 225,
-    "rules": 26,
+    "rules": 27,
     "templates": 62,
     "commands": 20,
 }
@@ -133,7 +133,8 @@ REQUIRED_PATHS = [
     "scripts/agent-activity.py",
     "scripts/agent-run.py",
     "scripts/architecture-health-check.py",
-    "docs/README.md",
+    "source/README.md",
+    "intake/README.md",
     ".maestro/engine/contracts/handoff.schema.yaml",
     ".maestro/engine/contracts/result.schema.yaml",
 ]
@@ -263,7 +264,7 @@ def check_entrypoints(findings: list[dict[str, str]]) -> None:
 
 def iter_scan_files() -> list[Path]:
     suffixes = {".md", ".mdc", ".yaml", ".yml", ".json", ".toml", ".py", ".sh"}
-    ignored_dirs = {".git", "services", "__pycache__", "node_modules"}
+    ignored_dirs = {".git", "source", "intake", "__pycache__", "node_modules"}
     files: list[Path] = []
     for path in ROOT.rglob("*"):
         if any(part in ignored_dirs or part.startswith("maestro-") for part in path.parts):

@@ -29,19 +29,19 @@ name stays stable while `.maestro/project.yaml` defines the product identity and
 - 12 workflow agents (see [.claude/agents/workflow/](.claude/agents/workflow/))
 - 17 specialist advisors (advisor-only, in-pipeline) at [.claude/agents/specialists/](.claude/agents/specialists/) — see [R-016](.maestro/engine/rules/16-specialist-advisory-rules.md)
 - 225 skills (12 workflow + 213 technical) at [.claude/skills/](.claude/skills/); discovery layer: [.maestro/engine/docs/skill-catalog.md](.maestro/engine/docs/skill-catalog.md)
-- 26 workflow rules at [.maestro/engine/rules/](.maestro/engine/rules/)
+- 27 workflow rules at [.maestro/engine/rules/](.maestro/engine/rules/)
 - 59 templates at [.maestro/engine/templates/](.maestro/engine/templates/)
 - 22 slash commands at [.claude/commands/](.claude/commands/)
 - 3 built-in cross-cutting coders: `coder-infra`, `coder-database`, and `coder-data` at [.claude/agents/coders/](.claude/agents/coders/)
 - Deterministic hook guardrails (scope/secret/destructive) at [scripts/hooks/](scripts/hooks/) — see [R-017](.maestro/engine/rules/17-hook-enforcement-rules.md)
 - Durable memory at [.maestro/knowledge/](.maestro/knowledge/)
-- User-provided reference docs (PRD, HLD, ADR, OpenAPI, glossary, runbooks) at [inputs/](inputs/) — onboarding scans these to seed the brain
+- User-provided reference docs (PRD, HLD, ADR, OpenAPI, glossary, runbooks) at [intake/](intake/) — onboarding scans these to seed the brain
 
 The authoritative spec is [.maestro/engine/workflow.md](.maestro/engine/workflow.md). Read it before acting on non-trivial work.
 
-Do not copy `.claude/` into each component. Product code lives in registered roots (`apps/`,
-`services/`, `packages/`, `infra/`, `tests/`), official product docs live in `docs/`, and external
-references awaiting curation live in `inputs/`.
+Do not copy `.claude/` into each component. The existing project's code lives under `source/` (one
+folder per service/app/package, keeping the repo's own internal layout), and raw user material
+(specs, bug reports, logs, dumps) awaiting triage lives under `intake/`.
 
 ## Framework Maintenance Scope
 
@@ -80,7 +80,7 @@ needed for assisted/governed work.
 10. **Industry alignment.** Treat Risk-Based Workflow Routing as the default router, then add
    Spec-Driven Development, Eval-Driven AI Development, or Enterprise Agent Governance overlays when
    traceability, eval-driven AI, or governed autonomous operation is required. See
-   [industry-alignment.md](docs/governance/methodologies/industry-alignment.md).
+   [industry-alignment.md](.maestro/engine/methodologies/industry-alignment.md).
 11. **Run-centric operation.** A task describes intended work; a run records one execution attempt.
    Create a run under `.maestro/work/runs/` when work needs pause/resume, multiple agent attempts,
    trace/eval evidence, human approval, or replay.
@@ -174,7 +174,7 @@ For product-component tasks, `task-analysis.yaml` must include `context_plan` wi
 
 ## Policy consistency
 
-Run `/policy-check snapshot --root .` before trusting migrated workspace state or `/policy-check snapshot --root <snapshot-root>` for shared artifact-only snapshots without `services/`. This is handled by the `workflow-policy` agent and must not depend on Python, Node, jq, or shell helpers. Missing `services/` is reported as `services_available: false`, not as a project defect. `DEV_DONE` requires `dev-verification.yaml` result/verdict `DEV_DONE`; `QC_DONE`/`PASS` is invalid while required cases remain blocked/pending/not_run/failed or manual/retest evidence is still required.
+Run `/policy-check snapshot --root .` before trusting migrated workspace state or `/policy-check snapshot --root <snapshot-root>` for shared artifact-only snapshots without `source/`. This is handled by the `workflow-policy` agent and must not depend on Python, Node, jq, or shell helpers. Missing `source/` is reported as `services_available: false`, not as a project defect. `DEV_DONE` requires `dev-verification.yaml` result/verdict `DEV_DONE`; `QC_DONE`/`PASS` is invalid while required cases remain blocked/pending/not_run/failed or manual/retest evidence is still required.
 
 ## Where to find more
 
@@ -197,12 +197,11 @@ Run `/policy-check snapshot --root .` before trusting migrated workspace state o
 .maestro/work/         Shared work decomposition and delivery evidence
 .maestro/memory/       Project patterns, task summaries, and local session context
 .maestro/runtime/      Local-only active state, telemetry, cache, and reports
-docs/             Official product and engineering documentation
-apps|services|packages|infra|tests/  Product implementation
-inputs/           External/user-provided references awaiting curation
+source/           The existing project's code (one folder per service/app/package)
+intake/           Raw user material awaiting triage (specs, bug reports, logs, dumps)
 ```
 
-Conflict rule: when `inputs/` and source code disagree, **code wins for technical facts**, **inputs/ wins for intent/target state**. R-002-11.
+Conflict rule: when `intake/` and source code disagree, **code wins for technical facts**, **intake/ wins for intent/target state**. R-002-11.
 
 ## Per-tool enforcement boundary
 
@@ -220,8 +219,8 @@ Different AI tools enforce the same workflow policy through different mechanisms
 
 - Not an SDK. Do not `pip install` or `npm install` it as a library.
 - Not a deployable runtime. `.maestro/` is the development control plane for the product.
-- Not a sandbox. Product code lives in registered roots such as `apps/`, `services/`, `packages/`,
-  `infra/`, and `tests/`; each component follows the repository strategy declared by the project.
+- Not a sandbox. The existing project's code lives under `source/` (the repo keeps its own internal
+  layout); each component is registered in `components.yaml` and follows the project's own strategy.
 
 ## If you are confused
 

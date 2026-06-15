@@ -12,7 +12,7 @@ current methodology (`.maestro/methodology.yaml`), and the current workflow stat
 for the whole session in every adapter (Claude, Codex).
 
 > **Variant: Maestro Brownfield** — Maintain an EXISTING, running project: deep onboarding first, execute assigned tasks precisely, ask when unclear — never infer.
-> Generated bundle — do not edit by hand; rebuild from the maestro platform (variants/brownfield.yaml).
+> Self-contained workspace — its folder tree (source/ + intake/) is purpose-fit for maintaining a running project.
 
 ## Variant Profile: Brownfield (existing project — precise, ask-don't-infer)
 
@@ -20,11 +20,12 @@ This bundle maintains a project that is ALREADY running. The contract: understan
 do exactly what the task says, and when anything is unclear — ASK. Never guess, never invent.
 
 ```text
-- LAYOUT (deliberately minimal — exactly two working folders):
-    services/  ALL service source code (one folder per service)
-    docs/      documents + bug/error info files the user drops in (onboarding reads them as evidence)
-- APPLY: copy this folder somewhere -> move the project's code into services/ -> drop any docs,
-  bug reports, error logs into docs/ -> run claude (or codex) -> /onboard. Nothing else to set up.
+- LAYOUT (deliberately minimal — exactly two working folders, named for what they hold):
+    source/  the EXISTING project's code you maintain (one folder per service/app/package)
+    intake/  raw material the user drops in — specs, bug reports, error logs, screenshots, data
+             dumps (onboarding triages and reads them as evidence; never the project's own code)
+- APPLY: copy this folder somewhere -> move the project's code into source/ -> drop any docs,
+  bug reports, error logs into intake/ -> run claude (or codex) -> /onboard. Nothing else to set up.
 - ONBOARDING IS MANDATORY before any product task: scan the code, build the project brain,
   record the REAL conventions/layout/test policy. No Direction gate (the product already exists).
 - FOLLOW THE EXISTING PROJECT, not framework defaults: match the repo's current folder layout,
@@ -37,9 +38,9 @@ do exactly what the task says, and when anything is unclear — ASK. Never guess
   the task scope, no dependency upgrades unless asked. Anything extra is scope expansion (hard-stop).
 - REGRESSION FIRST: every change runs the existing test suite; QC covers the changed scope plus
   regression on touching features. Do not break what already works.
-- INTAKE TRIAGE (/intake, R-002-D07): users may dump ANYTHING into docs/ — classify before learning;
-  secret-risk files are flagged and never quoted (R-013); source code dumped into docs/ needs user
-  confirmation before being treated as a component; docs that contradict code are stale-candidates
+- INTAKE TRIAGE (/intake, R-002-D07): users may dump ANYTHING into intake/ — classify before learning;
+  secret-risk files are flagged and never quoted (R-013); source code dumped into intake/ needs user
+  confirmation before being moved into source/ as a component; docs that contradict code are stale-candidates
   (code is runtime truth, R-018). Docs living inside a service folder are fine — indexed, never moved.
 - BASELINES (R-002-D08): git baseline commit before the first code task (rollback path) and a test
   baseline during onboarding (pre-existing failures recorded, so regressions are attributable).
@@ -59,8 +60,8 @@ Read in this order:
 7. `.maestro/work/index.yaml`, `.maestro/work/runs/index.yaml`, and active task/run artifacts when work is tracked.
 8. `.maestro/runtime/workflow-state.yaml` only for local session state.
 
-Product code belongs in `services/`.
-Official product documents belong in `docs/`. Do not store secrets or long logs in `.maestro/`.
+Product code belongs in `source/`. Raw user material (specs, bug reports, logs, dumps) belongs in
+`intake/` and is triaged before use. Do not store secrets or long logs in `.maestro/`.
 
 Use `direct` mode for fast user-verified work, `assisted` for resumable bounded work, and
 `governed` for high-risk or cross-component delivery. Apply Spec-Driven Development, Eval-Driven AI

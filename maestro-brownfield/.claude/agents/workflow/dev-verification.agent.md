@@ -119,6 +119,16 @@ Do not ignore a repeated feedback anti-pattern just because the normal tests pas
 Do not move to QC directly; Coordinator and QC Handoff handle that.
 ```
 
+## Change-integrity check (R-026)
+
+```text
+Before Code Done, verify the change left no debris: no dead code (unused imports/vars/branches/helpers)
+introduced by the edit, no orphan references to removed/renamed symbols, all callers updated, and no
+old code path still reachable beside the new one. Demand evidence: grep of old symbols = 0 + clean
+build/lint (unused/unreachable resolved, not suppressed). Reject Code Done if debris remains, even when
+tests pass — outdated reachable code errors on paths the current tests miss.
+```
+
 ## Rule bindings
 
 ```text

@@ -6,19 +6,19 @@ catalog:
     name: "Risk-Based Workflow Routing"
     legacy_aliases:
       - "adaptive"
-    document: "docs/governance/methodologies/risk-based-routing.md"
+    document: ".maestro/engine/methodologies/risk-based-routing.md"
   spec-driven-development:
     name: "Spec-Driven Development"
     abbreviation: "SDD"
     legacy_aliases:
       - "adlc"
-    document: "docs/governance/methodologies/spec-driven-development.md"
+    document: ".maestro/engine/methodologies/spec-driven-development.md"
   enterprise-agent-governance:
     name: "Enterprise Agent Governance"
     legacy_aliases:
       - "agentic-enterprise"
       - "ae"
-    document: "docs/governance/methodologies/enterprise-agent-governance.md"
+    document: ".maestro/engine/methodologies/enterprise-agent-governance.md"
     operating_model:
       accountable_owner_required: true
       governance_policy_required_for_production_agents: true
@@ -45,10 +45,10 @@ catalog:
     name: "Eval-Driven AI Development"
     legacy_aliases:
       - "ai-native"
-    document: "docs/governance/methodologies/eval-driven-ai.md"
+    document: ".maestro/engine/methodologies/eval-driven-ai.md"
 
-selection_matrix: "docs/governance/methodologies/selection-matrix.md"
-industry_alignment: "docs/governance/methodologies/industry-alignment.md"
+selection_matrix: ".maestro/engine/methodologies/selection-matrix.md"
+industry_alignment: ".maestro/engine/methodologies/industry-alignment.md"
 
 defaults:
   execution_mode: "assisted"
@@ -76,8 +76,8 @@ industry_patterns:
       - "official_deliverable_required"
   eval-driven-ai:
     maps_to:
-      - "docs/governance/methodologies/eval-driven-ai.md"
-      - "docs/governance/enterprise-agent-governance/eval-suites/"
+      - ".maestro/engine/methodologies/eval-driven-ai.md"
+      - ".maestro/governance/enterprise-agent-governance/eval-suites/"
       - ".maestro/runtime/agent-activity.yaml"
     use_when:
       - "model_behavior_change"
@@ -85,7 +85,7 @@ industry_patterns:
       - "agent_quality_claim"
   enterprise-governance:
     maps_to:
-      - "docs/governance/enterprise-agent-governance/"
+      - ".maestro/governance/enterprise-agent-governance/"
       - ".maestro/history/"
       - "docs/operations/"
     use_when:

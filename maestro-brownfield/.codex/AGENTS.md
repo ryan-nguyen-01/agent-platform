@@ -20,16 +20,17 @@ Use this file when Codex opens this repository.
 This repository is `maestro`, a product-development workspace with a coordinator-driven
 control plane. It may contain the product implementation directly.
 
-Product implementation lives under registered roots:
+The existing project's code lives under `source/` (one folder per service/app/package, keeping the
+repo's own internal layout):
 
 ```text
-apps/ services/ packages/ infra/ tests/
+source/
 ```
 
-Reference docs live under:
+Raw user material awaiting triage (specs, bug reports, logs, dumps) lives under:
 
 ```text
-inputs/
+intake/
 ```
 
 ## Framework Maintenance Scope
@@ -94,7 +95,7 @@ registered component roots or .claude/skills/** by default.
 Use .maestro/config/model-routing.yaml for model profiles. In Codex, deep reasoning defaults to GPT-5.5 and coding defaults to the configured Codex coding model (`gpt-5.3-codex` by default). Switch defaults through model-routing.yaml.model_overrides; do not edit agent files or remove stable profiles to switch models.
 Use .maestro/runtime/agent-activity.yaml for /status activity and elapsed/ETA reporting. If exact ETA is unavailable, mark unknown or estimated.
 Use .maestro/config/response-ui.yaml for status, model report, review, dev, policy, and final response layout. User-requested format wins unless it hides required evidence or unknown/estimated metric labels.
-Framework maintenance may use workflow.md §6.2 lightweight fast-track instead of full task artifacts when the change is trivial and does not affect approval gates, security rules, state machine, generated coder scope, destructive commands, or services/<service-name>/ source.
+Framework maintenance may use workflow.md §6.2 lightweight fast-track instead of full task artifacts when the change is trivial and does not affect approval gates, security rules, state machine, generated coder scope, destructive commands, or source/<service-name>/ source.
 Specialist advisors live under .claude/agents/specialists/<category>/ (19 advisor-only experts). Invoke them in-pipeline per R-016 and task-analysis.yaml.advisory_required; they write only .maestro/work/tasks/<task_id>/advisories/<id>.yaml, never application code, never assign coders, never mark gates, and are never a raw-user entrypoint.
 Codex has no hook runtime, so follow R-000/R-006/R-013/R-011-07 and R-017 manually: enforce the
 selected execution mode, never write secrets, and require explicit approval for destructive actions.
@@ -174,7 +175,7 @@ Use the Workflow Policy agent for state/artifact drift:
 /policy-check snapshot --root DATA --write-report
 ```
 
-The checker supports artifact-only snapshots and must not require Python, Node, jq, or shell helpers. If `services/` is absent, it reports `services_available: false` and validates recorded `.maestro/runtime/` evidence only.
+The checker supports artifact-only snapshots and must not require Python, Node, jq, or shell helpers. If `source/` is absent, it reports `services_available: false` and validates recorded `.maestro/runtime/` evidence only.
 
 Do not trust `DEV_DONE` unless `dev-verification.yaml` exists and has `result` or `verdict` equal to `DEV_DONE`. Do not trust `QC_DONE`/`PASS` while required QC cases are blocked/pending/not_run/failed or notes still require manual/retest evidence.
 

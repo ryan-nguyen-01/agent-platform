@@ -138,7 +138,7 @@ inputs:
   last_scanned_at: ""
   file_count: 0
 
-# Conflicts between inputs/ and source code (R-002-11).
+# Conflicts between intake/ and source code (R-002-11).
 conflicts: []
 
 architecture:
