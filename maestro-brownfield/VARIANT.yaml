@@ -2,7 +2,7 @@ name: maestro-brownfield
 display_name: "Maestro Brownfield"
 purpose: "Maintain an EXISTING, running project: deep onboarding first, execute assigned tasks precisely, ask when unclear — never infer."
 methodology_default: risk-based-routing
-skills: 225
+skills: 227
 work_roots: [source, intake]
 note: |
   Self-contained workspace — edit this bundle directly. Folder tree: source/ holds the existing

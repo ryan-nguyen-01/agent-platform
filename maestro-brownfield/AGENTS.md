@@ -28,7 +28,7 @@ name stays stable while `.maestro/project.yaml` defines the product identity and
 
 - 12 workflow agents (see [.claude/agents/workflow/](.claude/agents/workflow/))
 - 17 specialist advisors (advisor-only, in-pipeline) at [.claude/agents/specialists/](.claude/agents/specialists/) — see [R-016](.maestro/engine/rules/16-specialist-advisory-rules.md)
-- 225 skills (12 workflow + 213 technical) at [.claude/skills/](.claude/skills/); discovery layer: [.maestro/engine/docs/skill-catalog.md](.maestro/engine/docs/skill-catalog.md)
+- 227 skills (12 workflow + 215 technical) at [.claude/skills/](.claude/skills/); discovery layer: [.maestro/engine/docs/skill-catalog.md](.maestro/engine/docs/skill-catalog.md)
 - 27 workflow rules at [.maestro/engine/rules/](.maestro/engine/rules/)
 - 59 templates at [.maestro/engine/templates/](.maestro/engine/templates/)
 - 22 slash commands at [.claude/commands/](.claude/commands/)

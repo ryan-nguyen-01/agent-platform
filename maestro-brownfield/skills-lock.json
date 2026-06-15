@@ -485,6 +485,11 @@
       "source": "mindrally/skills",
       "sourceType": "github"
     },
+    "js-source-analysis": {
+      "computedHash": "a8a673bddd877a2fc0620056ab8529778a442953e5ba21ef0a79569b83e3f49b",
+      "source": "maestro/local",
+      "sourceType": "local"
+    },
     "kafka-development": {
       "computedHash": "6ec77b8b4ac8624083b5f63e14cbaacdc682118ea0c61390b57bcaba159cfa69",
       "source": "mindrally/skills",
@@ -789,6 +794,11 @@
       "computedHash": "d66647042598d8c308892dabfefbab38c14c6bcba3b55c8055be6eb22bf0b017",
       "source": "mindrally/skills",
       "sourceType": "github"
+    },
+    "rust-browser-profile": {
+      "computedHash": "ca2330f3b79ad9df1c953e61057de79b8ef424985f3a28464b78759313487728",
+      "source": "maestro/local",
+      "sourceType": "local"
     },
     "rust-knowledge-patch": {
       "computedHash": "1ede4cee51ae434c458638f9caba1a0fb9ca10874c3e7f9801e671e6ac633533",

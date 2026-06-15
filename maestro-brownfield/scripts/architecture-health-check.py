@@ -31,7 +31,7 @@ REPORT_MD = RUNTIME / "reports" / "architecture-health-report.md"
 
 EXPECTED_COUNTS = {
     "agents": 32,
-    "skills": 225,
+    "skills": 227,
     "rules": 27,
     "templates": 62,
     "commands": 20,
@@ -162,8 +162,8 @@ ENTRYPOINT_REQUIREMENTS = {
 }
 
 STALE_TEXT_PATTERNS = [
-    re.compile(r"\b227\s+skills?\b", re.I),
-    re.compile(r"\b215\s+technical\s+skills?\b", re.I),
+    re.compile(r"\b225\s+skills?\b", re.I),
+    re.compile(r"\b213\s+technical\s+skills?\b", re.I),
     re.compile(r"\b15\s+workflow\s+rules?\b", re.I),
     re.compile(r"R-015-01\.\.18"),
     re.compile(r"workflow-policy-check\.py"),
