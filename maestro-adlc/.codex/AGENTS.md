@@ -24,7 +24,7 @@ Product implementation lives under registered roots:
 
 ```text
 app/    the product shell (UI, APIs, services)
-ai/     the AI layer (prompts, evals, datasets)
+evals/  behavior eval suites (the eval gate)
 tests/  cross-cutting tests
 ```
 

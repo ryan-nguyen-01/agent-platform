@@ -267,7 +267,7 @@ def check_entrypoints(findings: list[dict[str, str]]) -> None:
 
 def iter_scan_files() -> list[Path]:
     suffixes = {".md", ".mdc", ".yaml", ".yml", ".json", ".toml", ".py", ".sh"}
-    ignored_dirs = {".git", "app", "ai", "__pycache__", "node_modules"}
+    ignored_dirs = {".git", "agents", "app", "evals", "__pycache__", "node_modules"}
     files: list[Path] = []
     for path in ROOT.rglob("*"):
         if any(part in ignored_dirs or part.startswith("maestro-") for part in path.parts):

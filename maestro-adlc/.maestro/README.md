@@ -1,7 +1,7 @@
 # `.maestro` Product Control Plane
 
 `.maestro/` contains the agent-readable control plane for one product workspace. Product code remains in
-`app/` (the product shell) and `ai/` (prompts, evals, datasets), with cross-cutting tests in `tests/`.
+`agents/` (agent definitions), `app/` (the host application), and `evals/` (behavior eval suites), with cross-cutting tests in `tests/`.
 
 ## Domains
 

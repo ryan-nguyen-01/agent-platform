@@ -39,8 +39,9 @@ name stays stable while `.maestro/project.yaml` defines the product identity and
 
 The authoritative spec is [.maestro/engine/workflow.md](.maestro/engine/workflow.md). Read it before acting on non-trivial work.
 
-Do not copy `.claude/` into each component. Product code lives under `app/` (the product shell) and
-`ai/` (prompts, evals, datasets); cross-cutting tests in `tests/`, and product docs in `docs/`.
+Do not copy `.claude/` into each component. Agents live under `agents/` (mission, tools, prompts,
+memory, knowledge); the host app under `app/`; behavior eval suites under `evals/`; tests in `tests/`,
+and product docs in `docs/`.
 
 ## Framework Maintenance Scope
 
@@ -197,8 +198,9 @@ Run `/policy-check snapshot --root .` before trusting migrated workspace state o
 .maestro/work/         Shared work decomposition and delivery evidence
 .maestro/memory/       Project patterns, task summaries, and local session context
 .maestro/runtime/      Local-only active state, telemetry, cache, and reports
-app/              The product shell (UI, APIs, services)
-ai/               The AI layer: prompts, evals (eval gate), datasets
+agents/           The agents you build (mission, tools, prompts, memory, knowledge)
+evals/            Behavior eval suites: task success, trajectory, tool-call, safety (the eval gate)
+app/              The host application that serves/exposes the agents
 tests/            Cross-component test suites
 docs/             Official product and engineering documentation
 ```
@@ -221,7 +223,7 @@ Different AI tools enforce the same workflow policy through different mechanisms
 
 - Not an SDK. Do not `pip install` or `npm install` it as a library.
 - Not a deployable runtime. `.maestro/` is the development control plane for the product.
-- Not a sandbox. Product code lives under `app/` (the product shell) and `ai/` (the AI layer);
+- Not a sandbox. Agents live under `agents/`, the host app under `app/`, eval suites under `evals/`;
   each component is registered in `components.yaml` and follows the project's own strategy.
 
 ## If you are confused

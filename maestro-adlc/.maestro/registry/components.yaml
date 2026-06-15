@@ -7,10 +7,10 @@ status: "needs_onboarding"
 discovery:
   source_of_truth: true
   scan_roots:
+    - path: "agents"
+      kinds: ["agent"]
     - path: "app"
       kinds: ["application", "service", "worker", "gateway"]
-    - path: "ai"
-      kinds: ["ai-prompts", "ai-evals", "ai-datasets"]
     - path: "tests"
       kinds: ["test-suite"]
 

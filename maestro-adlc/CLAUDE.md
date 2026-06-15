@@ -2,34 +2,42 @@
 
 > Language policy: framework docs are English; the agent replies in the user's language. See .maestro/engine/docs/language-policy.md
 
-> **Variant: Maestro ADLC** — AI development lifecycle: building AI products and agents (LLM features, RAG, agentic apps) with eval-driven quality gates.
-> Self-contained workspace — its folder tree (app/ product shell + ai/ prompts·evals·datasets + tests/) is purpose-fit for building AI products.
+> **Variant: Maestro ADLC** — Agent Development Lifecycle: building agentic products (agents with mission, tools, memory, planning loop) with a behavior eval gate before done.
+> Self-contained workspace — its folder tree (agents/ agent definitions + evals/ behavior eval gate + app/ host application + tests/) is purpose-fit for developing agents.
 
-## Variant Profile: ADLC (AI Development Lifecycle)
+## Variant Profile: ADLC (Agent Development Lifecycle)
 
-This bundle builds AI products and agents. Defaults:
+This bundle builds **agentic products** — agents with a mission, tools, memory, and a planning loop.
+Defaults:
 
 ```text
 - FULL COMPLIANCE: all 27 engine rules apply with no exemptions. Fast-track NEVER skips the eval
   gate. Identity must be answered exactly per the Identity section.
-- LAYOUT (AI-product specific): app/ (the product shell — UI, APIs, services), tests/, and ai/ —
-  ai/prompts (versioned prompts), ai/evals (datasets + graders for the EVAL GATE),
-  ai/datasets (RAG/training sources; synthetic or licensed only, R-013).
-- Methodology: eval-driven-ai. Quality claims about model/agent behavior require eval evidence,
-  not demos (/evals; eval-engineer designs suites; results in .maestro/observability/evals/ + ai/evals/).
-- AI-SPECIFIC RISKS (each is a gate, not a hope):
-    PROMPTS ARE CODE: versioned in ai/prompts/ with paired eval suites; prompt/model/RAG changes
-      re-run affected suites before DONE.
+- LAYOUT (agent-native): agents/ (one folder per agent: agent.md mission, tools.yaml contracts,
+  prompts/ versioned, memory.yaml, knowledge/ RAG sources), evals/ (behavior/trajectory/tool-call
+  eval suites — the EVAL GATE), app/ (the host application that serves/exposes the agents), tests/.
+- AGENT SPEC IS A CONTRACT: every agent has a mission, behavior contract (typed I/O, refusal,
+  escalation, forbidden tools), autonomy policy (loop caps), and tool contracts — authored from the
+  agent-* templates in .maestro/engine/templates/. No agent ships without these.
+- Methodology: eval-driven-ai. Claims about agent behavior require eval evidence, not demos
+  (/evals; eval-engineer designs suites; results in .maestro/observability/evals/).
+- AGENT-SPECIFIC RISKS (each is a gate, not a hope):
+    PROMPTS ARE CODE: versioned in agents/<agent>/prompts/ with paired eval suites; prompt/model/
+      tool/RAG changes re-run affected suites before DONE.
     NON-DETERMINISM: pin model+params for tests; otherwise n>=3 pass-rates, thresholds are rates.
-    DATA: datasets/RAG sources synthetic or licensed; PII redacted before providers (R-013).
-    LLM SECURITY: injection/exfiltration eval cases mandatory for exposed features (llm-security);
-      AI-triggered destructive tools still require human confirm (R-011-07).
-    COST: token/latency budget per feature recorded in the blueprint; loop caps on agentic flows.
-- Extra blueprint sections for AI scope: AI feasibility (is an LLM the right tool?), data/RAG plan
-  (sources, chunking, freshness), eval plan (datasets, graders, thresholds), and cost/latency targets.
-- EVAL GATE before done: the eval suite must pass thresholds in addition to standard QC. Prompt or
-  model changes re-run evals (regression for AI behavior).
-- Specialists to lean on: ml-ai-architect, data-engineer; api/database specialists for the app shell.
+    TOOL USE: tool calls are evaluated (right tool, right args, error handling); destructive tools
+      always require human confirm (R-011-07); enforce loop/step caps on agentic flows.
+    TRAJECTORY: evaluate the path, not just the final answer (no needless steps, no runaway loops).
+    DATA/KNOWLEDGE: RAG sources synthetic or licensed; PII redacted before providers (R-013).
+    SAFETY: prompt-injection / exfiltration eval cases mandatory for exposed agents (llm-security).
+    COST: token/latency budget per agent recorded in the blueprint.
+- Extra blueprint sections for agent scope: agent feasibility (is an agent the right pattern, or a
+  fixed workflow?), capability/tool plan, memory plan, eval plan (task success + trajectory + tool
+  calls + safety), and cost/latency targets.
+- EVAL GATE before done: behavior suites must pass thresholds in addition to standard QC. Any change
+  to prompt, model, tools, or RAG re-runs evals (regression for agent behavior).
+- Specialists to lean on: ml-ai-architect, eval-engineer, data-engineer; api/database specialists
+  for the host app.
 - Never fabricate eval numbers; record dataset + grader + score with evidence (R-015/R-019-10).
 ```
 
@@ -272,7 +280,7 @@ Commands at `.claude/commands/`:
 | /verify-dev    | Check Code Done            |
 | /handoff-qc    | Create QC handoff document |
 | /qc            | Run QC tests               |
-| /evals         | Run/inspect LLM eval suites (ai/evals) — the ADLC eval gate engine |
+| /evals         | Run/inspect agent behavior eval suites (evals/) — the ADLC eval gate engine |
 | /bug           | Route bug report           |
 | /sync-memory   | Update memory              |
 | /skills        | Maintain installed skills  |
@@ -445,9 +453,10 @@ Rules at `.maestro/engine/rules/` define the constraints for the workflow:
 └── runtime/                   ← Local-only state, telemetry, cache, reports
 
 .claude/                       ← Native Claude agents, skills, commands, hooks
-app/                           ← The product shell: UI, APIs, services
-ai/                            ← The AI layer: ai/prompts (versioned), ai/evals (eval gate), ai/datasets (RAG/training)
-tests/                         ← Cross-component test suites
+agents/                        ← The agents you build (one folder per agent: agent.md, tools.yaml, prompts/, memory.yaml, knowledge/)
+evals/                         ← Behavior eval suites (the EVAL GATE): task success, trajectory, tool-call, safety
+app/                           ← The host application that serves/exposes the agents: API, UI, runtime
+tests/                         ← Cross-component code test suites
 docs/                          ← PRD, requirements, UX, HLD/LLD/ADR, quality, delivery
 deliverables/                  ← Non-code deliverables (research, content, data)
 ```

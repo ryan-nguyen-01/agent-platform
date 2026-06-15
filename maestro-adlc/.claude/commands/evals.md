@@ -12,7 +12,7 @@ qc-runner (executes; eval-engineer designs suites; coordinator routes)
 ## Subcommands
 
 ```text
-/evals run [suite|feature]    Execute suite(s) from ai/evals/ (pin model/params; n>=3 when non-deterministic),
+/evals run [suite|feature]    Execute suite(s) from evals/ (pin model/params; n>=3 when non-deterministic),
                               grade per grader, record scores + failures to .maestro/observability/evals/<run-id>/.
 /evals status                 Latest scores vs thresholds per suite; deltas vs previous run (regression view).
 /evals gaps                   Coverage review: features/prompts WITHOUT a suite, suites below minimum cases,
@@ -24,7 +24,7 @@ qc-runner (executes; eval-engineer designs suites; coordinator routes)
 ## Behavior
 
 ```text
-1. Suites live in ai/evals/<feature>/ (dataset + grader + thresholds.yaml); results are recorded, never
+1. Suites live in evals/<feature>/ (dataset + grader + thresholds.yaml); results are recorded, never
    summarized from memory (R-024-04).
 2. EVAL GATE: a failing suite blocks DONE for the feature; shrinking datasets or raising thresholds to
    pass is fabrication (R-019-QC4). Score distributions are reported, not best-of runs.

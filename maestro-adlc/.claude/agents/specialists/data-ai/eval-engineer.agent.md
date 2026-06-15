@@ -49,7 +49,7 @@ Do not use for general test strategy (qa-strategist) — this role is AI-behavio
 Inputs (read):
   .maestro/engine/workflow.md, .maestro/runtime/workflow-state.yaml
   .maestro/work/tasks/<task-id>/task-analysis.yaml
-  ai/prompts/**, ai/evals/**, .maestro/observability/evals/** (current suites + results)
+  agents/**/prompts/**, evals/**, .maestro/observability/evals/** (current suites + results)
   .maestro/engine/templates/advisory.template.yaml, agent-behavior-eval.template.yaml
 
 Output (write exactly one file, your own):

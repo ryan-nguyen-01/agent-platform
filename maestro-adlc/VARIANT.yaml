@@ -1,11 +1,11 @@
 name: maestro-adlc
 display_name: "Maestro ADLC"
-purpose: "AI development lifecycle: building AI products and agents (LLM features, RAG, agentic apps) with eval-driven quality gates."
+purpose: "Agent Development Lifecycle: building agentic products (agents with mission, tools, memory, planning loop) with a behavior eval gate before done."
 methodology_default: eval-driven-ai
 skills: 164
-work_roots: [app, ai, tests]
+work_roots: [agents, evals, app, tests]
 note: |
-  Self-contained workspace — edit this bundle directly. Folder tree: app/ holds the product shell
-  (UI, APIs, services), ai/ holds the AI layer (ai/prompts versioned, ai/evals datasets+graders for
-  the eval gate, ai/datasets RAG/training sources), tests/ holds cross-cutting tests. Product docs
-  live in docs/.
+  Self-contained workspace — edit this bundle directly. Agent-native folder tree: agents/ holds the
+  agents you build (per-agent agent.md mission, tools.yaml, prompts/, memory.yaml, knowledge/),
+  evals/ holds behavior eval suites (the eval gate: task success, trajectory, tool-call, safety),
+  app/ holds the host application that serves the agents, tests/ holds code tests. Product docs in docs/.

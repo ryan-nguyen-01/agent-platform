@@ -75,8 +75,8 @@ User drops PRD, HLD, ADR, OpenAPI specs, domain glossary, runbooks into `docs/<c
 Read scan roots from `.maestro/project.yaml` and `.maestro/registry/components.yaml`:
 
 ```text
-app/      the product shell (UI, APIs, services)
-ai/       the AI layer (prompts, evals, datasets)
+agents/   the agents you build (mission, tools, prompts, memory, knowledge)
+app/      the host application that serves/exposes the agents
 tests/    cross-cutting tests
 ```
 
@@ -293,13 +293,14 @@ registered in `.maestro/registry/components.yaml`. A component may be part of a 
 maestro-adlc/
   .claude/            ← native tool layer
   .maestro/           ← product control plane
-  app/                ← the product shell (UI, APIs, services)
-  ai/                 ← the AI layer (prompts, evals, datasets)
+  agents/             ← the agents you build (mission, tools, prompts, memory, knowledge)
+  evals/              ← behavior eval suites (the eval gate)
+  app/                ← the host application that serves/exposes the agents
   tests/              ← cross-component test suites
   docs/               ← product/requirements/design/quality/delivery docs
 ```
 
-Use the registered component path from `components.yaml`; product components live under `app/` (and the AI layer under `ai/`).
+Use the registered component path from `components.yaml`; agents live under `agents/`, the host app under `app/`.
 
 When the user wants to add a component (`/onboard app/service-a` or just component name):
 
