@@ -34,9 +34,9 @@ Use `model_profile=coding` from `.maestro/config/model-routing.yaml`. Claude ada
 .maestro/knowledge/components/<component-id>.yaml   (only services whose data model is changing)
 .maestro/knowledge/test-policy.yaml
 .maestro/work/tasks/<task-id>/service-assignments.yaml
-inputs/architecture/    (data architecture, ADRs, if present)
-inputs/domain/          (domain glossary and entity definitions, if present)
-inputs/api/             (contracts affected by schema/query changes, if present)
+docs/architecture/    (data architecture, ADRs, if present)
+docs/domain/          (domain glossary and entity definitions, if present)
+docs/api/             (contracts affected by schema/query changes, if present)
 ```
 
 ## Permission contract
@@ -84,10 +84,10 @@ forbidden_paths:
   - "src/components/**"
   - "app/**"
   - "frontend/**"
-  - "services/*/src/api/**"
-  - "services/*/src/controllers/**"
+  - "app/*/src/api/**"
+  - "app/*/src/controllers/**"
   - "packages/*/src/ui/**"
-  - "apps/*/src/**"
+  - "app/*/src/**"
   # Infrastructure (owned by coder-infra)
   - "terraform/**"
   - "infra/**"
@@ -110,7 +110,7 @@ forbidden_paths:
   - ".maestro/engine/**"
   - ".maestro/**"
   - ".codex/**"
-  - "inputs/**"
+  - "docs/**"
 
 requires_leader_approval:
   - "destructive migration (drop table, drop column, truncate, irreversible data rewrite)"

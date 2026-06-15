@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Triage whatever the user dropped into the intake folders (`docs/`, `inputs/` where present) so messy
+Triage whatever the user dropped into the intake folders (`docs/`, `docs/` where present) so messy
 input never silently poisons the workspace. Users WILL dump anything there — specs, screenshots, bug
 reports, error logs, SQL dumps, archives, `.env` files, even whole source trees. Intake classifies
 everything, flags risks, and proposes placement — **without moving or editing a single user file
@@ -15,7 +15,7 @@ onboarding (invoked by coordinator; also runs automatically as the first step of
 ## Behavior
 
 ```text
-1. Scan intake folders (docs/, inputs/) recursively. For each item classify:
+1. Scan intake folders (docs/, docs/) recursively. For each item classify:
    type: spec | requirement | bug-report | error-log | design | data-dump | source-code | archive | secret-risk | unknown
 2. Write the index (non-destructive — files are NEVER moved/renamed/edited without approval):
    docs/INDEX.md           human view: file -> type -> related component -> status -> flags
@@ -24,7 +24,7 @@ onboarding (invoked by coordinator; also runs automatically as the first step of
    - secret-risk: file matches secret/credential/PII patterns (.env, dumps with passwords/tokens).
      -> WARN immediately, do not quote contents into any artifact, recommend removal/redaction (R-013).
    - misplaced-source: looks like application source dropped into docs/.
-     -> ask: "this looks like code for <X> — should it live in services/<X>? move or keep?"
+     -> ask: "this looks like code for <X> — should it live in app/<X>? move or keep?"
    - conflicting-doc: contradicts the CODE or a newer doc -> mark stale-candidate; code is the runtime
      truth (R-018) — confirm with the user before trusting the doc.
    - unreadable/archive: zips/binaries -> list, ask whether to extract.

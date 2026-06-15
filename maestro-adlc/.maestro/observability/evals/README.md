@@ -6,4 +6,4 @@ Use this domain when the product includes model behavior, RAG, prompt changes, a
 classification, extraction, recommendations, or safety boundaries.
 
 Production agent eval suites may also be linked from
-`docs/governance/enterprise-agent-governance/eval-suites/`.
+`.maestro/governance/enterprise-agent-governance/eval-suites/`.

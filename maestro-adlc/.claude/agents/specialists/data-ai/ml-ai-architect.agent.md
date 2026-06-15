@@ -52,7 +52,7 @@ Inputs (read):
   .maestro/config/model-routing.yaml
   .maestro/work/tasks/<task-id>/task-analysis.yaml
   .maestro/engine/templates/advisory.template.yaml
-  inputs/product/ (PRD, AC if any), inputs/architecture/ (HLD/LLD if any)
+  docs/product/ (PRD, AC if any), docs/architecture/ (HLD/LLD if any)
   .maestro/registry/components.yaml (to identify the service hosting the AI feature)
 
 Output (write exactly one file, your own):

@@ -29,7 +29,7 @@ Use natural-language intents such as `coord: framework <request>` when you want 
 | `/ship` | Coordinator | Autonomous build-to-done (Safe Autopilot): run the full pipeline under a one-time grant, self-heal build/test/runtime errors, stop only on hard-stops, deliver a finished product (R-019). |
 | `/git` | Coordinator | Git-flow workflow: branch per task, milestone commits, sync, and PR. Outward git (push/PR/merge/tags) is user-gated (R-020). |
 | `/onboard` | Onboarding | Build or refresh Project Knowledge, component registry, test policy, and coder candidates. |
-| `/intake` | Onboarding | Triage user-dropped files (docs/, inputs/): classify, flag secret-risk/misplaced-source/stale docs, write docs/INDEX.md — non-destructive. |
+| `/intake` | Onboarding | Triage user-dropped files (docs/, docs/): classify, flag secret-risk/misplaced-source/stale docs, write docs/INDEX.md — non-destructive. |
 | `/create-coders` | Agent Factory | Generate scoped component coder agents after user approval. |
 | `/investigate` | Task Analysis | Read-only findings: current state (cited), options + tradeoffs, impact, unknowns. No edits, no task unless requested. |
 | `/analyze-task` | Task Analysis | Normalize HLD/LLD/ticket/text into `task-analysis.yaml`. |
@@ -59,7 +59,7 @@ python3 scripts/architecture-health-check.py --strict --write-report
 
 ## Fast Maintenance
 
-Trivial framework maintenance may use the lightweight fast-track path from `.maestro/engine/workflow.md` §6.2. It can skip onboarding, generated coder selection, implementation-plan/service-assignments, and QC artifacts when the change does not affect approval gates, security rules, workflow state machine, generated coder scopes, destructive behavior, or application source under `services/`.
+Trivial framework maintenance may use the lightweight fast-track path from `.maestro/engine/workflow.md` §6.2. It can skip onboarding, generated coder selection, implementation-plan/service-assignments, and QC artifacts when the change does not affect approval gates, security rules, workflow state machine, generated coder scopes, destructive behavior, or application source under `app/`.
 
 ## Maintenance Commands
 

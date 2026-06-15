@@ -77,7 +77,7 @@ Run Workflow Policy before trusting a migrated workspace, resuming a task after 
 /policy-check snapshot --root <snapshot-root>
 ```
 
-The validator is agent-native and must not require Python, Node, jq, shell scripts, or any local runtime. It is allowed to pass with `services_available: false`; this means `services/` is absent or empty and the check used recorded artifacts only. Missing `services/` is not itself a defect for shared evidence snapshots.
+The validator is agent-native and must not require Python, Node, jq, shell scripts, or any local runtime. It is allowed to pass with `services_available: false`; this means `app/` is absent or empty and the check used recorded artifacts only. Missing `app/` is not itself a defect for shared evidence snapshots.
 
 The validator must fail on:
 

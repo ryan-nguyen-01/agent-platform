@@ -10,22 +10,22 @@ in core/shared.** A feature owns its API, business logic, data access, types, an
 ## Workspace roots
 
 ```text
-apps/        user-facing applications (web, mobile, admin)
-services/    deployable backend services / APIs / workers
-packages/    shared libraries reused across apps/services (ui, config, types, sdk)
+app/        user-facing applications (web, mobile, admin)
+app/    deployable backend services / APIs / workers
+packages/    shared libraries reused across app/services (ui, config, types, sdk)
 infra/       IaC, docker, CI/CD, deployment manifests
 tests/       cross-component integration / e2e suites
 docs/        PRD, requirements, UX/wireframes, HLD/LLD/ADR, ops
 ```
 
 Monolith → one service (or app) with many feature modules. Microservices → one folder per service under
-`services/`, each self-contained with the same internal layout; shared contracts/types live in
+`app/`, each self-contained with the same internal layout; shared contracts/types live in
 `packages/`.
 
-## Backend service — `services/<service>/`
+## Backend service — `app/<service>/`
 
 ```text
-services/<service>/
+app/<service>/
 ├── src/
 │   ├── modules/<feature>/          one folder per feature (vertical slice)
 │   │   ├── <feature>.controller.*  API/route layer (HTTP in/out, validation)
@@ -43,10 +43,10 @@ services/<service>/
 └── README.md                       what it is + local run commands
 ```
 
-## Frontend app — `apps/<app>/`
+## Frontend app — `app/<app>/`
 
 ```text
-apps/<app>/
+app/<app>/
 ├── src/
 │   ├── features/<feature>/         vertical slice per feature
 │   │   ├── components/             feature-scoped UI components
@@ -112,7 +112,7 @@ Pick the depth from the blueprint's scope_target; do not over-engineer an MVP.
 
 ```text
 NestJS    : modules/<feature> with *.module/controller/service/repository — native fit.
-FastAPI   : modules/<feature> with routers/services/repositories; core/ for settings/db.
+FastAPI   : modules/<feature> with routers/app/repositories; core/ for settings/db.
 Express/Koa: same module shape, explicit layers.
 Go        : internal/<feature> packages with handler/service/repo; cmd/ for main.
 Next.js   : src/features/<feature> + app/ router; shared/ for ui/lib.

@@ -29,8 +29,8 @@ requirements (`nfr`) · TP = test policy.
 |------------|--------------------|------------------------|
 | **Frontend coder** | BA (stories + acceptance criteria) · **UX** (approved prototype + design tokens) · **API** contract · **ERR** (error code catalog, to render error states/messages) · i18n keys when localized · TP | business-analyst · ui-ux-designer · api-designer · error catalog owner (backend/solution-architect) |
 | **Backend / service coder** | **HLD** · **LLD** · **API** contract (endpoints/DTOs) · **DATA** (data model/schema) · BA business rules · **ERR** (codes to return) · **NFR** (perf/security) · TP | solution-architect (HLD/LLD) · api-designer · coder-database · business-analyst · error catalog |
-| **coder-data** | **DATA**/LLD (schema) · BA business rules · entity definitions · ERR (so seeded error-path data is valid) | coder-database · business-analyst · `inputs/domain/` |
-| **coder-database** | **DATA model / entities** (domain glossary, LLD/HLD) · migration policy · NFR (volume) | solution-architect / database-architect · `docs/architecture/`, `inputs/domain/` |
+| **coder-data** | **DATA**/LLD (schema) · BA business rules · entity definitions · ERR (so seeded error-path data is valid) | coder-database · business-analyst · `docs/domain/` |
+| **coder-database** | **DATA model / entities** (domain glossary, LLD/HLD) · migration policy · NFR (volume) | solution-architect / database-architect · `docs/architecture/`, `docs/domain/` |
 | **coder-infra** | **HLD** · **NFR** (availability/scale/security) · deployment target | solution-architect / cloud-architect · nfr doc · `docs/architecture/` |
 
 > HLD = `docs/architecture/high-level-design/` (template `hld`); LLD =
@@ -49,7 +49,7 @@ reason: missing_prerequisites
 missing:
   - doc: "API contract"
     why: "the backend endpoints/DTOs for this feature are not specified"
-    produce_with: "api-designer / solution-architect, or provide docs/architecture/low-level-design or inputs/api"
+    produce_with: "api-designer / solution-architect, or provide docs/architecture/low-level-design or docs/api"
   - doc: "data model (LLD)"
     why: "entities/relationships needed to write the repository layer are undefined"
     produce_with: "coder-database / database-architect, or docs/architecture/low-level-design"

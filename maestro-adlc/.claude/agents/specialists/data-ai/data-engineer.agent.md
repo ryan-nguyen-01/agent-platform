@@ -52,7 +52,7 @@ Inputs (read):
   .maestro/config/model-routing.yaml
   .maestro/work/tasks/<task-id>/task-analysis.yaml
   .maestro/engine/templates/advisory.template.yaml
-  inputs/architecture/ (HLD/LLD if any), inputs/domain/ (domain model, event glossary if any)
+  docs/architecture/ (HLD/LLD if any), docs/domain/ (domain model, event glossary if any)
   .maestro/registry/components.yaml (to identify the data boundary service)
 
 Output (write exactly one file, your own):

@@ -61,12 +61,12 @@ memory-update
   Rescan the requested component/repo scope and update memory from current source evidence.
 
 /sync-memory --scan --inputs
-  Rescan inputs/ recursively. Re-builds .maestro/registry/inputs.yaml and re-extracts
+  Rescan docs/ recursively. Re-builds .maestro/registry/inputs.yaml and re-extracts
   facts from changed files into project.yaml / component knowledge files. Does NOT touch component source.
 
 /sync-memory --files <paths> [--components <component-ids>]
   Read only the specified files or folders and update the matching memory section.
-  --components is OPTIONAL when all paths are under inputs/ (refresh resolves automatically
+  --components is OPTIONAL when all paths are under docs/ (refresh resolves automatically
   to inputs.yaml + project.yaml.inputs.last_scanned_at).
   --components is REQUIRED when paths touch source code under registered component roots.
 
@@ -82,11 +82,11 @@ memory-update
 ```text
 Scenario                                     | Recommended command
 ---------------------------------------------|------------------------------------------------
-Added 1-3 specific files to inputs/          | /sync-memory --files inputs/api/orders.yaml ...
-Added many files / new subdir in inputs/     | /sync-memory --scan --inputs
+Added 1-3 specific files to docs/          | /sync-memory --files docs/api/orders.yaml ...
+Added many files / new subdir in docs/     | /sync-memory --scan --inputs
 Replaced PRD or product pivot                | /sync-memory --scan --inputs
 Source code structure also changed           | /onboard --refresh <component> (heavier)
-Stack/services/test-policy all changed       | /onboard                       (full rescan)
+Stack/app/test-policy all changed       | /onboard                       (full rescan)
 ```
 
 If source structure, stack, component boundary, or test policy changed, prefer `/sync-memory --scan --components <component>` or `/onboard --refresh <component>`. For small updates, prefer `/sync-memory --files <paths>` to avoid token-heavy scans.
@@ -99,5 +99,5 @@ Fact is speculative without confidence
 Source artifact is missing for a critical decision
 Change affects component boundaries but no component id/path is provided
 Neither --scan nor --files is provided for a source refresh request
---files paths span both inputs/ and registered component roots without --components specified
+--files paths span both docs/ and registered component roots without --components specified
 ```

@@ -42,7 +42,7 @@ R-019-0a-ui: If the product has any UI, the blueprint MUST include a UI/UX propo
     - docs/experience/user-flows/<flow>.md — primary UX flows as Mermaid diagrams (entry → action → result)
     - docs/experience/ui-specifications/<screen>.md — component hierarchy, props/states, responsive +
       accessibility intent
-  The prototype is a DESIGN artifact under docs/ (not application source under apps/services); it is
+  The prototype is a DESIGN artifact under docs/ (not application source under app/services); it is
   static HTML/CSS only (no backend, no real data). Coding the real UI starts only after the user
   approves the prototype — never build screens first and reconcile the look at QC. The approved
   prototype + tokens are the visual contract the built UI must match.

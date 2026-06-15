@@ -32,7 +32,7 @@ Onboarding has **two scan sources** — both must be processed:
 ### Source 0 — Intake triage (ALWAYS first; see /intake)
 
 ```text
-Triage everything in docs//inputs/ BEFORE learning from it: classify (spec/bug/log/data/source/unknown),
+Triage everything in docs/ BEFORE learning from it: classify (spec/bug/log/data/source/unknown),
 flag secret-risk (warn, never quote contents — R-013), misplaced-source (code dumped into docs/ -> ask),
 and conflicting docs (code is runtime truth, R-018 -> mark stale-candidate, confirm). Non-destructive:
 never move/rename/edit user files without per-item approval. Output: docs/INDEX.md + registry/inputs.yaml.
@@ -41,18 +41,18 @@ never move/rename/edit user files without per-item approval. Output: docs/INDEX.
 ### Baselines (brownfield safety)
 
 ```text
-GIT BASELINE: before the first code task, services/ must be under git with a clean baseline commit —
+GIT BASELINE: before the first code task, app/ must be under git with a clean baseline commit —
 if not a repo, ask the user to init/commit (rollback path; R-020-09 applies).
 TEST BASELINE: run the existing test suite during onboarding and RECORD pass/fail per suite in
 test-policy/knowledge — later regressions are attributable to changes, not pre-existing failures.
 ```
 
-### Source A — `inputs/` (user-provided reference docs)
+### Source A — `docs/` (user-provided reference docs)
 
-User drops PRD, HLD, ADR, OpenAPI specs, domain glossary, runbooks into `inputs/<category>/`. Scan procedure:
+User drops PRD, HLD, ADR, OpenAPI specs, domain glossary, runbooks into `docs/<category>/`. Scan procedure:
 
 ```text
-1. Recurse inputs/ (skip .gitkeep, hidden files, files > 5MB unless explicitly referenced).
+1. Recurse docs/ (skip .gitkeep, hidden files, files > 5MB unless explicitly referenced).
 2. For each file, read content (use Read tool; PDFs limited to first 20 pages, large files chunked).
 3. Categorize by subdir: product, architecture, api, domain, runbooks, misc.
 4. Extract durable facts:
@@ -62,7 +62,7 @@ User drops PRD, HLD, ADR, OpenAPI specs, domain glossary, runbooks into `inputs/
      - Business rules and domain terms -> project.yaml.domain_glossary
      - Ops procedures -> relevant component knowledge operations section
      - Risk areas, compliance requirements, security constraints -> project.yaml.risks
-5. Every extracted fact must cite source: "inputs/<relative-path>".
+5. Every extracted fact must cite source: "docs/<relative-path>".
 6. Confidence:
      high   structured (yaml/json/openapi) and mtime <= 90d
      medium markdown with clear headings or mtime <= 365d
@@ -75,11 +75,9 @@ User drops PRD, HLD, ADR, OpenAPI specs, domain glossary, runbooks into `inputs/
 Read scan roots from `.maestro/project.yaml` and `.maestro/registry/components.yaml`:
 
 ```text
-apps/
-services/
-packages/
-infra/
-tests/
+app/      the product shell (UI, APIs, services)
+ai/       the AI layer (prompts, evals, datasets)
+tests/    cross-cutting tests
 ```
 
 ```text
@@ -144,11 +142,11 @@ do not guess.
 
 ### Conflict resolution
 
-If `inputs/` and source code disagree (e.g. inputs says service uses Postgres, code uses MongoDB):
+If `docs/` and source code disagree (e.g. inputs says service uses Postgres, code uses MongoDB):
 
 ```text
 - Code wins for technical facts (stack, file paths, current behavior).
-- inputs/ wins for intent, business rules, target state, planned contracts.
+- docs/ wins for intent, business rules, target state, planned contracts.
 - Record the conflict in project.yaml.conflicts[] with both sources cited, so user can resolve.
 ```
 
@@ -175,7 +173,7 @@ Write or update:
 ```text
 .maestro/knowledge/project.yaml
 .maestro/knowledge/index.yaml
-.maestro/registry/inputs.yaml          (NEW — index of inputs/ files)
+.maestro/registry/inputs.yaml          (NEW — index of docs/ files)
 .maestro/registry/components.yaml
 .maestro/knowledge/test-policy.yaml
 .maestro/knowledge/components/<component-id>.yaml
@@ -206,7 +204,7 @@ Onboarding supports three refresh granularities. Pick the smallest that covers t
 
 ```text
 Trigger: /onboard
-Reads:   inputs/ + registered component roots
+Reads:   docs/ + registered component roots
 Writes:  project.yaml, components.yaml, test-policy.yaml,
          components/<component-id>.yaml (all), inputs.yaml, agents.yaml (candidates)
 When:    First time, or stack/architecture/component boundaries changed.
@@ -223,12 +221,12 @@ Writes:  components/<component-id>.yaml, project architecture,
 When:    One component's structure, API, schema, UI, infrastructure, or test policy changed.
 ```
 
-### Partial inputs/ refresh (R-002-09..12)
+### Partial docs/ refresh (R-002-09..12)
 
 ```text
 Trigger: /sync-memory --scan --inputs
-         /sync-memory --files inputs/<path> [inputs/<path>...]
-Reads:   inputs/ recursively (full --scan), or the named files (--files)
+         /sync-memory --files docs/<path> [docs/<path>...]
+Reads:   docs/ recursively (full --scan), or the named files (--files)
 Writes:  inputs.yaml (rebuild or update changed rows),
          project.yaml.inputs.last_scanned_at + file_count,
          project.yaml.conflicts[] when a fact disagrees with code,
@@ -292,33 +290,32 @@ agent_candidates:
 registered in `.maestro/registry/components.yaml`. A component may be part of a monorepo or an independent repository.
 
 ```
-maestro/
+maestro-adlc/
   .claude/            ← native tool layer
-  .maestro/                ← product control plane
-  apps/               ← user-facing applications
-  services/           ← deployable services/workers/gateways
-  packages/           ← shared libraries/contracts/design system
-  infra/              ← infrastructure
+  .maestro/           ← product control plane
+  app/                ← the product shell (UI, APIs, services)
+  ai/                 ← the AI layer (prompts, evals, datasets)
   tests/              ← cross-component test suites
+  docs/               ← product/requirements/design/quality/delivery docs
 ```
 
-Use the registered component path; never infer that every component belongs under `services/`.
+Use the registered component path from `components.yaml`; product components live under `app/` (and the AI layer under `ai/`).
 
-When the user wants to add a component (`/onboard services/service-a` or just component name):
+When the user wants to add a component (`/onboard app/service-a` or just component name):
 
 ```text
-1. Confirm the component folder exists (services/service-a from maestro root).
+1. Confirm the component folder exists (app/service-a from maestro root).
 2. Scan that directory for stack, entry points, APIs, test policy.
 3. Write the component knowledge to .maestro/knowledge/components/<component-id>.yaml.
-4. Set component.path = "services/service-a"  (relative from maestro root)
-5. Set boundaries.allowed_write_paths_for_coder using services/service-a as prefix.
+4. Set component.path = "app/service-a"  (relative from maestro root)
+5. Set boundaries.allowed_write_paths_for_coder using app/service-a as prefix.
 6. Add the component to project.yaml and .maestro/registry/components.yaml.
 ```
 
-If the component folder does NOT exist at `services/service-name`, ask the user:
+If the component folder does NOT exist at `app/service-name`, ask the user:
 
 ```
-"Folder services/service-a not found. Clone the component repository into the registered root first."
+"Folder app/service-a not found. Clone the component repository into the registered root first."
 ```
 
 Never invent a path. Resolve every component from `components.yaml`; do not infer its root from its kind.

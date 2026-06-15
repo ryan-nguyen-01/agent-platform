@@ -12,16 +12,16 @@ current methodology (`.maestro/methodology.yaml`), and the current workflow stat
 for the whole session in every adapter (Claude, Codex).
 
 > **Variant: Maestro ADLC** — AI development lifecycle: building AI products and agents (LLM features, RAG, agentic apps) with eval-driven quality gates.
-> Generated bundle — do not edit by hand; rebuild from the maestro platform (variants/adlc.yaml).
+> Self-contained workspace — its folder tree (app/ + ai/ + tests/) is purpose-fit for building AI products.
 
 ## Variant Profile: ADLC (AI Development Lifecycle)
 
 This bundle builds AI products and agents. Defaults:
 
 ```text
-- FULL COMPLIANCE: all 26 engine rules apply with no exemptions. Fast-track NEVER skips the eval
+- FULL COMPLIANCE: all 27 engine rules apply with no exemptions. Fast-track NEVER skips the eval
   gate. Identity must be answered exactly per the Identity section.
-- LAYOUT (AI-product specific): apps/ + services/ (the product shell), tests/, and ai/ —
+- LAYOUT (AI-product specific): app/ (the product shell — UI, APIs, services), tests/, and ai/ —
   ai/prompts (versioned prompts), ai/evals (datasets + graders for the EVAL GATE),
   ai/datasets (RAG/training sources; synthetic or licensed only, R-013).
 - Methodology: eval-driven-ai. Quality claims about model/agent behavior require eval evidence,
@@ -54,8 +54,8 @@ Read in this order:
 8. `.maestro/observability/index.yaml` before creating trace, eval, report, or audit evidence.
 9. `.maestro/runtime/workflow-state.yaml` only for local session state.
 
-Product code belongs in `apps/`, `services/`, `tests/`.
-Official product documents belong in `docs/`. Do not store secrets or long logs in `.maestro/`.
+Product code belongs in `app/` (the product shell) and `ai/` (prompts, evals, datasets); cross-cutting
+tests in `tests/`. Official product documents belong in `docs/`. Do not store secrets or long logs in `.maestro/`.
 
 Use `direct` mode for fast user-verified work, `assisted` for resumable bounded work, and
 `governed` for high-risk or cross-component delivery. Apply Spec-Driven Development, Eval-Driven AI

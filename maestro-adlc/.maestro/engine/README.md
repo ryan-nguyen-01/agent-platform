@@ -41,9 +41,9 @@ See [../README.md](../README.md) for the complete `.maestro/` domain layout.
 ## First run
 
 ```text
-1. Clone application repositories under `services/` and put reference docs under `inputs/`.
+1. Clone application repositories under `app/` and put reference docs under `docs/`.
 2. Ask coordinator to onboard the workspace.
-3. Onboarding scans `inputs/` and `services/`, then writes the project brain.
+3. Onboarding scans `docs/` and `app/`, then writes the project brain.
 4. Coordinator asks whether to create service coder agents.
 5. Agent Factory creates coder agents using templates/agent-coder.template.md.
 6. New development tasks can now enter the full workflow.

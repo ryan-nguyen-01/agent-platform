@@ -52,8 +52,8 @@ Inputs (read):
   .maestro/config/model-routing.yaml
   .maestro/work/tasks/<task-id>/task-analysis.yaml
   .maestro/engine/templates/advisory.template.yaml
-  inputs/product/**            (PRD, business specs, user stories if any)
-  inputs/domain/**             (domain models, glossary, business rules if any)
+  docs/product/**            (PRD, business specs, user stories if any)
+  docs/domain/**             (domain models, glossary, business rules if any)
 
 Output (write exactly one file, your own):
   .maestro/work/tasks/<task-id>/advisories/discovery-analyst.yaml   (per advisory.template.yaml)

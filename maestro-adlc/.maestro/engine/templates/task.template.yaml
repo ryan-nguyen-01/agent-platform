@@ -17,8 +17,8 @@ methodology:
   overlays: []
   industry_patterns: []
   reason: ""
-  playbook: "docs/governance/methodologies/selection-matrix.md"
-  alignment: "docs/governance/methodologies/industry-alignment.md"
+  playbook: ".maestro/engine/methodologies/selection-matrix.md"
+  alignment: ".maestro/engine/methodologies/industry-alignment.md"
 
 hierarchy:
   initiative_id: null

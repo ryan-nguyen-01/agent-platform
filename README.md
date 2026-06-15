@@ -9,7 +9,7 @@ in it — the agent follows that template's workflow, gates, and identity.
 | Folder | Use it when you want to… | Methodology | Skills |
 | --- | --- | --- | --- |
 | [`maestro-sdlc/`](maestro-sdlc/) | Build software end-to-end: BA → design → UI/UX prototype → code → real-user QC | spec-driven-development | 231 |
-| [`maestro-adlc/`](maestro-adlc/) | Build AI products/agents with an **eval gate** before done | eval-driven-ai | 132 |
+| [`maestro-adlc/`](maestro-adlc/) | Build AI products/agents (`app/` + `ai/`) with an **eval gate** before done | eval-driven-ai | 164 |
 | [`maestro-enterprise/`](maestro-enterprise/) | Operate governed/production agents: compliance, audit, accountability | enterprise-agent-governance | 166 |
 | [`maestro-lite/`](maestro-lite/) | Ship a small tool/prototype fast, minimal ceremony (no specialist advisors) | risk-based-routing | 39 |
 | [`maestro-brownfield/`](maestro-brownfield/) | Maintain an EXISTING project (`source/` + `intake/`): deep onboarding, precise tasks, **ask-don't-infer** | risk-based-routing | 225 |
@@ -18,7 +18,7 @@ in it — the agent follows that template's workflow, gates, and identity.
 
 ```bash
 cp -R maestro/maestro-adlc ~/work/my-ai-app    # copy the template anywhere
-cd ~/work/my-ai-app                             # move your service code into services/ or apps/
+cd ~/work/my-ai-app                             # product code in app/, AI layer (prompts/evals/datasets) in ai/
 claude                                          # /coord to start · /ship for autonomous build-to-done
 ```
 
@@ -35,9 +35,9 @@ operating your project.
 cd platform && python3 scripts/build-variant.py --all   # rebuild the generated maestro-* templates
 ```
 
-`build-variant.py --all` builds the four generated templates (sdlc, adlc, enterprise, lite).
-`maestro-brownfield/` is **independent and hand-maintained** — it has its own purpose-fit tree
-(`source/` + `intake/`) and is edited directly, not generated.
+`build-variant.py --all` builds the three generated templates (sdlc, enterprise, lite).
+`maestro-adlc/` (`app/` + `ai/`) and `maestro-brownfield/` (`source/` + `intake/`) are **independent
+and hand-maintained** — each has its own purpose-fit tree and is edited directly, not generated.
 
 Template manifests and the build contract: [platform/variants/README.md](platform/variants/README.md).
 

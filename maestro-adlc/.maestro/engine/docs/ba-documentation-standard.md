@@ -37,7 +37,7 @@ Always:     every implementation task must trace to an approved requirement (RTM
     Business Rules per area   docs/requirements/features/<KEY>-BR-NNN-<area>.md
 - COMPLETE, TESTABLE ACs — every story has multiple specific Given/When/Then ACs covering happy path +
   at least one alternate/negative + at least one boundary/edge (>= 3 typical). Each AC has id
-  AC-<story>.<n>, concrete inputs/outputs, error codes from the Error Catalog. No vague ACs.
+  AC-<story>.<n>, concrete docs/outputs, error codes from the Error Catalog. No vague ACs.
 - Write like a team: detailed and reviewable, not a one-paragraph summary for a multi-feature scope.
   A thin/placeholder doc is insufficient (R-022-11) and is treated as a missing prerequisite (R-021).
 ```

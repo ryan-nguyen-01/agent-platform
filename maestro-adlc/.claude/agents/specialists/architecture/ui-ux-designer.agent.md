@@ -64,7 +64,7 @@ application source. When asked to produce the UI/UX proposal, also write:
   docs/experience/wireframes/styles.css        real design tokens (color/typography/spacing) + styles
   docs/experience/user-flows/<flow>.md         UX flows as Mermaid diagrams
   docs/experience/ui-specifications/<screen>.md component hierarchy, states, responsive + a11y intent
-These are design artifacts (static HTML/CSS/markdown in docs/), not app code under apps/services — the
+These are design artifacts (static HTML/CSS/markdown in docs/), not app code under app/services — the
 advisor-only boundary (R-016: no application source) is preserved. The user approves by opening
 index.html in a browser before any UI coding starts.
 

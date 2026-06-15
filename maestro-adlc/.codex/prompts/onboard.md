@@ -55,22 +55,22 @@ onboarding
 
 ```text
 /onboard
-  Initial fetch for the current repository. Scans inputs/ AND source code.
+  Initial fetch for the current repository. Scans docs/ AND source code.
 
 /onboard ../component-a
   Initial fetch for a sibling component project.
 
 /onboard --refresh <component-id-or-path>
   Partial refresh after component structure, stack, API, schema, or test policy changes.
-  Does not rescan inputs/.
+  Does not rescan docs/.
 
 /onboard --refresh inputs
   Partial refresh of user-provided reference docs only.
-  Equivalent to /sync-memory --scan --inputs. Does not touch services/.
+  Equivalent to /sync-memory --scan --inputs. Does not touch app/.
 
 /onboard --files <paths> [--components <component-ids>]
   Targeted onboarding refresh. Read only specified files/folders and update matching memory/component docs.
-  --components optional when all paths are under inputs/.
+  --components optional when all paths are under docs/.
 ```
 
 ### Picking the right command after a change
@@ -79,7 +79,7 @@ onboarding
 What changed                          | Command
 --------------------------------------|---------------------------------------------
 First time setup                      | /onboard
-Added a PRD/HLD/spec file in inputs/  | /sync-memory --files inputs/<path>
+Added a PRD/HLD/spec file in docs/  | /sync-memory --files docs/<path>
 Added many files / new inputs subdir  | /onboard --refresh inputs
                                       |   (alias: /sync-memory --scan --inputs)
 One component's code/API changed      | /onboard --refresh <component>

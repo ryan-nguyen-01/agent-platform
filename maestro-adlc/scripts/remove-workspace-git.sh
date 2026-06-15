@@ -12,7 +12,7 @@ usage() {
 Usage: scripts/remove-workspace-git.sh [--dry-run] [--yes]
 
 Detach the maestro root from Git by removing only the root .git entry.
-This does not remove Git metadata inside services/<service-name>/ repositories.
+This does not remove Git metadata inside app/<component>/ repositories.
 
 Options:
   --dry-run   Show what would be removed without changing files.
@@ -55,7 +55,7 @@ if [ -d "services" ]; then
     find services -mindepth 2 -maxdepth 2 -name .git -print 2>/dev/null | wc -l | tr -d ' '
   )
   echo "Service Git metadata found: $SERVICE_GIT_COUNT"
-  echo "Service repositories under services/ will not be changed."
+  echo "Service repositories under app/ will not be changed."
 fi
 
 if [ "$DRY_RUN" = true ]; then
@@ -66,7 +66,7 @@ fi
 if [ "$ASSUME_YES" != true ]; then
   echo
   echo "This removes Git metadata for maestro itself."
-  echo "After this, run git commands from each services/<service-name>/ repo instead."
+  echo "After this, run git commands from each app/<component>/ repo instead."
   printf "Type 'remove root .git' to continue: "
   read -r CONFIRM
   if [ "$CONFIRM" != "remove root .git" ]; then

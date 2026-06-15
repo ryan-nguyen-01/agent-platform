@@ -11,14 +11,15 @@ maintenance template.
 | Template | Purpose | Methodology | Skills | Structure |
 |----------|---------|-------------|--------|-----------|
 | `maestro-sdlc/` | Classic software delivery (web/mobile/API): BA → design → UI/UX → code → QC | spec-driven-development | 231 | full delivery scaffolding (no enterprise governance) |
-| `maestro-adlc/` | AI products/agents with an eval gate before done | eval-driven-ai | 132 | delivery + observability/evals (no enterprise governance) |
+| `maestro-adlc/` † | AI products/agents with an eval gate before done | eval-driven-ai | 164 | `app/` (product shell) + `ai/` (prompts·evals·datasets) + `tests/` + observability/evals — purpose-fit for AI builds |
 | `maestro-enterprise/` | Agentic Enterprise: governance, compliance, audit, production agents | enterprise-agent-governance | 166 | full, including governance + audit + enterprise docs |
 | `maestro-lite/` | Small tools/prototypes: direct mode, mini-brief instead of full blueprint | risk-based-routing | 39 | minimal core (no scaffolding) |
 | `maestro-brownfield/` † | EXISTING project maintenance: onboard deeply, execute precisely, **ask-don't-infer** | risk-based-routing | 225 | `source/` (existing code) + `intake/` (raw user material) — purpose-fit, never stamps structure onto a repo |
 
-† `maestro-brownfield/` is an **independent, hand-maintained** template — it has no manifest here and
-is NOT built by `build-variant.py`. Its folder tree (`source/` + `intake/`) is deliberately different
-from the generated variants below; edit that bundle directly.
+† `maestro-adlc/` and `maestro-brownfield/` are **independent, hand-maintained** templates — they have
+no manifest here and are NOT built by `build-variant.py`. Their folder trees (`app/`+`ai/` and
+`source/`+`intake/`) are purpose-fit and deliberately differ from the generated variants; edit those
+bundles directly. Only `sdlc`, `enterprise`, and `lite` are generated.
 
 ## How to use a template
 

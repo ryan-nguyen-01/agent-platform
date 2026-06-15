@@ -71,12 +71,12 @@ that are not already available from registered components and current evidence.
 .maestro/runtime/                 Current state, locks, cache, telemetry, and generated reports
 docs/                        Official product, requirements, UX, architecture, quality, delivery, operations, governance docs
 deliverables/                Non-code work products: research, content, data outputs, reports
-apps/                        Deployable user-facing applications
-services/                    Deployable backend services, workers, and gateways
+app/                        Deployable user-facing applications
+app/                    Deployable backend services, workers, and gateways
 packages/                    Reusable libraries, contracts, shared types, and design system
 infra/                       Infrastructure and delivery platform source
 tests/                       Cross-component contract, integration, E2E, performance, and security suites
-inputs/                      External or user-provided source material awaiting distillation
+docs/                      External or user-provided source material awaiting distillation
 ```
 
 Agents must read `.maestro/registry/components.yaml` before scanning component roots. Source code never belongs under `.maestro/`. Official product documentation belongs under `docs/`; `.maestro/registry/artifacts.yaml` indexes it without duplicating the content.
@@ -147,7 +147,7 @@ Agents can maintain the run lifecycle with
 Risk-Based Workflow Routing is the default router. Spec-Driven Development, Eval-Driven AI
 Development, and Enterprise Agent Governance are overlays that can be added when the task evidence
 matches the selection matrix. Use
-`docs/governance/methodologies/industry-alignment.md` to map local methodology names to production-agent
+`.maestro/engine/methodologies/industry-alignment.md` to map local methodology names to production-agent
 patterns such as durable workflows, human-in-the-loop, artifact management, eval-driven AI, trace
 evidence, plugins, hooks, and enterprise governance.
 
@@ -224,7 +224,7 @@ Acceptance criteria cannot be mapped to files
 Service boundary, test policy, or contract ownership is unknown
 Security, schema, migration, data, infra, or cross-service risk appears
 Implementation touches shared code or public contracts
-Evidence is stale or contradicts inputs/
+Evidence is stale or contradicts docs/
 ```
 
 When expanding, record the reason in `task-analysis.yaml.context_plan` or the phase artifact that caused the expansion. This keeps recall high while making token use auditable.

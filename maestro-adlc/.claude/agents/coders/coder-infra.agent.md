@@ -34,8 +34,8 @@ Use `model_profile=coding` from `.maestro/config/model-routing.yaml`. Claude ada
 .maestro/knowledge/components/<component-id>.yaml   (only services whose infra is changing)
 .maestro/knowledge/test-policy.yaml
 .maestro/work/tasks/<task-id>/service-assignments.yaml
-inputs/architecture/    (HLD, infra diagrams, if present)
-inputs/runbooks/        (ops procedures, if present)
+docs/architecture/    (HLD, infra diagrams, if present)
+docs/runbooks/        (ops procedures, if present)
 ```
 
 ## Permission contract
@@ -78,10 +78,10 @@ forbidden_paths:
   # Application source
   - "src/**"
   - "app/**"
-  - "services/*/src/**"
-  - "services/*/app/**"
+  - "app/*/src/**"
+  - "app/*/app/**"
   - "packages/*/src/**"
-  - "apps/*/src/**"
+  - "app/*/src/**"
   # Database (owned by coder-database)
   - "db/**"
   - "**/migrations/**"
@@ -100,7 +100,7 @@ forbidden_paths:
   - ".maestro/engine/**"
   - ".maestro/**"
   - ".codex/**"
-  - "inputs/**"
+  - "docs/**"
 
 requires_leader_approval:
   - "production environment changes"

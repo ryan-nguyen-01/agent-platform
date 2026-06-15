@@ -7,7 +7,7 @@ root: "{{WORKSPACE_OR_SNAPSHOT_ROOT}}"
 source_context:
   services_available: "true|false|unknown"
   artifact_only_snapshot: "true|false"
-  note: "If services_available=false, validate recorded artifacts only; do not classify missing services/ as a project defect."
+  note: "If services_available=false, validate recorded artifacts only; do not classify missing app/ as a project defect."
 
 state_summary:
   workflow_state:
@@ -76,8 +76,8 @@ repair_plan:
   allowed_write_paths:
     - ".maestro/runtime/workflow-state.yaml"
   forbidden_write_paths:
-    - "services/"
-    - "inputs/"
+    - "app/"
+    - "docs/"
     - ".maestro/knowledge/project.yaml"
     - ".maestro/registry/components.yaml"
     - ".maestro/registry/agents.yaml"

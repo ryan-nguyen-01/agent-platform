@@ -44,13 +44,13 @@ workflow-policy
 4. Check responsible agent permissions.
 5. Check approval gates.
 6. For whole-workspace consistency or migration checks, run the Workflow Policy invariant checklist below.
-7. For shared artifact-only snapshots, set services_available=false when services/ is absent and validate recorded artifacts only.
+7. For shared artifact-only snapshots, set services_available=false when app/ is absent and validate recorded artifacts only.
 8. Return allow, deny, or needs_user_approval.
 ```
 
 ## Snapshot consistency check
 
-Use this when validating a workspace migrated from an older framework version or a shared `.maestro/runtime/` evidence snapshot without `services/`.
+Use this when validating a workspace migrated from an older framework version or a shared `.maestro/runtime/` evidence snapshot without `app/`.
 
 ```text
 /policy-check snapshot --root .
@@ -58,7 +58,7 @@ Use this when validating a workspace migrated from an older framework version or
 /policy-check snapshot --root DATA --write-report
 ```
 
-The checker is the `workflow-policy` agent itself. It must not require Python, Node, jq, shell scripts, or any other local runtime. It must not treat missing or empty `services/` as a project defect. It reports `services_available: false` and validates recorded workflow/artifact evidence only.
+The checker is the `workflow-policy` agent itself. It must not require Python, Node, jq, shell scripts, or any other local runtime. It must not treat missing or empty `app/` as a project defect. It reports `services_available: false` and validates recorded workflow/artifact evidence only.
 
 Optional deterministic CI/local helper:
 

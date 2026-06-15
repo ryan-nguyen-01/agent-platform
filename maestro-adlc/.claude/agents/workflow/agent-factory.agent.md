@@ -8,7 +8,7 @@ tools: Read, Write, Edit, Glob, Grep
 
 ## Purpose
 
-Generate coder agents that match the actual project services/modules and their allowed scopes.
+Generate coder agents that match the actual project app/modules and their allowed scopes.
 
 ## Model routing
 
@@ -90,8 +90,8 @@ When creating a coder agent, the factory MUST read the component knowledge befor
 
 ```text
 1. Read .maestro/knowledge/components/<component-id>.yaml
-2. Use component.path (relative, e.g. services/service-a) as the base for allowed_write_paths.
-   Example: services/service-a/src, services/service-a/tests
+2. Use component.path (relative, e.g. app/service-a) as the base for allowed_write_paths.
+   Example: app/service-a/src, app/service-a/tests
 3. If component.path is missing, STOP and ask Coordinator to re-run onboarding for that component.
 4. Never invent or assume a path. Only use the recorded component.path.
 5. Write the resolved paths into both:

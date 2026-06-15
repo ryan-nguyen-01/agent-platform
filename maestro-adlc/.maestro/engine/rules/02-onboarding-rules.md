@@ -10,15 +10,15 @@ Onboarding, Coordinator, Memory Update.
 R-002-01: Onboarding scans and writes memory only.
 R-002-02: Onboarding must not modify application source code.
 R-002-03: Onboarding must not create active coder agents.
-R-002-04: Onboarding must detect repository type, services/modules, stack, dependencies, APIs, DB, CI, environment hints, and test policy.
+R-002-04: Onboarding must detect repository type, app/modules, stack, dependencies, APIs, DB, CI, environment hints, and test policy.
 R-002-05: Onboarding must write Project Brain, Component Registry, Test Policy, and Component Knowledge files.
 R-002-06: Onboarding must produce agent candidates that require user approval.
 R-002-07: Onboarding must not store secrets from env or config files.
 R-002-08: If test policy evidence is unclear, mark unknown and require approval before creating tests.
-R-002-09: Onboarding must scan inputs/ (user-provided reference docs) in addition to source code. Every fact extracted from inputs/ must cite source: "inputs/<relative-path>".
-R-002-10: Onboarding must write .maestro/registry/inputs.yaml listing every file under inputs/ with path, category, summary, mtime, and confidence.
-R-002-11: When inputs/ and source code conflict on a fact, code wins for technical/current state; inputs/ wins for intent/target state. Conflict must be recorded in project.yaml.conflicts[] with both sources.
-R-002-12: Onboarding must not commit, modify, move, or delete files under inputs/. It is read-only there.
+R-002-09: Onboarding must scan docs/ (user-provided reference docs) in addition to source code. Every fact extracted from docs/ must cite source: "docs/<relative-path>".
+R-002-10: Onboarding must write .maestro/registry/inputs.yaml listing every file under docs/ with path, category, summary, mtime, and confidence.
+R-002-11: When docs/ and source code conflict on a fact, code wins for technical/current state; docs/ wins for intent/target state. Conflict must be recorded in project.yaml.conflicts[] with both sources.
+R-002-12: Onboarding must not commit, modify, move, or delete files under docs/. It is read-only there.
 R-002-13: Onboarding must support three refresh granularities: full (/onboard), partial-service (--refresh <service>), partial-inputs (--refresh inputs or --scan --inputs). Prefer the smallest granularity that covers the change.
 R-002-14: Partial inputs refresh must skip files whose mtime <= indexed_mtime and content hash matches, to avoid token waste. When a tracked inputs file is deleted, onboarding must remove its inputs-index row and any memory entries citing its path.
 R-002-15: Partial inputs refresh must not touch components.yaml, test-policy.yaml, agents.yaml, or .maestro/knowledge/components/<component-id>.yaml sections that are not contracts-related.

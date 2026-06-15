@@ -110,7 +110,7 @@ The **project brain** is the central knowledge store. It is created by onboardin
 ### Knowledge lifecycle
 
 ```text
-1. Onboarding scans `inputs/` and `services/<repo>/` → creates project brain
+1. Onboarding scans `docs/` and `app/<repo>/` → creates project brain
 2. Task analysis reads brain → understands impacted services
 3. Coder leader reads brain → selects correct coders
 4. Service coders read component knowledge → follow conventions
@@ -256,8 +256,8 @@ See also: [folder-guide.md](folder-guide.md) for detailed folder descriptions.
 ├── commands/       ← 17 workflow commands (user entry points)
 └── settings.json    ← Claude Code settings
 
-inputs/             ← User-provided reference docs scanned by onboarding
-services/           ← Registered deployable product services, workers, and gateways
+docs/             ← User-provided reference docs scanned by onboarding
+app/           ← Registered deployable product services, workers, and gateways
 ```
 
 ## Related documents

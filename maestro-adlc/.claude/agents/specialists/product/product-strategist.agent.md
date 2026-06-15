@@ -52,7 +52,7 @@ Inputs (read):
   .maestro/config/model-routing.yaml
   .maestro/work/tasks/<task-id>/task-analysis.yaml
   .maestro/engine/templates/advisory.template.yaml
-  inputs/product/**            (PRD, business specs, roadmap if any)
+  docs/product/**            (PRD, business specs, roadmap if any)
   .maestro/work/tasks/<task-id>/advisories/discovery-analyst.yaml   (if present, to inherit context)
 
 Output (write exactly one file, your own):

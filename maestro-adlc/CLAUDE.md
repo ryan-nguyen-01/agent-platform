@@ -3,16 +3,16 @@
 > Language policy: framework docs are English; the agent replies in the user's language. See .maestro/engine/docs/language-policy.md
 
 > **Variant: Maestro ADLC** — AI development lifecycle: building AI products and agents (LLM features, RAG, agentic apps) with eval-driven quality gates.
-> Generated bundle — do not edit by hand; rebuild from the maestro platform (variants/adlc.yaml).
+> Self-contained workspace — its folder tree (app/ product shell + ai/ prompts·evals·datasets + tests/) is purpose-fit for building AI products.
 
 ## Variant Profile: ADLC (AI Development Lifecycle)
 
 This bundle builds AI products and agents. Defaults:
 
 ```text
-- FULL COMPLIANCE: all 26 engine rules apply with no exemptions. Fast-track NEVER skips the eval
+- FULL COMPLIANCE: all 27 engine rules apply with no exemptions. Fast-track NEVER skips the eval
   gate. Identity must be answered exactly per the Identity section.
-- LAYOUT (AI-product specific): apps/ + services/ (the product shell), tests/, and ai/ —
+- LAYOUT (AI-product specific): app/ (the product shell — UI, APIs, services), tests/, and ai/ —
   ai/prompts (versioned prompts), ai/evals (datasets + graders for the EVAL GATE),
   ai/datasets (RAG/training sources; synthetic or licensed only, R-013).
 - Methodology: eval-driven-ai. Quality claims about model/agent behavior require eval evidence,
@@ -263,7 +263,7 @@ Commands at `.claude/commands/`:
 | /ship          | Autonomous build-to-done (Safe Autopilot): run the full pipeline, self-heal errors, deliver a finished product (R-019) |
 | /git           | Git-flow workflow: branch / commit / sync / PR; outward git is user-gated (R-020) |
 | /onboard       | Initial fetch/refresh memory + component contracts |
-| /intake        | Triage dropped files in docs//inputs/: classify, flag secrets/misplaced code, index — never moves files without approval |
+| /intake        | Triage dropped files in docs/: classify, flag secrets/misplaced code, index — never moves files without approval |
 | /investigate   | Read-only: current state + options + impact with citations — no code change |
 | /analyze-task  | Normalize a task into a spec |
 | /create-coders | Create service coder agents |
@@ -445,10 +445,11 @@ Rules at `.maestro/engine/rules/` define the constraints for the workflow:
 └── runtime/                   ← Local-only state, telemetry, cache, reports
 
 .claude/                       ← Native Claude agents, skills, commands, hooks
-docs/                          ← PRD, requirements, UX, HLD/LLD/ADR, quality, operations
-apps/ services/ packages/      ← Product applications, services, and shared libraries
-infra/ tests/                  ← Infrastructure and cross-component test suites
-inputs/                        ← External references awaiting curation
+app/                           ← The product shell: UI, APIs, services
+ai/                            ← The AI layer: ai/prompts (versioned), ai/evals (eval gate), ai/datasets (RAG/training)
+tests/                         ← Cross-component test suites
+docs/                          ← PRD, requirements, UX, HLD/LLD/ADR, quality, delivery
+deliverables/                  ← Non-code deliverables (research, content, data)
 ```
 
 # >>> maestro (auto) >>>

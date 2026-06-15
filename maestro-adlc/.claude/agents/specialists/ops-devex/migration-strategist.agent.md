@@ -53,8 +53,8 @@ Inputs (read):
   .maestro/work/tasks/<task-id>/task-analysis.yaml
   .maestro/engine/templates/advisory.template.yaml
   .maestro/registry/components.yaml (boundaries, dependencies, versions)
-  inputs/architecture/ (existing HLD/LLD/ADRs, if any)
-  inputs/api/ (contracts that must stay backward-compatible, if any)
+  docs/architecture/ (existing HLD/LLD/ADRs, if any)
+  docs/api/ (contracts that must stay backward-compatible, if any)
 
 Output (write exactly one file, your own):
   .maestro/work/tasks/<task-id>/advisories/migration-strategist.yaml   (per advisory.template.yaml)
