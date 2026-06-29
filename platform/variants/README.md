@@ -14,12 +14,14 @@ maintenance template.
 | `maestro-adlc/` † | **Agent** Development Lifecycle: build agents (mission·tools·memory·loop) with a behavior eval gate | eval-driven-ai | 164 | `agents/` (agent defs) + `evals/` (behavior eval gate) + `app/` (host app) + `tests/` — agent-native |
 | `maestro-enterprise/` | Agentic Enterprise: governance, compliance, audit, production agents | enterprise-agent-governance | 166 | full, including governance + audit + enterprise docs |
 | `maestro-lite/` | Small tools/prototypes: direct mode, mini-brief instead of full blueprint | risk-based-routing | 39 | minimal core (no scaffolding) |
-| `maestro-brownfield/` † | EXISTING project maintenance: onboard deeply, execute precisely, **ask-don't-infer** | risk-based-routing | 225 | `source/` (existing code) + `intake/` (raw user material) — purpose-fit, never stamps structure onto a repo |
+| `maestro-brownfield/` † | EXISTING project maintenance: onboard deeply, execute precisely, **ask-don't-infer** | risk-based-routing | 227 | `source/` (existing code) + `intake/` (raw user material) — purpose-fit, never stamps structure onto a repo |
+| `maestro-kiro/` † | Direct build companion: **ask → do → log to `WORKLOG.md`**, no task/approval pipeline; matches the project's FE/BE conventions | direct | 237 | full skill library; no pipeline flow — engine kept as optional reference; `WORKLOG.md` + `.maestro/conventions.md` |
 
-† `maestro-adlc/` and `maestro-brownfield/` are **independent, hand-maintained** templates — they have
-no manifest here and are NOT built by `build-variant.py`. Their folder trees (`agents/`+`evals/`+`app/`
-and `source/`+`intake/`) are purpose-fit and deliberately differ from the generated variants; edit
-those bundles directly. Only `sdlc`, `enterprise`, and `lite` are generated.
+† `maestro-adlc/`, `maestro-brownfield/`, and `maestro-kiro/` are **independent, hand-maintained**
+templates — they have no manifest here and are NOT built by `build-variant.py`. Their shapes
+(`agents/`+`evals/`+`app/`; `source/`+`intake/`; Kiro's no-pipeline `WORKLOG.md` model) are purpose-fit
+and deliberately differ from the generated variants; edit those bundles directly. Only `sdlc`,
+`enterprise`, and `lite` are generated.
 
 ## How to use a template
 

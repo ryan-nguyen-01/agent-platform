@@ -12,7 +12,8 @@ in it — the agent follows that template's workflow, gates, and identity.
 | [`maestro-adlc/`](maestro-adlc/) | **Agent** Development Lifecycle: build agents (`agents/` + `evals/`) with a behavior **eval gate** | eval-driven-ai | 164 |
 | [`maestro-enterprise/`](maestro-enterprise/) | Operate governed/production agents: compliance, audit, accountability | enterprise-agent-governance | 166 |
 | [`maestro-lite/`](maestro-lite/) | Ship a small tool/prototype fast, minimal ceremony (no specialist advisors) | risk-based-routing | 39 |
-| [`maestro-brownfield/`](maestro-brownfield/) | Maintain an EXISTING project (`source/` + `intake/`): deep onboarding, precise tasks, **ask-don't-infer** | risk-based-routing | 225 |
+| [`maestro-brownfield/`](maestro-brownfield/) | Maintain an EXISTING project (`source/` + `intake/`): deep onboarding, precise tasks, **ask-don't-infer** | risk-based-routing | 227 |
+| [`maestro-kiro/`](maestro-kiro/) | Direct build companion: **ask → do → log to `WORKLOG.md`**, no task/approval pipeline; matches your FE/BE conventions | direct | 237 |
 
 ## Use it
 
@@ -36,8 +37,9 @@ cd platform && python3 scripts/build-variant.py --all   # rebuild the generated 
 ```
 
 `build-variant.py --all` builds the three generated templates (sdlc, enterprise, lite).
-`maestro-adlc/` (`agents/` + `evals/` + `app/`) and `maestro-brownfield/` (`source/` + `intake/`) are **independent
-and hand-maintained** — each has its own purpose-fit tree and is edited directly, not generated.
+`maestro-adlc/` (`agents/` + `evals/` + `app/`), `maestro-brownfield/` (`source/` + `intake/`), and
+`maestro-kiro/` (direct, `WORKLOG.md`) are **independent and hand-maintained** — each has its own
+purpose-fit tree and is edited directly, not generated.
 
 Template manifests and the build contract: [platform/variants/README.md](platform/variants/README.md).
 

@@ -1,0 +1,12 @@
+name: maestro-kiro
+display_name: "Maestro Kiro"
+purpose: "Direct build companion: you ask, Kiro does it and logs what it did to WORKLOG.md. No task/approval/QC pipeline — Understand -> Do -> Log -> Report. Full FE/BE skill library; matches the project's existing conventions."
+methodology_default: direct
+skills: 237
+operating_model: kiro-direct
+note: |
+  Self-contained, independent workspace — edit this bundle directly. Kiro does NOT run the
+  task-analysis -> approval -> coder-leader -> QC pipeline; it acts directly and records each unit of
+  work in WORKLOG.md (root). Detected FE/BE conventions live in .maestro/conventions.md. The full
+  Maestro engine ships as an optional reference library, not a mandatory flow. Confirms only before
+  irreversible/outward actions (delete, deploy, push, secrets).
