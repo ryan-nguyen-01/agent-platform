@@ -2,7 +2,7 @@
 
 ## Applies to
 
-All 19 specialist advisors under `.claude/agents/specialists/<category>/`, and every workflow agent that may invoke them (Coordinator, Task Analysis, Solution Architect, Coder Leader, Dev Verification, QC Handoff, Memory Update).
+All 19 specialist advisors under `.kiro/agents/specialists/<category>/`, and every workflow agent that may invoke them (Coordinator, Task Analysis, Solution Architect, Coder Leader, Dev Verification, QC Handoff, Memory Update).
 
 ## Core principle
 
@@ -36,7 +36,7 @@ R-016-11: Advisors that overlap a workflow agent's mandate must AUGMENT, not rep
 R-016-12: An advisory is advisory by default. A workflow agent may accept, defer, or reject a recommendation, but must record the disposition (handoff.must_address vs. acknowledged) in its own artifact.
 R-016-13: Advisors obey the same security/secret rules (R-013) and never emit secrets into advisories.
 R-016-14: Advisor tool access is read + own-artifact-write only (Read, Grep, Glob, Write). They must not gain Bash/Edit on app code.
-R-016-15: Adding or removing a specialist requires updating: the file under specialists/<category>/, model-routing.yaml specialist_advisors, the catalog (.claude/agents/specialists/README.md), and EXPECTED_SPECIALIST_COUNT in scripts/architecture-health-check.py.
+R-016-15: Adding or removing a specialist requires updating: the file under specialists/<category>/, model-routing.yaml specialist_advisors, the catalog (.kiro/agents/specialists/README.md), and EXPECTED_SPECIALIST_COUNT in scripts/architecture-health-check.py.
 ```
 
 ## Advisory artifact contract

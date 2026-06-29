@@ -31,7 +31,7 @@ the wider ecosystem without becoming locked to one vendor runtime.
 
 | Industry pattern | Workspace mapping | Why it matters |
 | --- | --- | --- |
-| Agent tools, subagents, skills, hooks, and plugins | `.claude/`, `.codex/`, `.cursor/`, `.gemini/`, plus `.maestro/registry/agents.yaml` and `.maestro/registry/skills.yaml` | Keeps tool capability additive and discoverable while preserving project-specific scope. |
+| Agent tools, subagents, skills, hooks, and plugins | `.kiro/`, `.codex/`, `.cursor/`, `.gemini/`, plus `.maestro/registry/agents.yaml` and `.maestro/registry/skills.yaml` | Keeps tool capability additive and discoverable while preserving project-specific scope. |
 | Durable workflows, checkpoints, resume, and human interrupts | `.maestro/work/runs/`, `.maestro/memory/tasks/`, `.maestro/runtime/`, checkpoint and continuation handoff templates | Lets large tasks survive long conversations, failures, and user verification pauses. |
 | Session, state, memory, and artifacts | `.maestro/memory/sessions/`, `.maestro/knowledge/`, `.maestro/design/`, `.maestro/decision/`, `.maestro/registry/artifacts.yaml` | Separates short-term conversation state from durable product knowledge and official deliverables. |
 | Agent tracing, trace grading, eval datasets, and regression evals | `.maestro/observability/traces/`, `.maestro/observability/evals/`, Eval-Driven AI Development lifecycle, Dev Verification, QC Runner, Eval Suite | Makes quality claims reproducible and prevents "demo looked good" from becoming a release gate. |

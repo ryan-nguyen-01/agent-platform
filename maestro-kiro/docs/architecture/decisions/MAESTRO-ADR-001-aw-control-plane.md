@@ -16,7 +16,7 @@ conversation continuation, or multi-root component discovery.
 
 ## Decision
 
-Keep `.claude/` at repository root for native discovery. Consolidate tool-neutral product-development
+Keep `.kiro/` at repository root for native discovery. Consolidate tool-neutral product-development
 control data under `.maestro/`, separated by ownership domain. Keep official user-facing documents under `docs/`
 and source components in peer roots.
 

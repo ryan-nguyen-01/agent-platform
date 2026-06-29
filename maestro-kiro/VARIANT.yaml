@@ -4,8 +4,10 @@ purpose: "Direct build companion: you ask, Kiro does it and logs what it did to 
 methodology_default: direct
 skills: 237
 operating_model: kiro-direct
+adapter_dir: .kiro      # single tool-adapter dir (agents/skills/commands/hooks) — no .claude, no .codex
 note: |
-  Self-contained, independent workspace — edit this bundle directly. Kiro does NOT run the
+  Self-contained, independent workspace — edit this bundle directly. The tool-adapter directory is
+  .kiro/ (agents, skills, commands, hooks, settings) — there is no .claude/ or .codex/. Kiro does NOT run the
   task-analysis -> approval -> coder-leader -> QC pipeline; it acts directly and records each unit of
   work in WORKLOG.md (root). Detected FE/BE conventions live in .maestro/conventions.md. The full
   Maestro engine ships as an optional reference library, not a mandatory flow. Confirms only before

@@ -4,9 +4,7 @@
 .maestro/memory/sessions/*
 !.maestro/memory/sessions/README.md
 # <<< maestro local runtime <<<
-# Codex plugin: skills copied from .claude/skills by scripts/build-codex-plugin.py (single source = .claude/skills)
-.codex/marketplace/plugins/maestro/skills/
-
+.agent/
 
 # macOS
 .DS_Store

@@ -11,7 +11,7 @@ User-facing conversation (chat replies) → match the user's language.
 ```
 
 - **English for all framework artifacts**: rules (`.maestro/engine/rules/**`), `.maestro/engine/workflow.md`, agent and
-  command definitions (`.claude/agents/**`, `.claude/commands/**`), templates (`.maestro/engine/templates/**`),
+  command definitions (`.kiro/agents/**`, `.kiro/commands/**`), templates (`.maestro/engine/templates/**`),
   `.maestro/engine/docs/**`, entry points (`CLAUDE.md`, `AGENTS.md`, adapters), playbooks, and config comments.
   These are read by the model as contracts; one consistent language removes ambiguity.
 - **User's language for the conversation**: if the user writes in Vietnamese, reply in Vietnamese; if

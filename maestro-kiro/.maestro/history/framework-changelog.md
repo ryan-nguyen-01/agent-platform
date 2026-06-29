@@ -11,7 +11,7 @@ Added explicit framework maintenance behavior so the product-development control
 - `/policy-check snapshot` uses the `workflow-policy` agent checklist for migration/snapshot validation.
 - Workflow Policy validates artifact-only snapshots without requiring `services/` or Python/Node/script dependencies, catches Code Done/QC Done gate bypasses, and offers dry-run-first mode repair.
 - Coordinator, Task Analysis, Coder Leader, Dev Verification, QC Handoff, and QC Runner now use conditional reads so framework maintenance does not load project brain, registry, component registry, test policy, or task artifacts unnecessarily.
-- Runtime skill loading now starts from `skill-registry.yaml` and must not scan/read all of `.claude/skills/**`.
+- Runtime skill loading now starts from `skill-registry.yaml` and must not scan/read all of `.kiro/skills/**`.
 - Cross-tool entrypoints were aligned for Codex, Cursor, Gemini, and GitHub Copilot.
 - Seed runtime files now describe `services/` as the application-source workspace and `.runtime/context` as the service control plane.
 - Cursor hooks now enforce architecture approval, standard plan artifacts, active coder write scope, and broader destructive-command blocking before source edits or shell execution.

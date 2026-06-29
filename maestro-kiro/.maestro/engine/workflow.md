@@ -9,7 +9,7 @@ Every agent reads only the minimum files needed. Memory is the agent brain; serv
 ```text
 1. .maestro/engine/workflow.md
 2. .maestro/runtime/workflow-state.yaml
-3. Its own .claude/agents/<agent>.agent.md
+3. Its own .kiro/agents/<agent>.agent.md
 4. .maestro/knowledge/index.yaml
 5. .maestro/knowledge/project.yaml only when routing/planning needs project facts
 6. .maestro/registry/components.yaml when service discovery or impact analysis is needed
@@ -37,8 +37,8 @@ AGENTS.md
 CLAUDE.md
 COMMAND.md
 .maestro/engine/**
-.claude/agents/**
-.claude/commands/**
+.kiro/agents/**
+.kiro/commands/**
 .codex/**
 scripts/**
 SETUP.md
@@ -847,7 +847,7 @@ The visual version of this workflow is maintained in [docs/visual-flow.md](docs/
 
 ## 16. Rule and command layer
 
-Rules live in `.maestro/engine/rules/` and are mandatory. Commands live in `.claude/commands/` and are the user-facing entrypoints.
+Rules live in `.maestro/engine/rules/` and are mandatory. Commands live in `.kiro/commands/` and are the user-facing entrypoints.
 
 ```text
 /coord          Main entrypoint

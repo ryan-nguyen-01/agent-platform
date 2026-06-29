@@ -59,7 +59,7 @@ The system uses 12 fixed workflow agents plus unlimited generated service coders
 
 ### Fixed agents (12)
 
-These agents are defined once in `.claude/agents/` and are available to every project:
+These agents are defined once in `.kiro/agents/` and are available to every project:
 
 ```text
 Routing:      Coordinator, Workflow Policy
@@ -250,7 +250,7 @@ See also: [folder-guide.md](folder-guide.md) for detailed folder descriptions.
 ├── locks/           ← Local execution locks
 └── reports/         ← Generated status and health reports
 
-.claude/
+.kiro/
 ├── agents/         ← 12 workflow agents + built-in/generated coders
 ├── skills/         ← 231 skill definitions (12 workflow + 219 technical)
 ├── commands/       ← 17 workflow commands (user entry points)

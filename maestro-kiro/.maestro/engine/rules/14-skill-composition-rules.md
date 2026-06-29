@@ -28,11 +28,11 @@ R-014-09: Skills must not override allowed_write_paths or approval gates.
 R-014-10: Prefer minimal skill loading: load enough skills to do the job, not every possible skill.
 R-014-11: Total skills loaded per agent execution must not exceed the skill budget (see Selection algorithm).
 R-014-12: Contextual skill selection must be deterministic from inputs in the order defined by Selection algorithm.
-R-014-13: A skill is eligible only if its name appears in .maestro/registry/skills.yaml or .claude/skills/<name>/SKILL.md exists.
+R-014-13: A skill is eligible only if its name appears in .maestro/registry/skills.yaml or .kiro/skills/<name>/SKILL.md exists.
 R-014-14: If two candidate skills have overlapping scope (e.g. two ORMs), select the one referenced by component knowledge or project-brain; never load both.
 R-014-15: Skill updates must go through /skills. Do not mutate installed skills, skills-lock.json, or skill-registry risk metadata from onboarding, coder generation, or implementation commands.
 R-014-16: A newly updated skill must not be attached to generated coders automatically; Agent Factory must re-evaluate it through skills.yaml and approval gates.
-R-014-17: Runtime agents must not scan or read all of .claude/skills/**. Use .maestro/registry/skills.yaml first, select a minimal candidate set, then read only the selected skill's SKILL.md and directly referenced files.
+R-014-17: Runtime agents must not scan or read all of .kiro/skills/**. Use .maestro/registry/skills.yaml first, select a minimal candidate set, then read only the selected skill's SKILL.md and directly referenced files.
 R-014-18: Framework maintenance tasks must not load technical skills unless the task explicitly edits skill metadata, skill files, or stack-selection behavior.
 R-014-19: Skill selection must consider project_profile.archetypes and component profile.archetypes before falling back to generic project language/framework metadata.
 R-014-20: task-analysis.yaml.context_plan.budget.max_skill_files is the hard contextual skill budget unless Coordinator records an approved exception or a high-risk trigger requires expansion.
@@ -44,7 +44,7 @@ R-014-21: Agents must record dropped candidate skills when a budget cut occurs s
 When an agent needs to pick contextual skills from the 219 technical skills, apply this deterministic algorithm:
 
 ```text
-Step 1. Build candidate set from .maestro/registry/skills.yaml without opening .claude/skills/**.
+Step 1. Build candidate set from .maestro/registry/skills.yaml without opening .kiro/skills/**.
         Inputs (priority order, dedup by skill name):
           a. component profile archetypes (backend-api, frontend-web, mobile-app, etc.)
           b. project_profile archetypes
@@ -54,7 +54,7 @@ Step 1. Build candidate set from .maestro/registry/skills.yaml without opening .
           f. impacted_components      (intersect their component knowledge stacks)
 
 Step 2. Drop ineligible candidates:
-          - skill not in skill-registry and no .claude/skills/<name>/SKILL.md
+          - skill not in skill-registry and no .kiro/skills/<name>/SKILL.md
           - skill in component knowledge forbidden_skills (if defined)
           - skill conflicts with a higher-priority candidate (R-014-14)
 

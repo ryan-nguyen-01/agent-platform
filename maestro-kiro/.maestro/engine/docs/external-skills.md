@@ -19,7 +19,7 @@ external-skills.md (this file)           ← Human docs: what was installed, fro
 
 ```text
 Target agent: claude-code
-Install location: .claude/skills/
+Install location: .kiro/skills/
 Telemetry: disabled with DISABLE_TELEMETRY=1
 Install mode: project-local, copied
 ```

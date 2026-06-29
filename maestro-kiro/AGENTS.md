@@ -25,29 +25,28 @@ as Claude/Codex/a generic assistant while operating this workspace.
 > Project docs are primarily in Vietnamese, but this file is in English so any agent can parse it.
 > Claude Code reads [CLAUDE.md](CLAUDE.md) first; other agents should read this file.
 
-Tool-specific entrypoints:
-
-- Codex: [.codex/AGENTS.md](.codex/AGENTS.md)
+This Kiro workspace uses `.kiro/` as its single tool-adapter directory (agents, skills, commands,
+hooks, settings) — there is no `.claude/` or `.codex/`.
 
 ## What this repo is
 
 `maestro` is a **product-development workspace with a multi-agent control plane**. The root
 name stays stable while `.maestro/project.yaml` defines the product identity and naming namespace. It defines:
 
-- 12 workflow agents (see [.claude/agents/workflow/](.claude/agents/workflow/))
-- 20 specialist advisors (advisor-only, in-pipeline) at [.claude/agents/specialists/](.claude/agents/specialists/) — see [R-016](.maestro/engine/rules/16-specialist-advisory-rules.md)
-- 237 skills (12 workflow + 225 technical) at [.claude/skills/](.claude/skills/); discovery layer: [.maestro/engine/docs/skill-catalog.md](.maestro/engine/docs/skill-catalog.md)
+- 12 workflow agents (see [.kiro/agents/workflow/](.kiro/agents/workflow/))
+- 20 specialist advisors (advisor-only, in-pipeline) at [.kiro/agents/specialists/](.kiro/agents/specialists/) — see [R-016](.maestro/engine/rules/16-specialist-advisory-rules.md)
+- 237 skills (12 workflow + 225 technical) at [.kiro/skills/](.kiro/skills/); discovery layer: [.maestro/engine/docs/skill-catalog.md](.maestro/engine/docs/skill-catalog.md)
 - 27 workflow rules at [.maestro/engine/rules/](.maestro/engine/rules/)
 - 59 templates at [.maestro/engine/templates/](.maestro/engine/templates/)
-- 22 slash commands at [.claude/commands/](.claude/commands/)
-- 3 built-in cross-cutting coders: `coder-infra`, `coder-database`, and `coder-data` at [.claude/agents/coders/](.claude/agents/coders/)
+- 22 slash commands at [.kiro/commands/](.kiro/commands/)
+- 3 built-in cross-cutting coders: `coder-infra`, `coder-database`, and `coder-data` at [.kiro/agents/coders/](.kiro/agents/coders/)
 - Deterministic hook guardrails (scope/secret/destructive) at [scripts/hooks/](scripts/hooks/) — see [R-017](.maestro/engine/rules/17-hook-enforcement-rules.md)
 - Durable memory at [.maestro/knowledge/](.maestro/knowledge/)
 - User-provided reference docs (PRD, HLD, ADR, OpenAPI, glossary, runbooks) at [inputs/](inputs/) — onboarding scans these to seed the brain
 
 The authoritative spec is [.maestro/engine/workflow.md](.maestro/engine/workflow.md). Read it before acting on non-trivial work.
 
-Do not copy `.claude/` into each component. Product code lives in registered roots (`apps/`,
+Do not copy `.kiro/` into each component. Product code lives in registered roots (`apps/`,
 `services/`, `packages/`, `infra/`, `tests/`), official product docs live in `docs/`, and external
 references awaiting curation live in `inputs/`.
 
@@ -135,7 +134,7 @@ Current state lives in [.maestro/runtime/workflow-state.yaml](.maestro/runtime/w
 
 ## Slash commands
 
-These are `maestro` workflow commands. Tool support differs by client: Claude Code can use `.claude/commands/*.md` directly, while Codex does not auto-register these files in its `/` popup. In Codex, treat them as workflow intents backed by `COMMAND.md` and `.claude/commands/*.md`.
+These are `maestro` workflow commands. Tool support differs by client: Claude Code can use `.kiro/commands/*.md` directly, while Codex does not auto-register these files in its `/` popup. In Codex, treat them as workflow intents backed by `COMMAND.md` and `.kiro/commands/*.md`.
 
 Run any of these via the Claude Code CLI or by directly invoking the matching agent:
 
@@ -193,7 +192,7 @@ Run `/policy-check snapshot --root .` before trusting migrated workspace state o
 | Slash commands | [COMMAND.md](COMMAND.md) |
 | All workflow rules | [.maestro/engine/rules/](.maestro/engine/rules/) |
 | Agent taxonomy | [.maestro/engine/docs/agent-taxonomy.md](.maestro/engine/docs/agent-taxonomy.md) |
-| Coordinator behavior | [.claude/agents/workflow/coordinator.agent.md](.claude/agents/workflow/coordinator.agent.md) |
+| Coordinator behavior | [.kiro/agents/workflow/coordinator.agent.md](.kiro/agents/workflow/coordinator.agent.md) |
 | Template for new artifacts | [.maestro/engine/templates/](.maestro/engine/templates/) |
 | Claude Code-specific instructions | [CLAUDE.md](CLAUDE.md) |
 | Visual flow diagrams | [.maestro/engine/docs/visual-flow.md](.maestro/engine/docs/visual-flow.md) |
@@ -219,7 +218,7 @@ Different AI tools enforce the same workflow policy through different mechanisms
 
 | Tool | Auto-discovers | Lifecycle hooks | Enforcement path |
 | --- | --- | --- | --- |
-| Claude Code | `.claude/agents/`, `.claude/skills/`, `.claude/commands/`, `CLAUDE.md` | No | Coordinator routing + agent contracts |
+| Claude Code | `.kiro/agents/`, `.kiro/skills/`, `.kiro/commands/`, `CLAUDE.md` | No | Coordinator routing + agent contracts |
 | Codex CLI | `.codex/AGENTS.md`; `.codex/config.toml` (when project trusted) | No | AGENTS.md instructions + sandbox as policy aid; service write scope still comes from `workflow-state.yaml.active_task_id` + `agents.yaml` |
 | Gemini Code Assist | `.gemini/GEMINI.md` | No | GEMINI.md instructions |
 

@@ -149,10 +149,10 @@ See also: [skill-composition.md](skill-composition.md) for the full composition 
 
 ## Skill files
 
-Every skill is a folder under `.claude/skills/` containing a `SKILL.md` file:
+Every skill is a folder under `.kiro/skills/` containing a `SKILL.md` file:
 
 ```text
-.claude/skills/
+.kiro/skills/
 ├── skill-project-brain/SKILL.md        ← Workflow skill
 ├── react/SKILL.md                      ← Technical skill
 ├── postgresql-best-practices/SKILL.md  ← Technical skill

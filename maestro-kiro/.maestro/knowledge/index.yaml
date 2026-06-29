@@ -30,7 +30,7 @@ read_policy:
     - ".maestro/config/response-ui.yaml"
   skills_policy:
     registry: ".maestro/registry/skills.yaml"
-    rule: "Do not scan or read all of .claude/skills/**. Select candidates from the registry first, then open only selected SKILL.md files and direct references."
+    rule: "Do not scan or read all of .kiro/skills/**. Select candidates from the registry first, then open only selected SKILL.md files and direct references."
   user_inputs_root: "inputs"
   user_inputs_index: ".maestro/registry/inputs.yaml"
   rule: "Do not open every knowledge or memory file by default. Use task intent, impacted components, and this index first. For user-provided reference docs, open .maestro/registry/inputs.yaml first, then read only relevant files under inputs/."

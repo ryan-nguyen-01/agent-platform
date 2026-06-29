@@ -3,7 +3,7 @@
 `maestro` has four different agent classes. Keep these terms separate in docs, registries, and handoffs.
 
 ```text
-.claude/agents/
+.kiro/agents/
 ├── workflow/      class 1 — 12 control-plane agents
 ├── coders/        class 2 (built-in) + class 3 (generated)
 └── specialists/   class 4 — 19 specialist advisors, grouped by category
@@ -74,7 +74,7 @@ Rules:
 ## 4. Specialist Advisors
 
 Specialist advisors are domain experts that produce evidence-based recommendations **inside the
-pipeline**. They are the newest agent class and live under `.claude/agents/specialists/<category>/`.
+pipeline**. They are the newest agent class and live under `.kiro/agents/specialists/<category>/`.
 
 Categories and members (19 total):
 

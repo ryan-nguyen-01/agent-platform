@@ -13,7 +13,7 @@ This workspace separates four concerns:
 
 ```text
 .maestro/          Product control plane, knowledge, work, memory, history, and local state
-.claude/      Claude-native agents, commands, skills, hooks, and settings
+.kiro/      Claude-native agents, commands, skills, hooks, and settings
 docs/         Official product and engineering documentation
 apps|services|packages|infra|tests/  Product implementation
 ```
@@ -98,9 +98,9 @@ Meaning of each layer:
 .maestro/engine/rules/          Mandatory rules, must not be skipped
 .maestro/engine/templates/      Standard artifact file templates
 .maestro/engine/docs/           Documentation and diagrams
-.claude/commands/      Entry points the user calls in Claude Code
-.claude/agents/        Role and responsibility of each Claude agent
-.claude/skills/        Concrete how-to guidance for agents
+.kiro/commands/      Entry points the user calls in Claude Code
+.kiro/agents/        Role and responsibility of each Claude agent
+.kiro/skills/        Concrete how-to guidance for agents
 .maestro/registry/       Component, agent, skill, input, and artifact addresses
 .maestro/knowledge/      Durable project and component knowledge
 .maestro/work/tasks/        Artifacts per task
@@ -114,18 +114,18 @@ Rule priority:
 ```text
 .maestro/engine/workflow.md defines the state machine
 .maestro/engine/rules/ defines mandatory policy
-.claude/commands/ defines how the user invokes the workflow in Claude Code
-.claude/agents/ defines role behavior
-.claude/skills/ defines the detailed how-to
+.kiro/commands/ defines how the user invokes the workflow in Claude Code
+.kiro/agents/ defines role behavior
+.kiro/skills/ defines the detailed how-to
 ```
 
 On conflict, prioritize:
 
 ```text
 .maestro/engine/workflow.md + .maestro/engine/rules/
-.claude/commands/
-.claude/agents/
-.claude/skills/
+.kiro/commands/
+.kiro/agents/
+.kiro/skills/
 .maestro/engine/templates/
 ```
 
@@ -133,7 +133,7 @@ On conflict, prioritize:
 
 ```text
 .maestro/{engine,config,registry,knowledge,work,design,decision,memory,history,runtime}/
-.claude/{agents,commands,skills}/
+.kiro/{agents,commands,skills}/
 docs/{product,requirements,experience,architecture,quality,delivery,operations,governance}/
 apps/
 services/
@@ -259,7 +259,7 @@ When you need to understand why the current structure exists
 This folder contains the core agent definitions and will later hold generated service coder agents.
 
 ```text
-.claude/agents/
+.kiro/agents/
   coordinator.agent.md
   onboarding.agent.md
   agent-factory.agent.md
@@ -349,7 +349,7 @@ escalation rules
 This folder contains the user-facing commands.
 
 ```text
-.claude/commands/
+.kiro/commands/
   coord.md
   onboard.md
   create-coders.md
@@ -472,7 +472,7 @@ Do not store secrets/tokens/passwords/long logs in `.maestro/runtime` artifacts 
 This folder contains concrete how-to guidance for agents.
 
 ```text
-.claude/skills/
+.kiro/skills/
   skill-project-brain/
   skill-project-onboarding/
   skill-agent-factory/
@@ -869,10 +869,10 @@ Dev can fix in parallel
 ### Dev lead / user
 
 ```text
-.claude/README.md
+.kiro/README.md
 .maestro/engine/docs/folder-guide.md
 .maestro/engine/docs/visual-flow.md
-.claude/commands/README.md
+.kiro/commands/README.md
 ```
 
 ### Coordinator agent
@@ -883,14 +883,14 @@ Dev can fix in parallel
 .maestro/engine/rules/01-project-brain-rules.md
 .maestro/engine/rules/11-approval-gates.md
 .maestro/engine/rules/12-artifact-contracts.md
-.claude/commands/coord.md
+.kiro/commands/coord.md
 ```
 
 ### Onboarding agent
 
 ```text
 .maestro/engine/workflow.md
-.claude/commands/onboard.md
+.kiro/commands/onboard.md
 .maestro/engine/rules/02-onboarding-rules.md
 .maestro/engine/templates/project.template.yaml
 .maestro/engine/templates/component.template.yaml
@@ -899,7 +899,7 @@ Dev can fix in parallel
 ### Agent Factory
 
 ```text
-.claude/commands/create-coders.md
+.kiro/commands/create-coders.md
 .maestro/engine/rules/03-agent-factory-rules.md
 .maestro/engine/templates/agent-coder.template.md
 .maestro/registry/components.yaml
@@ -917,7 +917,7 @@ Dev can fix in parallel
 ### QC agent
 
 ```text
-.claude/commands/qc.md
+.kiro/commands/qc.md
 .maestro/engine/rules/08-qc-rules.md
 .maestro/engine/rules/09-bug-routing-rules.md
 .maestro/work/tasks/<task-id>/qc-handoff.md
@@ -937,11 +937,11 @@ Update agent Rule bindings if needed
 When adding a new command:
 
 ```text
-Add .claude/commands/<command>.md
+Add .kiro/commands/<command>.md
 Declare the responsible agent
 Declare the required rules
 Declare the required artifacts
-Update .claude/commands/README.md
+Update .kiro/commands/README.md
 Update README.md if it is an important user-facing command
 ```
 

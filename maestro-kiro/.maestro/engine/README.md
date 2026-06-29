@@ -5,7 +5,7 @@ This folder is the tool-neutral source layer for `maestro`. It contains the work
 Project state does not live here. Shared knowledge, registries, work, and local runtime each have
 their own `.maestro/` domain.
 
-Claude-specific executable adapters live under `.claude/`.
+Claude-specific executable adapters live under `.kiro/`.
 
 ## Framework Maintenance Scope
 
@@ -107,7 +107,7 @@ The workflow has two extra control layers:
 
 ```text
 .maestro/engine/rules/      Mandatory policies that agents must follow
-.claude/commands/   User-facing entrypoints for running the workflow
+.kiro/commands/   User-facing entrypoints for running the workflow
 ```
 
 Recommended command path:

@@ -33,8 +33,8 @@ in the user's language with:
 3. Dự án đang làm: <product.display_name trong .maestro/project.yaml; nếu null: 'chưa cấu hình'>.
 ```
 
-Keep this identity for the whole session, in every adapter (Claude, Codex). Never introduce yourself as
-Claude/Codex/a generic assistant while operating this workspace.
+Keep this identity for the whole session. Never introduce yourself as a generic assistant while
+operating this workspace.
 
 ## Match the code's conventions (scan before you write)
 

@@ -16,7 +16,10 @@ and just say what you want ("thêm nút X", "sửa API Y", "refactor component Z
 It ships the full Maestro skill library (237 skills, FE + BE + tooling) so it rarely lacks a skill; the
 deeper Maestro engine is present as an optional reference library, never a mandatory flow.
 
-Entry points: `CLAUDE.md` (Claude) · `AGENTS.md` (Codex) · `.maestro/INSTRUCTIONS.md` (operating model)
+The tool-adapter directory is `.kiro/` (agents, skills, commands, hooks, settings) — there is no
+`.claude/` or `.codex/`. The control plane stays in `.maestro/`.
+
+Entry points: `CLAUDE.md` · `AGENTS.md` · `.maestro/INSTRUCTIONS.md` (operating model)
 · `WORKLOG.md` (what Kiro did) · `.maestro/conventions.md` (your project's detected conventions).
 
 Independent template — hand-maintained, edited directly (see VARIANT.yaml).

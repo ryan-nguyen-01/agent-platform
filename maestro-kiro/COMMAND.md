@@ -2,9 +2,9 @@
 
 Canonical slash command index for `maestro`.
 
-Detailed command contracts live in `.claude/commands/*.md`. NOTE: users rarely type commands — natural language is the primary interface and the coordinator maps intent to these flows (see CLAUDE.md §"Just talk"). This index exists mainly for agents (phase contracts) and power users.
+Detailed command contracts live in `.kiro/commands/*.md`. NOTE: users rarely type commands — natural language is the primary interface and the coordinator maps intent to these flows (see CLAUDE.md §"Just talk"). This index exists mainly for agents (phase contracts) and power users.
 
-These are `maestro` workflow commands, not guaranteed UI registrations for every AI tool. Claude Code may expose `.claude/commands/*.md` as slash commands; Codex currently treats `/` as its own built-in TUI menu and does not auto-list these project commands.
+These are `maestro` workflow commands, not guaranteed UI registrations for every AI tool. Claude Code may expose `.kiro/commands/*.md` as slash commands; Codex currently treats `/` as its own built-in TUI menu and does not auto-list these project commands.
 
 In Codex, invoke these as natural-language intents such as `coord: <request>` or `theo /coord: <request>`. Avoid bare leading `/coord` in Codex because unknown slash commands can be intercepted by the Codex TUI.
 
@@ -98,8 +98,8 @@ Skill updates must go through `/skills`; do not update installed skill folders f
 
 ```text
 COMMAND.md                    Root command index
-.claude/commands/README.md    Internal command index
-.claude/commands/*.md         Per-command contracts
+.kiro/commands/README.md    Internal command index
+.kiro/commands/*.md         Per-command contracts
 .maestro/engine/workflow.md           Workflow states, transitions, gates
 .maestro/engine/rules/                Mandatory command policies
 ```

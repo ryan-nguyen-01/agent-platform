@@ -22,7 +22,7 @@ R-003-10: Update agents.yaml after creating or changing coder agents.
 ## Required artifacts
 
 ```text
-.claude/agents/coders/coder-<service>.agent.md
+.kiro/agents/coders/coder-<service>.agent.md
 .maestro/registry/agents.yaml
 .maestro/knowledge/components/<component-id>.yaml
 ```

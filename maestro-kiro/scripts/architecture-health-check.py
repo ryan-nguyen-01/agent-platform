@@ -161,12 +161,6 @@ ENTRYPOINT_REQUIREMENTS = {
         ".maestro/config/response-ui.yaml",
         "scripts/status-dashboard.py",
     ],
-    ".codex/AGENTS.md": [
-        ".maestro/config/model-routing.yaml",
-        ".maestro/runtime/agent-activity.yaml",
-        ".maestro/config/response-ui.yaml",
-        "scripts/status-dashboard.py",
-    ],
 }
 
 STALE_TEXT_PATTERNS = [
@@ -226,7 +220,7 @@ def add(findings: list[dict[str, str]], severity: str, code: str, message: str, 
 
 
 def count_framework_agents() -> int:
-    agents_dir = ROOT / ".claude" / "agents"
+    agents_dir = ROOT / ".kiro" / "agents"
     workflow = len(list((agents_dir / "workflow").glob("*.agent.md")))
     specialists = len(list((agents_dir / "specialists").rglob("*.agent.md")))
     builtins = sum(1 for c in BUILT_IN_CODERS if (agents_dir / "coders" / f"{c}.agent.md").exists())
@@ -236,10 +230,10 @@ def count_framework_agents() -> int:
 def count_files() -> dict[str, int]:
     return {
         "agents": count_framework_agents(),
-        "skills": len(list((ROOT / ".claude" / "skills").rglob("SKILL.md"))),
+        "skills": len(list((ROOT / ".kiro" / "skills").rglob("SKILL.md"))),
         "rules": len([p for p in (ENGINE / "rules").glob("*.md") if p.name != "README.md"]),
         "templates": len([p for p in (ENGINE / "templates").iterdir() if p.is_file()]),
-        "commands": len([p for p in (ROOT / ".claude" / "commands").glob("*.md") if p.name != "README.md"]),
+        "commands": len([p for p in (ROOT / ".kiro" / "commands").glob("*.md") if p.name != "README.md"]),
     }
 
 
@@ -774,9 +768,9 @@ def check_agent_activity(findings: list[dict[str, str]]) -> None:
 
 
 def check_specialists(findings: list[dict[str, str]]) -> None:
-    spec_dir = ROOT / ".claude" / "agents" / "specialists"
+    spec_dir = ROOT / ".kiro" / "agents" / "specialists"
     if not spec_dir.is_dir():
-        add(findings, "error", "specialists-dir-missing", "Missing .claude/agents/specialists/ directory", "specialists")
+        add(findings, "error", "specialists-dir-missing", "Missing .kiro/agents/specialists/ directory", "specialists")
         return
     files = sorted(spec_dir.rglob("*.agent.md"))
     if len(files) != EXPECTED_SPECIALIST_COUNT:
@@ -824,7 +818,7 @@ def check_specialists(findings: list[dict[str, str]]) -> None:
         "dev-verification": "advisor",
         "qc-handoff": "advisor",
     }
-    wf_dir = ROOT / ".claude" / "agents" / "workflow"
+    wf_dir = ROOT / ".kiro" / "agents" / "workflow"
     for agent_id, needle in wiring.items():
         path = wf_dir / f"{agent_id}.agent.md"
         text = path.read_text(encoding="utf-8", errors="ignore").lower() if path.is_file() else ""
@@ -833,11 +827,11 @@ def check_specialists(findings: list[dict[str, str]]) -> None:
 
 
 def check_claude_hooks(findings: list[dict[str, str]]) -> None:
-    settings_path = ROOT / ".claude" / "settings.json"
+    settings_path = ROOT / ".kiro" / "settings.json"
     try:
         settings = json.loads(settings_path.read_text(encoding="utf-8"))
     except Exception as exc:  # noqa: BLE001
-        add(findings, "error", "claude-settings-invalid", f"Cannot parse .claude/settings.json: {exc}", ".claude/settings.json")
+        add(findings, "error", "claude-settings-invalid", f"Cannot parse .kiro/settings.json: {exc}", ".kiro/settings.json")
         return
     hooks = settings.get("hooks", {})
     pre = hooks.get("PreToolUse", []) if isinstance(hooks, dict) else []
@@ -848,7 +842,7 @@ def check_claude_hooks(findings: list[dict[str, str]]) -> None:
     )
     for script in ("scope-guard.py", "secret-guard.py", "destructive-guard.py"):
         if script not in commands:
-            add(findings, "error", "claude-hook-missing", f"settings.json PreToolUse missing {script}", ".claude/settings.json")
+            add(findings, "error", "claude-hook-missing", f"settings.json PreToolUse missing {script}", ".kiro/settings.json")
         if not (ROOT / "scripts" / "hooks" / script).is_file():
             add(findings, "error", "claude-hook-script-missing", f"Missing hook script scripts/hooks/{script}", f"scripts/hooks/{script}")
 
@@ -894,7 +888,7 @@ def check_skill_taxonomy(findings: list[dict[str, str]]) -> None:
         return
     tax = load_yaml(tax_path)
     total = tax.get("total_skills") if isinstance(tax, dict) else None
-    actual = len(list((ROOT / ".claude" / "skills").rglob("SKILL.md")))
+    actual = len(list((ROOT / ".kiro" / "skills").rglob("SKILL.md")))
     if total != actual:
         add(findings, "error", "skill-taxonomy-stale", f"skill-taxonomy total_skills={total} but {actual} SKILL.md found; rerun scripts/build-skill-catalog.py", "skill-taxonomy.yaml")
     if not (ENGINE / "docs" / "skill-catalog.md").is_file():
@@ -950,7 +944,7 @@ def check_codex_plugin(findings: list[dict[str, str]]) -> None:
 def check_codex_prompts(findings: list[dict[str, str]]) -> None:
     """Each command (minus the Codex-excluded set) must have a generated Codex prompt, and there
     must be no stale prompts left over."""
-    cmd_dir = ROOT / ".claude" / "commands"
+    cmd_dir = ROOT / ".kiro" / "commands"
     out_dir = ROOT / ".codex" / "prompts"
     if not out_dir.is_dir():
         add(findings, "error", "codex-prompts-missing", "Missing .codex/prompts/ (run scripts/build-codex-prompts.py)", ".codex/prompts")
@@ -1046,8 +1040,6 @@ def run_checks() -> dict[str, Any]:
     check_specialists(findings)
     check_claude_hooks(findings)
     check_skill_taxonomy(findings)
-    check_codex_plugin(findings)
-    check_codex_prompts(findings)
     return build_report(findings, counts)
 
 

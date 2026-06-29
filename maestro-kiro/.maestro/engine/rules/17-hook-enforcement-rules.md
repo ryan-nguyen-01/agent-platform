@@ -6,7 +6,7 @@ The tool-adapter hook layer that turns prompt-level rules into hard guardrails. 
 implementations must stay in sync:
 
 ```text
-Claude Code  : .claude/settings.json (hooks.PreToolUse) + scripts/hooks/*.py
+Claude Code  : .kiro/settings.json (hooks.PreToolUse) + scripts/hooks/*.py
 ```
 
 Codex relies on the prompt-level rules until it ships a hook runtime.
@@ -26,7 +26,7 @@ R-017-01: The Claude adapter must register three PreToolUse hooks:
           - scope-guard.py      (Write|Edit|MultiEdit|NotebookEdit) — source-edit workflow + coder scope gate (mirrors R-000, R-006).
           - secret-guard.py     (Write|Edit|MultiEdit|NotebookEdit) — block secret material in writes (R-013).
           - destructive-guard.py(Bash)                              — block destructive shell commands (R-011-07).
-R-017-02: scope-guard must gate only likely application source. Framework files (.maestro/engine/**, .claude/**, scripts/**, docs, root *.md) must NOT be gated, so framework maintenance is unaffected.
+R-017-02: scope-guard must gate only likely application source. Framework files (.maestro/engine/**, .kiro/**, scripts/**, docs, root *.md) must NOT be gated, so framework maintenance is unaffected.
 R-017-03: scope-guard must fail closed: missing/invalid active task, missing task-analysis.yaml/context_plan, unapproved architecture review, or a path no active coder allows → block.
 R-017-04: destructive-guard must fail closed for rm -rf, force-push to main/master, git reset --hard, git clean -df, kubectl/terraform apply|destroy|delete, DROP TABLE/DATABASE, find -delete, and fork bombs.
 R-017-05: A hook block must exit non-zero (exit code 2 for Claude PreToolUse) and write an actionable reason to stderr citing the rule.

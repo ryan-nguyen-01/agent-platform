@@ -12,7 +12,7 @@ agents:
     status: "active"
     service_id: "_infra"
     service_name: "Infrastructure (cross-cutting)"
-    agent_file: ".claude/agents/coders/coder-infra.agent.md"
+    agent_file: ".kiro/agents/coders/coder-infra.agent.md"
     scope_file: null
     approval:
       required: false
@@ -65,7 +65,7 @@ agents:
         - "**/secrets/**"
         - "**/*.pem"
         - "**/*.key"
-        - ".claude/**"
+        - ".kiro/**"
         - ".maestro/engine/**"
         - ".maestro/**"
         - ".codex/**"
@@ -93,7 +93,7 @@ agents:
     status: "active"
     service_id: "_database"
     service_name: "Database (cross-cutting)"
-    agent_file: ".claude/agents/coders/coder-database.agent.md"
+    agent_file: ".kiro/agents/coders/coder-database.agent.md"
     scope_file: null
     approval:
       required: false
@@ -155,7 +155,7 @@ agents:
         - "**/secrets/**"
         - "**/*.pem"
         - "**/*.key"
-        - ".claude/**"
+        - ".kiro/**"
         - ".maestro/engine/**"
         - ".maestro/**"
         - ".codex/**"
@@ -182,7 +182,7 @@ agents:
     status: "active"
     service_id: "_data"
     service_name: "Data Generation (cross-cutting)"
-    agent_file: ".claude/agents/coders/coder-data.agent.md"
+    agent_file: ".kiro/agents/coders/coder-data.agent.md"
     scope_file: null
     approval:
       required: false
@@ -232,7 +232,7 @@ agents:
         - "**/secrets/**"
         - "**/*.pem"
         - "**/*.key"
-        - ".claude/**"
+        - ".kiro/**"
         - ".maestro/**"
         - ".codex/**"
         - "inputs/**"

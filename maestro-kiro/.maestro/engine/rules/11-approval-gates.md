@@ -37,7 +37,7 @@ Switch with `/access full | guarded | status`.
 
 ```text
 guarded   (default): the fullaccess allowlist is removed; tool calls prompt as normal.
-fullaccess          : .claude/settings.json permissions.allow grants Bash + file tools so they run
+fullaccess          : .kiro/settings.json permissions.allow grants Bash + file tools so they run
                       without a per-call prompt.
 ```
 
@@ -68,7 +68,7 @@ Every approval must be recorded in one of:
 .maestro/work/tasks/<task-id>/memory-updates.yaml
 .maestro/registry/agents.yaml
 .maestro/runtime/workflow-state.yaml
-.claude/changelog.md
+.kiro/changelog.md
 CHANGELOG.md
 ```
 

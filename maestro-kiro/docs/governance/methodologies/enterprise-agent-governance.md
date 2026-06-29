@@ -86,7 +86,7 @@ silence audit, or grant autonomy beyond the mission need.
 | Interaction Protocol | Agent-human, agent-agent, and agent-system protocol specs. | `docs/governance/enterprise-agent-governance/interaction-protocols/` |
 
 These artifacts are for production or enterprise autonomous agents. They do not replace the developer
-workflow agents under `.claude/agents/workflow/`.
+workflow agents under `.kiro/agents/workflow/`.
 
 ## Lifecycle
 

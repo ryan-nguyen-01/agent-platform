@@ -22,7 +22,7 @@ project_profile:
   evidence:
     - "AGENTS.md"
     - ".maestro/engine/workflow.md"
-    - ".claude/agents/"
+    - ".kiro/agents/"
   source_layout:
     service_roots: []
     app_roots: []
@@ -115,16 +115,16 @@ freshness:
     - ".maestro/engine"
     - ".maestro/knowledge"
     - ".maestro/registry"
-    - ".claude/agents"
-    - ".claude/skills"
-    - ".claude/commands"
+    - ".kiro/agents"
+    - ".kiro/skills"
+    - ".kiro/commands"
   # Drift detection fields consumed by Coordinator startup.
   last_indexed_at: ""
   stale_after_days: 14
   tracked_paths:
     - "services"
     - "inputs"
-    - ".claude/agents"
+    - ".kiro/agents"
     - ".maestro/engine/rules"
     - ".maestro/engine/templates"
   last_drift_check_at: ""
@@ -211,7 +211,7 @@ deep_project_intelligence:
       - ".maestro/work stores shared work decomposition and delivery evidence."
       - ".maestro/runtime and .maestro/memory/sessions are local-only."
       - "apps, services, packages, infra, and tests contain product implementation."
-      - ".claude/agents, .claude/skills, .maestro/engine/rules, .maestro/engine/templates, and .claude/commands are static workflow definitions."
+      - ".kiro/agents, .kiro/skills, .maestro/engine/rules, .maestro/engine/templates, and .kiro/commands are static workflow definitions."
     naming_rules:
       - "Agent files use *.agent.md."
       - "Rules use nn-name.md."
@@ -234,8 +234,8 @@ deep_project_intelligence:
       name: "Project onboarding"
       description: "Coordinator detects missing or stale project knowledge, runs onboarding, writes memory and component contracts, then requests approval for coder generation."
       entrypoints:
-        - ".claude/commands/onboard.md"
-        - ".claude/agents/workflow/onboarding.agent.md"
+        - ".kiro/commands/onboard.md"
+        - ".kiro/agents/workflow/onboarding.agent.md"
       services:
         - "maestro"
       steps:
@@ -265,7 +265,7 @@ deep_project_intelligence:
       name: "Task execution flow"
       description: "Coordinator routes tasks through analysis, planning, scoped component coding, verification, QC, and memory update."
       entrypoints:
-        - ".claude/commands/coord.md"
+        - ".kiro/commands/coord.md"
       services:
         - "maestro"
       steps:
@@ -324,6 +324,6 @@ deep_project_intelligence:
     - topic: "Workflow policy and agent responsibilities"
       paths:
         - ".maestro/engine/workflow.md"
-        - ".claude/agents/*.agent.md"
+        - ".kiro/agents/*.agent.md"
       reason: "Defines coordinator-driven workflow and agent roles."
       confidence: "high"

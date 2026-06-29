@@ -7,7 +7,7 @@ How to extend `maestro`: add or mount product components under the roots declare
 ## Principles
 
 ```text
-Do not copy .claude/ into service repos.
+Do not copy .kiro/ into service repos.
 Do not create a root memory/ or state/.
 Do not use scripts to run the main workflow.
 Do not route raw user input straight into a sub-agent.
@@ -50,7 +50,7 @@ Service coders should be created through the workflow:
 2. Run /onboard
 3. Review the component registry and coder candidates
 4. Approve /create-coders
-5. Agent Factory creates .claude/agents/coders/coder-<service>.agent.md
+5. Agent Factory creates .kiro/agents/coders/coder-<service>.agent.md
 6. Agent Factory updates .maestro/registry/agents.yaml
 ```
 
@@ -63,7 +63,7 @@ Use when the scope is not within a single service, e.g. infra or database.
 Checklist:
 
 ```text
-1. Create .claude/agents/coders/coder-<scope>.agent.md
+1. Create .kiro/agents/coders/coder-<scope>.agent.md
 2. Add the contract to .maestro/registry/agents.yaml
 3. Define allowed_read_paths, allowed_write_paths, forbidden_paths
 4. Add escalation rules and test_policy
@@ -85,7 +85,7 @@ A workflow agent is a control-plane agent, not a coder. Add one only when there 
 Checklist:
 
 ```text
-1. Create .claude/agents/workflow/<role>.agent.md
+1. Create .kiro/agents/workflow/<role>.agent.md
 2. Update .maestro/engine/workflow.md
 3. Update .maestro/runtime/workflow-state.yaml if there is a new state
 4. Update .maestro/engine/templates/workflow-state.template.yaml
@@ -104,7 +104,7 @@ A skill is a capability, not an agent identity.
 Checklist:
 
 ```text
-1. Create .claude/skills/<skill-name>/SKILL.md
+1. Create .kiro/skills/<skill-name>/SKILL.md
 2. Run /skills refresh-registry
 3. Update .maestro/registry/skills.yaml if metadata/risk is needed
 4. Update skills-lock.json if the skill is lock-managed
@@ -163,7 +163,7 @@ To change the default routing, edit the corresponding policy files:
 
 ```text
 .maestro/engine/workflow.md
-.claude/agents/workflow/coordinator.agent.md
+.kiro/agents/workflow/coordinator.agent.md
 .maestro/engine/rules/11-approval-gates.md
 .maestro/runtime/workflow-state.yaml
 ```
@@ -175,7 +175,7 @@ Then update the docs and CHANGELOG.
 Default framework settings live in:
 
 ```text
-.claude/settings.json
+.kiro/settings.json
 ```
 
 Only edit when you want to change the framework's default shipped behavior. For the runtime policy of an onboarded workspace, prefer writing to `.maestro/knowledge/` through the appropriate workflow.

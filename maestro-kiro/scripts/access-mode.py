@@ -6,7 +6,7 @@ for permission. It does NOT change the workflow approval gates (R-011) or any ho
 still asks for everything it must ask, and scope/secret/destructive guards still block (R-011-14).
 
   guarded    (default): the fullaccess allowlist is removed; tool calls prompt as normal.
-  fullaccess          : .claude/settings.json permissions.allow grants Bash/file tools so they run
+  fullaccess          : .kiro/settings.json permissions.allow grants Bash/file tools so they run
                         without a per-call prompt. Workflow gates + hooks unchanged.
 
 IMPORTANT: fullaccess uses a permission ALLOWLIST, not bypassPermissions / --dangerously-skip-
@@ -15,7 +15,7 @@ users (including root) and is safer because each tool is explicitly allowed and 
 still run (destructive/secret/scope guards keep blocking).
 
 This writes both:
-  - .claude/settings.json   permissions.allow   (+ removes any legacy defaultMode=bypassPermissions)
+  - .kiro/settings.json   permissions.allow   (+ removes any legacy defaultMode=bypassPermissions)
   - .maestro/runtime/workflow-state.yaml   access_mode   (for /status visibility)
 
 Usage:

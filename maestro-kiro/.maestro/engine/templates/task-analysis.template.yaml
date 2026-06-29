@@ -137,7 +137,7 @@ architecture_review:
   output_required: ".maestro/work/tasks/{{TASK_ID}}/architecture-review.yaml"
 
 # Specialist advisors to invoke in-pipeline (advisor-only, see R-016).
-# List specialist ids from .claude/agents/specialists/<category>/. Each writes
+# List specialist ids from .kiro/agents/specialists/<category>/. Each writes
 # .maestro/work/tasks/{{TASK_ID}}/advisories/<id>.yaml; the owning workflow agent resolves
 # handoff.must_address before proceeding. Leave empty when no advisory is needed.
 advisory_required: []

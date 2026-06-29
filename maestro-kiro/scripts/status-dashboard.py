@@ -476,7 +476,7 @@ def nested(data: dict[str, Any], *keys: str) -> Any:
 
 def fmt(value: Any, default: str = "-") -> str:
     if value is None or value == "":
-        return default
+        return default if default not in (None, "") else "-"
     return str(value)
 
 
@@ -758,14 +758,14 @@ def render_overview(snapshot: dict[str, Any]) -> str:
     prod = project.get("product", {}) if isinstance(project.get("product"), dict) else {}
 
     # framework structure counts
-    ad = ROOT / ".claude" / "agents"
+    ad = ROOT / ".kiro" / "agents"
     wf = len(list((ad / "workflow").glob("*.agent.md")))
     sp = len(list((ad / "specialists").rglob("*.agent.md")))
     cd = len(list((ad / "coders").glob("*.agent.md")))
-    skills = len(list((ROOT / ".claude" / "skills").rglob("SKILL.md")))
+    skills = len(list((ROOT / ".kiro" / "skills").rglob("SKILL.md")))
     rules = len([p for p in (ROOT / ".maestro" / "engine" / "rules").glob("*.md") if p.name != "README.md"])
     templates = len([p for p in (ROOT / ".maestro" / "engine" / "templates").iterdir() if p.is_file()])
-    commands = len([p for p in (ROOT / ".claude" / "commands").glob("*.md") if p.name != "README.md"])
+    commands = len([p for p in (ROOT / ".kiro" / "commands").glob("*.md") if p.name != "README.md"])
 
     def _docs(sub: str) -> int:
         d = ROOT / "docs" / sub

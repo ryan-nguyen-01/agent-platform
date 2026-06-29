@@ -5,7 +5,7 @@ Ports .cursor/hooks/check-task-analysis.sh to the Claude Code adapter. Turns the
 prompt-based scope rule (R-006) into a hard guardrail:
 
   - Only gates likely APPLICATION source (services/**, src/**, app/**, tests/**, ...).
-    Framework files (.maestro/engine/**, .claude/**, scripts/**, docs) are NOT gated, so
+    Framework files (.maestro/engine/**, .kiro/**, scripts/**, docs) are NOT gated, so
     framework maintenance is unaffected.
   - direct mode allows fast user-driven development without workflow artifacts.
   - assisted mode requires a task manifest but not the governed artifact pipeline.

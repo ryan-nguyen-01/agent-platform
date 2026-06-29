@@ -19,7 +19,7 @@ decomposition, continuation across conversations, and future extraction into mul
 
 ## System Boundaries
 
-- `.claude/` is the Claude-native tool layer and stays at repository root.
+- `.kiro/` is the Claude-native tool layer and stays at repository root.
 - `.maestro/` is the product-development control plane.
 - `docs/` stores official human-readable product artifacts.
 - `apps/`, `services/`, `packages/`, `infra/`, and `tests/` are peer source roots.
