@@ -13,7 +13,7 @@ and just say what you want ("thêm nút X", "sửa API Y", "refactor component Z
 - appends one entry to `WORKLOG.md` (what was asked, what it did, files, notes),
 - and only stops to ask before irreversible/outward actions (delete data, deploy, `git push`, secrets).
 
-It ships the full Maestro skill library (237 skills, FE + BE + tooling) so it rarely lacks a skill; the
+It ships a focused skill set (44 skills) for **Java/Spring Boot backends and ReactJS frontends + UI libraries**; the
 deeper Maestro engine is present as an optional reference library, never a mandatory flow.
 
 The tool-adapter directory is `.kiro/` (agents, skills, commands, hooks, settings) — there is no

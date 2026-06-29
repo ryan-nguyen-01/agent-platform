@@ -35,7 +35,7 @@ name stays stable while `.maestro/project.yaml` defines the product identity and
 
 - 12 workflow agents (see [.kiro/agents/workflow/](.kiro/agents/workflow/))
 - 20 specialist advisors (advisor-only, in-pipeline) at [.kiro/agents/specialists/](.kiro/agents/specialists/) — see [R-016](.maestro/engine/rules/16-specialist-advisory-rules.md)
-- 237 skills (12 workflow + 225 technical) at [.kiro/skills/](.kiro/skills/); discovery layer: [.maestro/engine/docs/skill-catalog.md](.maestro/engine/docs/skill-catalog.md)
+- 44 skills (12 workflow + 32 technical: Java/Spring Boot BE + ReactJS FE + UI libs) at [.kiro/skills/](.kiro/skills/); discovery layer: [.maestro/engine/docs/skill-catalog.md](.maestro/engine/docs/skill-catalog.md)
 - 27 workflow rules at [.maestro/engine/rules/](.maestro/engine/rules/)
 - 59 templates at [.maestro/engine/templates/](.maestro/engine/templates/)
 - 22 slash commands at [.kiro/commands/](.kiro/commands/)

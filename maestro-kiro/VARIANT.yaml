@@ -1,8 +1,8 @@
 name: maestro-kiro
 display_name: "Maestro Kiro"
-purpose: "Direct build companion: you ask, Kiro does it and logs what it did to WORKLOG.md. No task/approval/QC pipeline — Understand -> Do -> Log -> Report. Full FE/BE skill library; matches the project's existing conventions."
+purpose: "Direct build companion: you ask, Kiro does it and logs what it did to WORKLOG.md. No task/approval/QC pipeline — Understand -> Do -> Log -> Report. Focused skill set for Java/Spring Boot backends + ReactJS frontends + UI libraries; matches the project's existing conventions."
 methodology_default: direct
-skills: 237
+skills: 44
 operating_model: kiro-direct
 adapter_dir: .kiro      # single tool-adapter dir (agents/skills/commands/hooks) — no .claude, no .codex
 note: |

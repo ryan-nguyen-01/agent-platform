@@ -54,9 +54,10 @@ BACKEND: language + framework, layering (controller/service/repository or routes
 Record what you learn in `.maestro/conventions.md` (update it as you discover more) so later sessions
 reuse it instead of rescanning. If conventions conflict with a request, follow the request but note it.
 
-Skills help here: use `legacy-code-comprehension` to read unfamiliar code, plus the relevant FE/BE
-skills (`react`, `vue`, `angular`, `nestjs-clean-typescript`, `fastapi-python`, `prisma`, …). Pick by
-domain from `.maestro/engine/docs/skill-catalog.md` (237 skills); the discovery layer is
+Skills help here: use `legacy-code-comprehension` to read unfamiliar code, plus the stack skills —
+BE `java-spring-development`, `spring-boot-engineer`, `spring-framework`; FE `react`, `react-query`,
+`redux-toolkit`/`zustand-state-management`, and UI libs `tailwindcss`, `shadcn`, `mui`, …. Pick by
+domain from `.maestro/engine/docs/skill-catalog.md` (44 skills, focused on Java/Spring Boot BE + ReactJS FE + UI libs); the discovery layer is
 `.maestro/registry/skill-taxonomy.yaml`.
 
 ## When to stop and ask (irreversible / outward actions)

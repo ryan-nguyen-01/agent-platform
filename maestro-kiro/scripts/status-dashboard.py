@@ -551,8 +551,6 @@ def render_compact(snapshot: dict[str, Any]) -> str:
     values = {
         "state": "state="
         + fmt(state.get("current_state"))
-        + " execution="
-        + fmt(state.get("active_execution_mode"), state.get("default_execution_mode"))
         + " knowledge="
         + fmt(snapshot.get("project_brain_status"))
         + " ui="
@@ -606,7 +604,6 @@ def render_section(section: str, snapshot: dict[str, Any], show_models: bool) ->
         lines = [
             "Workflow",
             f"- state: {fmt(state.get('current_state'))}",
-            f"- execution mode: {fmt(state.get('active_execution_mode'), state.get('default_execution_mode'))}",
             f"- verification owner: {fmt(state.get('verification_owner'), 'unknown')}",
             f"- active task: {fmt(state.get('active_task_id'), 'none')}",
             f"- active run: {fmt(snapshot.get('active_run_id'), 'none')}",
@@ -783,7 +780,6 @@ def render_overview(snapshot: dict[str, Any]) -> str:
         "",
         "Methodology & mode",
         f"- methodology: {fmt(methodology.get('methodology'))}",
-        f"- execution mode: {fmt(state.get('active_execution_mode'), fmt(state.get('default_execution_mode')))}",
         f"- verification owner: {fmt(state.get('verification_owner'))}",
         f"- access mode: {fmt(state.get('access_mode'), 'guarded')}",
         "",
@@ -844,8 +840,6 @@ def render(mode: str | None, show_models: bool) -> str:
         return json.dumps(
             {
                 "workflow_state": snapshot["state"].get("current_state"),
-                "execution_mode": snapshot["state"].get("active_execution_mode")
-                or snapshot["state"].get("default_execution_mode"),
                 "verification_owner": snapshot["state"].get("verification_owner"),
                 "active_task_id": snapshot["state"].get("active_task_id"),
                 "active_run_id": snapshot["active_run_id"],
@@ -1155,7 +1149,6 @@ def render_html_status(content: str, selected_mode: str, generated_at: str) -> s
         <section class="section" id="workflow">
           <h2>Workflow</h2>
           <ul class="facts">
-            <li><strong>Execution:</strong> {escape(fmt(state.get("active_execution_mode"), state.get("default_execution_mode")))}</li>
             <li><strong>Verification owner:</strong> {escape(fmt(state.get("verification_owner"), "unknown"))}</li>
             <li><strong>Active task:</strong> {escape(fmt(state.get("active_task_id"), "none"))}</li>
             <li><strong>Active run:</strong> {escape(fmt(snapshot.get("active_run_id"), "none"))}</li>

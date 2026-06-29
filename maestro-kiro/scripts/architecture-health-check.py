@@ -31,7 +31,7 @@ REPORT_MD = RUNTIME / "reports" / "architecture-health-report.md"
 
 EXPECTED_COUNTS = {
     "agents": 35,
-    "skills": 237,
+    "skills": 44,
     "rules": 27,
     "templates": 62,
     "commands": 21,
@@ -89,7 +89,6 @@ EXPECTED_RESPONSE_MODES = {
 
 EXPECTED_STATUS_JSON_KEYS = {
     "workflow_state",
-    "execution_mode",
     "verification_owner",
     "active_run_id",
     "active_runs",

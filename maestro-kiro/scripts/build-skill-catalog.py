@@ -24,7 +24,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILLS = ROOT / ".claude" / "skills"
+SKILLS = ROOT / ".kiro" / "skills"
 TAXONOMY_YAML = ROOT / ".maestro" / "registry" / "skill-taxonomy.yaml"
 REGISTRY_YAML = ROOT / ".maestro" / "registry" / "skills.yaml"
 CATALOG_MD = ROOT / ".maestro" / "engine" / "docs" / "skill-catalog.md"

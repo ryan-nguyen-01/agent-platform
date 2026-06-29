@@ -32,7 +32,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SETTINGS = ROOT / ".claude" / "settings.json"
+SETTINGS = ROOT / ".kiro" / "settings.json"
 STATE = ROOT / ".maestro" / "runtime" / "workflow-state.yaml"
 
 # Tools auto-approved in fullaccess. Bare tool names match all invocations of that tool.
