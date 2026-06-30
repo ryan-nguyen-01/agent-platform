@@ -1,14 +1,9 @@
-# >>> maestro local runtime >>>
-.maestro/runtime/*
-!.maestro/runtime/README.md
-.maestro/memory/sessions/*
-!.maestro/memory/sessions/README.md
-# <<< maestro local runtime <<<
-.agent/
-
 # macOS
 .DS_Store
 
 # Python
 __pycache__/
 *.pyc
+
+# Local agent runtime / scratch
+.agent/

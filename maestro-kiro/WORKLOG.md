@@ -1,15 +1,16 @@
 # Worklog
 
-Append-only record of what Kiro did, newest first. One entry per unit of work. No secrets or long logs.
+The running record of what Kiro did — newest on top, one entry per unit of work. No secrets, no long
+logs. Keep it honest: if something failed or was skipped, say so.
 
 Entry format:
 
 ```markdown
 ## <ISO timestamp> — <short title>
-- **Asked:** <the user's request, paraphrased>
-- **Did:** <what changed/added, in plain language>
+- **Asked:** <the request, paraphrased>
+- **Did:** <what changed, in plain language>
 - **Files:** <paths touched>
-- **Notes:** <assumptions, follow-ups, anything skipped> (omit if none)
+- **Notes:** <assumptions / follow-ups / anything skipped>   (omit if none)
 ```
 
 ---

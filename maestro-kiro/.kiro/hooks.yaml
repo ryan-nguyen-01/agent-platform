@@ -1,0 +1,37 @@
+# Kiro agent hooks — automated agent actions on events.
+# Each hook: a trigger (event + optional file pattern) and the instructions Kiro runs when it fires.
+# Events: fileCreated | fileSaved | fileDeleted | promptSubmit | agentStop | preToolUse | postToolUse | manual
+# Edit freely; disable a hook with `enabled: false`.
+
+hooks:
+  - name: worklog-on-stop
+    enabled: true
+    event: agentStop
+    instructions: >
+      If this turn changed any files, make sure there is a matching entry at the top of WORKLOG.md
+      (timestamp, what was asked, what was done, files, notes). Do not record secrets or long logs.
+
+  - name: backend-convention-check
+    enabled: true
+    event: fileSaved
+    pattern: "**/*.java"
+    instructions: >
+      Quick self-review against .kiro/steering/structure.md: layering respected (controller → service
+      → repository), no entity leaking past the service layer, errors via the project's handler, input
+      validated, no dead code left from the change. Fix small deviations; flag larger ones.
+
+  - name: frontend-convention-check
+    enabled: true
+    event: fileSaved
+    pattern: "**/*.{tsx,jsx,ts}"
+    instructions: >
+      Quick self-review against .kiro/steering/structure.md: reuse existing shared components and hooks
+      instead of recreating, follow the project's state/data-fetching and styling approach, keep naming
+      consistent, remove dead code introduced by the change.
+
+  - name: refresh-steering
+    enabled: true
+    event: manual
+    instructions: >
+      Re-scan the codebase and update .kiro/steering/tech.md and structure.md to match the current
+      stack and conventions (so future sessions don't rescan from scratch).
