@@ -13,7 +13,7 @@ in it — the agent follows that template's workflow, gates, and identity.
 | [`maestro-enterprise/`](maestro-enterprise/) | Operate governed/production agents: compliance, audit, accountability | enterprise-agent-governance | 166 |
 | [`maestro-lite/`](maestro-lite/) | Ship a small tool/prototype fast, minimal ceremony (no specialist advisors) | risk-based-routing | 39 |
 | [`maestro-brownfield/`](maestro-brownfield/) | Maintain an EXISTING project (`source/` + `intake/`): deep onboarding, precise tasks, **ask-don't-infer** | risk-based-routing | 227 |
-| [`maestro-kiro/`](maestro-kiro/) | Lean **Kiro-native** workspace (`.kiro/` steering + specs + hooks): **ask → do → log**, tuned for Spring Boot + ReactJS | direct | 32 |
+| [`maestro-kiro/`](maestro-kiro/) | Lean **Kiro-native** workspace (`.kiro/` steering + specs + hooks): **ask → do → log**, full-stack Spring Boot · Node · Next · React | direct | 57 |
 
 ## Use it
 

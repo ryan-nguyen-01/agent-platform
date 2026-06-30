@@ -15,7 +15,7 @@ maintenance template.
 | `maestro-enterprise/` | Agentic Enterprise: governance, compliance, audit, production agents | enterprise-agent-governance | 166 | full, including governance + audit + enterprise docs |
 | `maestro-lite/` | Small tools/prototypes: direct mode, mini-brief instead of full blueprint | risk-based-routing | 39 | minimal core (no scaffolding) |
 | `maestro-brownfield/` † | EXISTING project maintenance: onboard deeply, execute precisely, **ask-don't-infer** | risk-based-routing | 227 | `source/` (existing code) + `intake/` (raw user material) — purpose-fit, never stamps structure onto a repo |
-| `maestro-kiro/` † | Lean **Kiro-native** workspace: `.kiro/` steering + specs + hooks; **ask → do → log**, tuned for Spring Boot + ReactJS | direct | 32 | pure `.kiro/` (steering/skills/specs/hooks) + `WORKLOG.md`; no `.maestro/`, no pipeline |
+| `maestro-kiro/` † | Lean **Kiro-native** workspace: `.kiro/` steering + specs + hooks; **ask → do → log**, full-stack Spring Boot · Node · Next · React | direct | 57 | pure `.kiro/` (steering/skills/specs/hooks) + `WORKLOG.md`; no `.maestro/`, no pipeline |
 
 † `maestro-adlc/`, `maestro-brownfield/`, and `maestro-kiro/` are **independent, hand-maintained**
 templates — they have no manifest here and are NOT built by `build-variant.py`. Their shapes

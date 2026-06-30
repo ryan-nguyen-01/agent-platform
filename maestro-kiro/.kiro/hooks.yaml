@@ -20,14 +20,16 @@ hooks:
       → repository), no entity leaking past the service layer, errors via the project's handler, input
       validated, no dead code left from the change. Fix small deviations; flag larger ones.
 
-  - name: frontend-convention-check
+  - name: typescript-convention-check
     enabled: true
     event: fileSaved
     pattern: "**/*.{tsx,jsx,ts}"
     instructions: >
-      Quick self-review against .kiro/steering/structure.md: reuse existing shared components and hooks
-      instead of recreating, follow the project's state/data-fetching and styling approach, keep naming
-      consistent, remove dead code introduced by the change.
+      Quick self-review against .kiro/steering/structure.md for the right layer:
+      Frontend (React/Next) — reuse shared components and hooks, follow the project's state/data-fetching
+      and styling approach, respect server vs client components. Node backend (NestJS/Fastify/Koa) —
+      respect the module/service/repository layering, validation, error shape, and ORM patterns.
+      Keep naming consistent and remove dead code introduced by the change.
 
   - name: refresh-steering
     enabled: true
