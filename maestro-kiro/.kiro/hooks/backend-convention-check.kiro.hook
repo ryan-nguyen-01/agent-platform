@@ -1,0 +1,17 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "backend-convention-check",
+      "description": "Khi lưu file Java/Spring, tự soi nhanh theo convention dự án.",
+      "trigger": "PostFileSave",
+      "matcher": "\\.java$",
+      "action": {
+        "type": "agent",
+        "prompt": "Tự soi nhanh file Java/Spring vừa lưu theo .kiro/steering/structure.md: đúng layering (controller -> service -> repository), entity không lọt ra ngoài tầng service, lỗi qua handler của dự án, input được validate, không để dead code do thay đổi tạo ra. Tái dùng thành phần chung trong .kiro/steering/inventory.md. Sửa lệch nhỏ; nêu lệch lớn. KHÔNG chạy git."
+      },
+      "timeout": 0,
+      "enabled": false
+    }
+  ]
+}

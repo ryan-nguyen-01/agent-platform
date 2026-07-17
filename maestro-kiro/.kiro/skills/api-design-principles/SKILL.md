@@ -1,7 +1,9 @@
 ---
 name: api-design-principles
 description: Master REST and GraphQL API design principles to build intuitive, scalable, and maintainable APIs that delight developers. Use when designing new APIs, reviewing API specifications, or establishing API design standards.
-category: backend
+metadata:
+  category: backend-java
+  summary: Thiết kế API REST/GraphQL (resource, versioning, lỗi)
 ---
 
 # API Design Principles

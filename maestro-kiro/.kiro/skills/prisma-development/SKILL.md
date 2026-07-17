@@ -1,7 +1,9 @@
 ---
 name: prisma-development
 description: Comprehensive Prisma ORM development guidelines with TypeScript, schema design, migrations, and best practices.
-category: database
+metadata:
+  category: data-orm
+  summary: Làm việc với Prisma
 ---
 
 # Prisma ORM Development

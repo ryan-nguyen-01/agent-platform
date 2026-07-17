@@ -1,7 +1,9 @@
 ---
 name: websocket-development
 description: Best practices and guidelines for building real-time applications with WebSocket communication
-category: backend
+metadata:
+  category: backend-node
+  summary: Realtime WebSocket (thiết kế, reconnect, scale)
 ---
 
 # WebSocket Development

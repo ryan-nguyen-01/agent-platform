@@ -1,7 +1,9 @@
 ---
 name: scss-best-practices
 description: SCSS/Sassy CSS best practices and coding guidelines for maintainable, scalable stylesheets
-category: frontend
+metadata:
+  category: ui-styling
+  summary: SCSS/Sass
 ---
 
 # SCSS Best Practices

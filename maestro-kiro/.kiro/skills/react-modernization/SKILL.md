@@ -1,7 +1,9 @@
 ---
 name: react-modernization
 description: Upgrade React applications to latest versions, migrate from class components to hooks, and adopt concurrent features. Use when modernizing React codebases, migrating to React Hooks, or upgrading to latest React versions.
-category: testing
+metadata:
+  category: frontend-react
+  summary: Hiện đại hoá/refactor code React cũ
 ---
 
 # React Modernization

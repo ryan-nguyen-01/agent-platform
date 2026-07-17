@@ -1,7 +1,9 @@
 ---
 name: postcss-best-practices
 description: PostCSS best practices and configuration guidelines for modern CSS processing and optimization
-category: frontend
+metadata:
+  category: ui-styling
+  summary: PostCSS
 ---
 
 # PostCSS Best Practices

@@ -1,7 +1,9 @@
 ---
 name: postgresql-best-practices
 description: PostgreSQL development best practices for schema design, query optimization, and database administration
-category: database
+metadata:
+  category: data-orm
+  summary: Schema, index, query PostgreSQL
 ---
 
 # PostgreSQL Best Practices

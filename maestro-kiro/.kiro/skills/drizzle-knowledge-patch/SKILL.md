@@ -1,16 +1,17 @@
 ---
 name: drizzle-knowledge-patch
 description: "Drizzle ORM changes since training cutoff (latest: 1.0.0-beta.19) — consolidated validator imports, Effect Schema support, node-sqlite driver, .comment() query tagging. Load before working with Drizzle."
-category: knowledge-patch
-version: "1.0.0-beta.19"
 license: MIT
 metadata:
   author: Nevaberry
+  category: data-orm
+  summary: Thay đổi Drizzle gần đây
+  version: "1.0.0-beta.19"
 ---
 
 # Drizzle ORM Knowledge Patch
 
-Claude Opus 4.6 knows Drizzle ORM through 0.30.x. This skill provides features from 1.0.0-beta.15 (2025-02-05) onwards.
+The model's baseline knowledge may only cover Drizzle ORM through 0.30.x. This skill provides features from 1.0.0-beta.15 (2025-02-05) onwards.
 
 ## Index
 

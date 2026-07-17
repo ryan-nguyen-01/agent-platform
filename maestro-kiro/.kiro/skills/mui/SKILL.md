@@ -1,7 +1,9 @@
 ---
 name: mui
 description: Material-UI v7 component library patterns including sx prop styling, theme integration, responsive design, and MUI-specific hooks. Use when working with MUI components, styling with sx prop, theme customization, or MUI utilities.
-category: frontend
+metadata:
+  category: ui-styling
+  summary: Component Material UI v7 (sx, theme)
 ---
 
 # MUI v7 Patterns
@@ -500,6 +502,6 @@ const styles = {
 ## Additional Resources
 
 For more detailed patterns, see:
-- [styling-guide.md](resources/styling-guide.md) - Advanced styling patterns
-- [component-library.md](resources/component-library.md) - Component examples
-- [theme-customization.md](resources/theme-customization.md) - Theme setup
+- [styling-guide.md](references/styling-guide.md) - Advanced styling patterns
+- [component-library.md](references/component-library.md) - Component examples
+- [theme-customization.md](references/theme-customization.md) - Theme setup

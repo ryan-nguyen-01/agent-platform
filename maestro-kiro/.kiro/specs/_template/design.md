@@ -1,41 +1,41 @@
-# Design — <feature-name>
+# Design — <tên-feature>
 
-> Grounded in the real codebase and `.kiro/steering/` (tech.md, structure.md). Reference existing
-> code/utilities to reuse — don't reinvent.
+> Bám code thật và `.kiro/steering/` (tech.md, structure.md). Tham chiếu code/utility có sẵn để tái
+> dùng — đừng phát minh lại.
 
-## Overview
+## Tổng quan
 
-<the approach in a paragraph: what we build and the shape of the solution>
+<cách tiếp cận trong một đoạn: xây cái gì và hình dạng lời giải>
 
-## Architecture
+## Kiến trúc
 
-<how the pieces fit; a small diagram or bullet flow. BE layers + FE components touched.>
+<các mảnh ghép với nhau ra sao; sơ đồ nhỏ hoặc luồng gạch đầu dòng. Tầng BE + component FE bị đụng.>
 
-## Backend (Spring Boot)
+## Backend (Spring Boot / Node.js)
 
-- **Endpoints / contracts:** <method + path + request/response DTOs>
-- **Domain / entities:** <entities, relationships, new fields>
-- **Persistence:** <repositories, queries, migration>
-- **Validation & errors:** <rules + error responses, matching the project's shape>
+- **Endpoint / contract:** <method + path + request/response DTO>
+- **Domain / entity:** <entity, quan hệ, field mới>
+- **Lưu trữ:** <repository, query, migration>
+- **Validation & lỗi:** <quy tắc + response lỗi, khớp shape của dự án>
 
-## Frontend (React)
+## Frontend (React / Next.js)
 
-- **Components:** <new/changed components, where they live, shared ones reused>
-- **State & data:** <store/hook/query changes>
-- **UI:** <library primitives + styling approach>
+- **Component:** <component mới/đổi, nằm đâu, tái dùng component chung nào>
+- **State & data:** <thay đổi store/hook/query>
+- **UI:** <primitive thư viện + cách styling>
 
-## Data model / schema changes
+## Data model / thay đổi schema
 
-<tables/columns/DTOs; migration plan>
+<bảng/cột/DTO; kế hoạch migration>
 
-## Trade-offs & alternatives
+## Trade-off & phương án khác
 
-- <decision> — chosen because <reason>; alternative <X> rejected because <reason>
+- <quyết định> — chọn vì <lý do>; phương án <X> loại vì <lý do>
 
-## Testing strategy
+## Chiến lược test
 
-- <unit/integration/e2e to add; what proves each requirement>
+- <unit/integration/e2e cần thêm; cái gì chứng minh mỗi requirement>
 
-## Risks
+## Rủi ro
 
-- <risk> → <mitigation>
+- <rủi ro> → <giảm thiểu>

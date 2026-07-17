@@ -1,7 +1,9 @@
 ---
 name: react
 description: Expert in React development with modern patterns, hooks, and performance optimization
-category: frontend
+metadata:
+  category: frontend-react
+  summary: Component, pattern, hiệu năng React
 ---
 
 # React

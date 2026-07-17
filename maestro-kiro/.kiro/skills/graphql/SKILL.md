@@ -1,7 +1,9 @@
 ---
 name: graphql
 description: Expert in GraphQL API development with type-safe patterns and optimization
-category: backend
+metadata:
+  category: backend-node
+  summary: GraphQL schema, resolver, tối ưu query
 ---
 
 # GraphQL

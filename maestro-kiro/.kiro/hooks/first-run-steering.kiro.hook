@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "first-run-steering",
+      "description": "Phiên mới: nếu steering còn là template trống thì quét repo và điền.",
+      "trigger": "SessionStart",
+      "action": {
+        "type": "agent",
+        "prompt": "Kiểm tra .kiro/steering/: product.md, tech.md, structure.md, inventory.md và services.md. Nếu còn là placeholder chưa điền và source/ có code, hãy quét source/: (1) liệt kê từng service/app vào bảng services.md (đường dẫn, loại FE/BE, stack, DB, trạng thái cũ/mới, gọi tới ai); (2) với MỖI service tạo hồ sơ .kiro/steering/svc-<tên>.md từ svc-_template.md — điền kiến trúc, convention riêng, DB/migrations, lệnh build/run/test, inventory tái dùng, gotchas từ code thật, CHỌN bộ skill cho service từ .kiro/skills/CATALOG.md theo stack thật (mục 'Skills cho service này'), và đặt frontmatter inclusion: fileMatch với fileMatchPattern source/<folder>/**; (3) điền các file steering chung. Văn viết tiếng Việt, thuật ngữ/tên code giữ tiếng Anh. Không sửa code ứng dụng. source/ trống hoặc steering đã điền thì không làm gì."
+      },
+      "timeout": 0,
+      "enabled": false
+    }
+  ]
+}

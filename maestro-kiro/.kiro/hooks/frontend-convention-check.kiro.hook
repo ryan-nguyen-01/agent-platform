@@ -1,0 +1,17 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "frontend-convention-check",
+      "description": "Khi lưu file TS/JS(X), tự soi nhanh theo đúng tầng (React/Next FE hoặc Node BE).",
+      "trigger": "PostFileSave",
+      "matcher": "\\.(tsx?|jsx?)$",
+      "action": {
+        "type": "agent",
+        "prompt": "Tự soi nhanh file TS/JS vừa lưu theo .kiro/steering/structure.md cho đúng tầng. Frontend (React/Next): tái dùng component/hook chung trong .kiro/steering/inventory.md, theo cách state/data-fetching và styling của dự án, tôn trọng server vs client component. Node backend (NestJS/Fastify/Koa): tôn trọng layering module/service/repository, validation, shape lỗi, pattern ORM. Giữ đặt tên nhất quán, xoá dead code do thay đổi tạo ra. KHÔNG chạy git."
+      },
+      "timeout": 0,
+      "enabled": false
+    }
+  ]
+}

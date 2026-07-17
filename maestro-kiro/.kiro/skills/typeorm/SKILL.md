@@ -1,7 +1,9 @@
 ---
 name: typeorm
 description: Guidelines for developing with TypeORM, a full-featured ORM for TypeScript and JavaScript supporting multiple databases
-category: database
+metadata:
+  category: data-orm
+  summary: TypeORM
 ---
 
 # TypeORM Development Guidelines

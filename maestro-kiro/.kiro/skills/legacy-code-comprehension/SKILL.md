@@ -1,7 +1,9 @@
 ---
 name: legacy-code-comprehension
 description: Read and understand an unfamiliar/legacy codebase safely before changing it — entry points, dependency tracing, behavior mapping, characterization tests, seams. Use during onboarding of an existing project or before any change in code you did not write.
-category: meta-process
+metadata:
+  category: cross-cutting
+  summary: Đọc & hiểu codebase lạ (quét trước khi sửa)
 ---
 
 # Legacy Code Comprehension

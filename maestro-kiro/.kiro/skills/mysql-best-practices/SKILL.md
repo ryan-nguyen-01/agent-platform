@@ -1,7 +1,9 @@
 ---
 name: mysql-best-practices
 description: MySQL development best practices for schema design, query optimization, and database administration
-category: database
+metadata:
+  category: data-orm
+  summary: Schema & query MySQL
 ---
 
 # MySQL Best Practices

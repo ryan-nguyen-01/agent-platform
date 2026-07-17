@@ -1,27 +1,29 @@
-# Specs (optional)
+# Specs (tuỳ chọn)
 
-Spec mode is the **opt-in** path for a large or fuzzy feature. The default is Understand → Do → Log
-(see `.kiro/steering/kiro.md`) — only reach for a spec when the change is too big to one-shot or the
-user explicitly asks ("xây spec cho …", "let's spec this out").
+Spec mode là hướng **chọn-thêm** cho feature lớn hoặc mơ hồ. Mặc định là Hiểu → Làm → Ghi (xem
+`.kiro/steering/kiro.md`) — chỉ dùng spec khi thay đổi quá lớn để làm một lần hoặc user yêu cầu rõ
+("làm spec cho …", "spec cái này ra").
 
-A spec is one folder per feature with three files, written and approved in order:
+Một spec là một thư mục cho một feature, gồm ba file, viết & duyệt theo thứ tự:
 
 ```text
-.kiro/specs/<feature-name>/
-  requirements.md   WHAT & WHY — user stories + EARS acceptance criteria
-  design.md         HOW — architecture, data model, APIs, components, trade-offs
-  tasks.md          STEPS — an ordered, checkable implementation plan
+.kiro/specs/<ten-feature>/
+  requirements.md   CÁI GÌ & VÌ SAO — user story + acceptance criteria kiểu EARS
+  design.md         LÀM THẾ NÀO — kiến trúc, data model, API, component, trade-off
+  tasks.md          CÁC BƯỚC — kế hoạch triển khai có thứ tự, tick được
 ```
 
-## Workflow
+## Quy trình
 
-1. **Requirements** — write `requirements.md` from `_template/`. Get the user's OK before designing.
-2. **Design** — write `design.md` (grounded in the real codebase + `.kiro/steering/`). Get the user's OK.
-3. **Tasks** — break design into small, ordered, verifiable tasks in `tasks.md`.
-4. **Build** — work the tasks top to bottom, checking each `[ ] → [x]` as you finish it, and log
-   completed tasks to `WORKLOG.md` like any other work. Confirm before irreversible/outward actions.
+1. **Requirements** — viết `requirements.md` từ `_template/`. Được user OK rồi mới sang design.
+2. **Design** — viết `design.md` (bám code thật + `.kiro/steering/`). Được user OK.
+3. **Tasks** — chia design thành các task nhỏ, có thứ tự, kiểm chứng được trong `tasks.md`.
+4. **Làm** — chạy task từ trên xuống, tick từng cái `[ ] → [x]` khi xong, và ghi task đã xong vào
+   `WORKLOG.md` như mọi việc khác. Xác nhận trước các thao tác không-hoàn-tác/ra-ngoài.
+5. **Test** — feature xong thì test theo luồng TEST (`.kiro/testing/`): thiết kế test case từ chính
+   `requirements.md` (bảng validation là nguồn trực tiếp) rồi thực thi; bug → fix tận gốc → retest.
 
-Keep specs in sync with reality: if the design changes mid-build, update `design.md`/`tasks.md` rather
-than letting them drift. A finished feature's spec is the record of how it was built.
+Giữ spec khớp thực tế: nếu design đổi giữa chừng, cập nhật `design.md`/`tasks.md` chứ đừng để lệch. Spec
+của một feature đã xong là bản ghi cách nó được xây.
 
-Start from the templates in [`_template/`](_template/).
+Bắt đầu từ template trong [`_template/`](_template/).

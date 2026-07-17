@@ -1,7 +1,9 @@
 ---
 name: react-query
 description: Guidelines for using React Query for data fetching, caching, and server state synchronization in React applications
-category: frontend
+metadata:
+  category: frontend-react
+  summary: Server-state với TanStack Query
 ---
 
 # React Query Best Practices

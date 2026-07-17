@@ -1,7 +1,9 @@
 ---
 name: test-driven-development
 description: Use when implementing any feature or bugfix, before writing implementation code
-category: testing
+metadata:
+  category: qc-testing
+  summary: Quy trình TDD khi viết code mới
 ---
 
 # Test-Driven Development (TDD)
@@ -357,7 +359,7 @@ Never fix bugs without a test.
 
 ## Testing Anti-Patterns
 
-When adding mocks or test utilities, read @testing-anti-patterns.md to avoid common pitfalls:
+When adding mocks or test utilities, read @references/testing-anti-patterns.md to avoid common pitfalls:
 - Testing mock behavior instead of real behavior
 - Adding test-only methods to production classes
 - Mocking without understanding dependencies

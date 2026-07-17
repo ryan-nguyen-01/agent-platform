@@ -1,18 +1,18 @@
 # Worklog
 
-The running record of what Kiro did — newest on top, one entry per unit of work. No secrets, no long
-logs. Keep it honest: if something failed or was skipped, say so.
+Bản ghi việc Kiro đã làm — mới nhất trên cùng, mỗi mục một đơn vị công việc. Không secret, không log
+dài. Giữ trung thực: có gì hỏng hoặc bỏ qua thì ghi rõ.
 
-Entry format:
+Định dạng một mục:
 
 ```markdown
-## <ISO timestamp> — <short title>
-- **Asked:** <the request, paraphrased>
-- **Did:** <what changed, in plain language>
-- **Files:** <paths touched>
-- **Notes:** <assumptions / follow-ups / anything skipped>   (omit if none)
+## <thời gian ISO> — <tiêu đề ngắn>
+- **Yêu cầu:** <yêu cầu, tóm tắt>
+- **Đã làm:** <thay đổi gì, mô tả dễ hiểu>
+- **Files:** <đường dẫn đã đụng>
+- **Ghi chú:** <assumption / việc còn lại / bỏ qua gì>   (bỏ nếu không có)
 ```
 
 ---
 
-<!-- Kiro appends new entries below this line, newest first. -->
+<!-- Kiro thêm mục mới bên dưới dòng này, mới nhất trên cùng. -->

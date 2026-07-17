@@ -1,7 +1,9 @@
 ---
 name: java-spring-development
 description: Java Spring Boot development guidelines with best practices for building robust, secure, and maintainable enterprise applications
-category: backend
+metadata:
+  category: backend-java
+  summary: Phát triển app Spring Boot end-to-end
 ---
 
 # Java Spring Development Best Practices

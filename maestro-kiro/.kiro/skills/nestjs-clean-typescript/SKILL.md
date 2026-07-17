@@ -1,7 +1,9 @@
 ---
 name: nestjs-clean-typescript
 description: Clean NestJS API development with TypeScript following SOLID principles, modular architecture, and comprehensive testing practices.
-category: testing
+metadata:
+  category: backend-node
+  summary: NestJS + TypeScript sạch (module, DI, validation)
 ---
 
 # NestJS Clean TypeScript

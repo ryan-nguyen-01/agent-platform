@@ -1,7 +1,9 @@
 ---
 name: zustand-state-management
 description: Best practices for Zustand state management in React and Next.js applications with TypeScript.
-category: frontend
+metadata:
+  category: frontend-react
+  summary: Store Zustand
 ---
 
 # Zustand State Management

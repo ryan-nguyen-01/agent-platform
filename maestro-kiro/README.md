@@ -2,114 +2,160 @@
 
 # Maestro Kiro
 
-**You ask. Kiro does it — and writes down what it did.**
+**Bạn hỏi. Kiro làm — và tự ghi lại việc đã làm.**
 
-A lean, [Kiro](https://kiro.dev)-native workspace for shipping **full-stack web** features fast —
-**Java/Spring Boot · Node.js · Next.js · ReactJS** — no task tickets, no approval pipeline. Just
-*Understand → Do → Log*.
+Một workspace [Kiro](https://kiro.dev) tự chứa để bảo trì & phát triển dự án **full-stack** —
+**Java/Spring Boot · Node.js · Next.js · ReactJS** — theo kiểu [Maestro Brownfield](../maestro-brownfield):
+code của dự án nằm trong `source/`, mọi tài liệu thô nằm trong `intake/`. Việc nhỏ: *Hiểu → Làm →
+Kiểm → Ghi*, không nghi thức. Việc nhiều bước: **một Kiro đóng cả team** (điều phối · phân tích ·
+dev · **QC tester thực thụ**) giao tiếp bằng **file bàn giao** — trạng thái luôn nằm trên đĩa.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE)
 [![Made for Kiro](https://img.shields.io/badge/made%20for-Kiro-5A31F4.svg)](https://kiro.dev)
 [![Stack](https://img.shields.io/badge/stack-Spring%20Boot%20%C2%B7%20Node%20%C2%B7%20Next%20%C2%B7%20React-success.svg)](.kiro/steering/tech.md)
-[![Skills](https://img.shields.io/badge/skills-57-blue.svg)](.kiro/skills/CATALOG.md)
+[![Skills](https://img.shields.io/badge/skills-60-blue.svg)](.kiro/skills/CATALOG.md)
+[![CI](https://img.shields.io/badge/CI-validate-brightgreen.svg)](.github/workflows/validate.yml)
 
 </div>
 
 ---
 
-## Why
+## Vì sao
 
-Most agent setups make you babysit a process: write a ticket, get it analyzed, approve a plan, hand off
-to a coder, run QC. Great for ceremony, slow for real work.
+Đa số setup agent bắt bạn trông chừng một quy trình: viết ticket, phân tích, duyệt kế hoạch, bàn giao
+cho coder, chạy QC. Nhiều nghi thức, chậm việc thật.
 
-**Kiro flips it.** Ask in plain language → Kiro reads the relevant code, matches your conventions, makes
-the change, and appends one honest entry to `WORKLOG.md`. It only stops to ask before something it
-can't undo (delete, deploy, push, secrets). That's it.
+**Kiro làm ngược lại.** Bạn nói bằng ngôn ngữ tự nhiên → Kiro đọc đúng chỗ (tài liệu trong `intake/`,
+code trong `source/`, sổ tái dùng `inventory.md`), khớp convention của bạn, thực hiện thay đổi, và
+thêm một mục trung thực vào `WORKLOG.md`. Nó chỉ dừng để hỏi trước những việc không thể hoàn tác
+(xoá, deploy, push, secret) hoặc khi yêu cầu mơ hồ thật sự.
 
-It's tuned for a focused full-stack lane so it's actually good at it: **Spring Boot or Node.js
-backends, React or Next.js frontends, the UI libraries, ORMs, and auth you already use** — 57 curated
-skills, zero bloat.
+**Nó theo dự án của bạn, không áp khuôn.** Kiro đọc cách codebase của bạn thật sự được viết — layering,
+đặt tên, thư viện, luồng — và khớp theo đó. Steering và skills là kiến thức khởi đầu; convention thật
+của dự án luôn thắng.
 
-## Quickstart
+## Bắt đầu nhanh
+
+Workspace **tự chứa** — không cần cài đặt gì:
 
 ```bash
-# 1. Drop .kiro/ (and WORKLOG.md) into your project — or start here and add your code.
-cp -R maestro-kiro/.kiro  your-project/
-cp    maestro-kiro/WORKLOG.md  your-project/
+# 1. Copy nguyên thư mục này tới đâu tuỳ bạn
+cp -R maestro-kiro ~/work/my-workspace && cd ~/work/my-workspace
 
-# 2. Open the project in Kiro (kiro.dev). Steering loads automatically from .kiro/steering/.
+# 2. Đưa code dự án vào source/ (mỗi service/app một thư mục — bao nhiêu con cũng được,
+#    con cũ lẫn con mới, FE lẫn BE)
+mv ~/old/legacy-api source/legacy-api
+mv ~/old/new-api    source/new-api
+mv ~/old/my-webapp  source/my-webapp
 
-# 3. Just talk:
-#    "add a GET /users/{id} endpoint returning UserDto"
-#    "build a Settings page with the shared <Card> and our form hook"
+# 3. Thả tài liệu thô vào intake/ (SRS, spec, bug report, log, screenshot…)
+cp ~/docs/srs-v2.pdf intake/
+
+# 4. Mở trong Kiro và cứ nói:
+#    "quét dự án đi"        → đăng ký từng service vào services.md + hồ sơ svc-<tên>.md riêng
+#    "thêm endpoint GET /users/{id} trả UserDto"  → luồng DIRECT
+#    "phân tích luồng nghiệp vụ API tạo đơn hàng" → luồng ANALYZE
+#    "viết test case cho màn hình đăng ký theo tài liệu trong intake" → luồng TEST
 ```
 
-First run, tell Kiro about your project: fill `.kiro/steering/product.md` and let it scan to complete
-`tech.md` / `structure.md` (or run the **refresh-steering** hook). After that it knows your stack and
-conventions and stops rescanning.
-
-## How it works
+## Nó hoạt động thế nào
 
 ```text
-You ask
+Bạn hỏi
    │
    ▼
-Understand   detect the stack/layer (Spring · Node · React · Next · DB/UI),
-             match conventions in .kiro/steering/structure.md, load the right skill
-Do           implement directly — no ticket, no gate, no hand-off; reuse what exists
-Verify       build/typecheck/test the changed area; no dead code, one code path
-Log          append one entry to WORKLOG.md (asked · did · files · notes)
-Report       quick summary + any assumption
+Hiểu    đọc đúng nguồn: intake/INDEX.md → tài liệu · source/ → code thật · inventory.md → cái có sẵn
+        nhận diện stack/tầng (Spring · Node · React · Next · DB/UI), nạp skill phù hợp
+Làm     code trực tiếp trong source/ — không ticket, không cổng; TÁI DÙNG thay vì viết lại
+Kiểm    build/typecheck/test vùng đã đổi; không dead code, một code path
+Ghi     thêm một mục vào WORKLOG.md (yêu cầu · đã làm · files · ghi chú)
+Báo     tóm tắt ngắn + assumption
 ```
 
-For a **large or fuzzy feature**, Kiro switches to **spec mode** (`requirements → design → tasks`,
-see below). Small, clear changes stay on the direct flow above.
+Năm luồng, chọn theo việc (định nghĩa đầy đủ trong [`.kiro/steering/kiro.md`](.kiro/steering/kiro.md)):
 
-Kiro confirms first only for irreversible / outward actions: deleting data, deploying, `git push`,
-writing secrets, or a real two-way-door decision.
+| Luồng | Khi nào | Output |
+| --- | --- | --- |
+| **DIRECT** | thay đổi nhỏ/rõ | code trong `source/` + WORKLOG |
+| **SPEC** | feature lớn/mơ hồ | `.kiro/specs/<feature>/` (requirements EARS + bảng validation → design → tasks) |
+| **ANALYZE** | "phân tích luồng X", "trace FE sang BE", chuẩn bị migration | skill `analyze-flow`: mỗi tính năng một file `.kiro/analysis/<x>.md` (`file:line`, bảng hành vi theo case, migration notes) + `dependency-map.md` liên hệ giữa tính năng |
+| **TEST** | "viết test case / test đi" | `.kiro/testing/<module>/<tinh-nang>/` + INDEX.md — xem dưới |
+| **INTAKE** | vừa thả tài liệu vào `intake/` | phân loại + `intake/INDEX.md`; cờ secret; code lạc chỗ thì hỏi |
 
-## What's inside
+## Team — một Kiro, nhiều vai, bàn giao bằng file
+
+Với việc nhiều bước/nhiều service, Kiro chạy **task pipeline** ([`team.md`](.kiro/steering/team.md)):
+vai **COORDINATOR** chuẩn hoá yêu cầu thành `.kiro/team/tasks/<id>/task.md` (kèm yêu cầu nghiệp vụ +
+Definition of Done) rồi giao lần lượt cho **ANALYST → DEV → TESTER** — mỗi vai chỉ nạp **bộ skill
+riêng của vai + hồ sơ service nó phụ trách**. Vai xong phần mình **bắt buộc viết file bàn giao**;
+vai nhận **echo-back** (tóm tắt mình hiểu gì) và được **hỏi–đáp qua lại ngay trong file** (tối đa 3
+vòng) cho tới khi đủ input — thiếu thì `blocked`, không đoán. `board.md` là bảng công việc sống:
+mở phiên mới đọc nó là resume đúng chỗ. Việc nhỏ đi fast lane, không dính nghi thức này.
+
+## QC mode — test như một tester thực thụ
+
+Hai skill chuyên trách biến Kiro thành tester:
+
+1. **[`qa-test-case-design`](.kiro/skills/qa-test-case-design/SKILL.md)** — đọc tài liệu THẬT
+   (requirements/AC, spec trong `intake/`, code trong `source/`) rồi lập **hồ sơ validation từng
+   field**: kiểu dữ liệu (chỉ số hay cả chữ), bắt buộc, độ dài min/max, ký tự cho phép, format —
+   và sinh test case theo ma trận **hợp lệ / biên (min−1, max+1) / rỗng / sai kiểu / ký tự đặc biệt /
+   độc hại (SQL, XSS)**, phủ đủ mọi AC, mọi endpoint (2xx/400/401/403/404/409), mọi màn hình
+   (empty/loading/error/success). Constraint không có trong tài liệu → dò code thật; vẫn không có →
+   hỏi bạn, không bịa.
+2. **[`qa-test-execution`](.kiro/skills/qa-test-execution/SKILL.md)** — chạy từng case với bằng chứng
+   thật. **Fail → lập bug report → chuyển vai dev fix tận gốc → retest.** Gặp bug **blocker** →
+   **DỪNG toàn bộ case phụ thuộc**, chỉ chạy tiếp khi dev báo OK và retest case blocker **pass**.
+   Done = 100% case chạy + **0 bug còn mở**. Không pass giả định, không sửa expected, không hạ mức bug.
+
+## Có gì bên trong
 
 ```text
+source/              CODE dự án của bạn — mỗi service/app/package một thư mục
+intake/              tài liệu thô bạn thả vào (SRS, spec, bug report, log, dump) + INDEX.md
 .kiro/
-├── steering/        project knowledge Kiro loads every session
-│   ├── kiro.md          the operating contract (Ask → Do → Log)
-│   ├── product.md       what you're building
-│   ├── tech.md          stack: Spring Boot · Node.js · Next.js · React + UI/ORM/auth libs
-│   └── structure.md     your conventions (BE layering, FE hooks/shared components/style)
-├── skills/          57 curated how-to skills + CATALOG.md (pick by domain)
-├── specs/           OPTIONAL spec mode for big features (requirements → design → tasks)
-├── hooks.yaml       agent hooks (auto-worklog, convention self-checks)
-└── settings.json    permissions + Kiro config
-WORKLOG.md           the running record of what Kiro did
+├── steering/        kiến thức Kiro nạp mỗi phiên
+│   ├── kiro.md          contract vận hành: bản đồ đọc/viết, 5 luồng, kỷ luật fix bug
+│   ├── team.md          TEAM: vai COORDINATOR/ANALYST/DEV/TESTER, WIP=1, bàn giao bắt buộc
+│   ├── product.md       bạn đang xây gì
+│   ├── services.md      SỔ ĐĂNG KÝ service trong source/ (stack, DB, cũ/mới, ai gọi ai)
+│   ├── svc-<tên>.md     hồ sơ TỪNG service — tự nạp khi đụng service đó (fileMatch)
+│   ├── tech.md          mặc định chung (hồ sơ service thắng)
+│   ├── structure.md     convention chung (hồ sơ service thắng)
+│   ├── inventory.md     đồ dùng chung LIÊN-service — để TÁI DÙNG
+│   └── git.md           git chỉ khi bạn ra tín hiệu, mỗi lần
+├── skills/          60 Agent Skills chuẩn Kiro (tự kích hoạt theo task) + CATALOG.md (sinh tự động)
+├── specs/           spec mode cho feature lớn (requirements → design → tasks)
+├── analysis/        phân tích luồng — <module>/<tinh-nang>.md + INDEX.md + dependency-map.md
+├── testing/         test case + bug report — <module>/<tinh-nang>/ + INDEX.md
+├── team/            điều phối & BÀN GIAO: board.md + tasks/<id>/ (task.md, handoff-*.md)
+├── hooks/           automation *.kiro.hook tuỳ chọn (mặc định tắt)
+└── settings/mcp.json   MCP servers (mặc định rỗng)
+WORKLOG.md           bản ghi việc Kiro làm (không commit)
 ```
 
-## Spec mode (optional)
+**Trí nhớ tái dùng:** Kiro giữ `inventory.md` — sổ component, hook, helper dùng chung — và tra
+trước khi viết cái mới, để tái dùng thay vì tạo trùng.
 
-For a large or fuzzy feature, ask Kiro to "spec it out" and it switches to the Kiro spec workflow —
-`requirements.md → design.md → tasks.md` under `.kiro/specs/<feature>/`, approved in order, then built
-task by task. Everyday changes skip this and go straight to Understand → Do → Log. See
-[`.kiro/specs/README.md`](.kiro/specs/README.md).
+**Fix bug tận gốc:** tái hiện trước → dò root cause end-to-end (`file:line`) → sửa nơi lỗi *sinh ra*
+chứ không phải nơi lỗi *lộ ra* → thêm test chống tái phát → kiểm cả các chỗ gọi chung.
+
+**Càng làm càng khôn:** mỗi lỗi thật (user sửa lưng, bug do Kiro, assumption sai, loay hoay lặp)
+bắt buộc đúc kết vào [`lessons.md`](.kiro/steering/lessons.md) — file bài học **luôn được nạp mỗi
+phiên** nên lỗi hôm nay thành luật ngày mai; bug đóng phải kèm luật phòng ngừa; cuối mỗi task
+pipeline có mini-retro. Seed sẵn 10 nguyên tắc vận hành cốt lõi đúc kết từ các agent trưởng thành.
 
 ## Skills
 
-57 skills across **Backend — Java/Spring Boot** (`java-spring-development`, `spring-boot-engineer`, …),
-**Backend — Node.js** (`nodejs-backend-patterns`, `nestjs-clean-typescript`, `fastify-typescript`,
-`graphql`, …), **Frontend — React** (`react`, `react-query`, `redux-toolkit`, `zustand`, …),
-**Frontend — Next.js** (`next-best-practices`, `next-cache-components`, `native-data-fetching`,
-`deploy-to-vercel`, …), **UI libraries** (shadcn, MUI, Tailwind, styled-components, framer-motion, …),
-**Data & ORM** (Postgres, MySQL, Redis, Supabase, Neon, Prisma, Drizzle, TypeORM), **Auth**
-(`better-auth-best-practices`), and **cross-cutting** (debugging, testing, code comprehension). Browse
-[`.kiro/skills/CATALOG.md`](.kiro/skills/CATALOG.md).
-
-## Using it with Claude Code (optional)
-
-This repo is built for **Kiro IDE**, which reads `.kiro/steering/` automatically. To use the same
-contract in **Claude Code**, add a one-line `CLAUDE.md`:
-
-```text
-@.kiro/steering/kiro.md
-```
+60 skill chuẩn **Kiro Agent Skills** (`.kiro/skills/<tên>/SKILL.md`, frontmatter `name` +
+`description`; tài liệu phụ trong `references/`, code trong `scripts/`, template trong `assets/`) —
+Kiro tự kích hoạt khi description khớp task ([docs](https://kiro.dev/docs/skills/)). Trải khắp
+**Java/Spring Boot**, **Node.js** (NestJS, Fastify, Koa, GraphQL), **React** (react-query, redux,
+zustand, vite), **Next.js** (best practices, cache, RSC, Vercel), **UI** (shadcn, MUI, Tailwind,
+animation), **Data & ORM** (Postgres, MySQL, Redis, Supabase, Neon, Prisma, Drizzle, TypeORM),
+**Auth**, **QC/Testing** (`qa-test-case-design`, `qa-test-execution`, Playwright, TDD) và
+**xuyên suốt** (`analyze-flow` trace luồng FE→BE phục vụ fix bug & migration, debug, đọc-hiểu code lạ, verify trước khi nói xong).
+Tra theo mảng ở [`.kiro/skills/CATALOG.md`](.kiro/skills/CATALOG.md).
 
 ## License
 

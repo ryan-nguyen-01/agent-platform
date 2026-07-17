@@ -1,7 +1,9 @@
 ---
 name: upstash-redis-kv
 description: Read and write to Upstash Redis-compatible key-value store via REST API. Use when there is a need to save or retrieve key-value data, use Redis features (caching, counters, lists, sets, hashes, sorted sets, etc.) for the current interaction, or when the user explicitly asks to use Upstash or Redis.
-category: database
+metadata:
+  category: data-orm
+  summary: Redis/KV serverless Upstash
 ---
 
 # Upstash Redis Key-Value Store

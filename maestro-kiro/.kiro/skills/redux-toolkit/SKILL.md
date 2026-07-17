@@ -1,7 +1,9 @@
 ---
 name: redux-toolkit
 description: Comprehensive Redux Toolkit best practices for React and Next.js applications with TypeScript.
-category: frontend
+metadata:
+  category: frontend-react
+  summary: Quản lý state Redux Toolkit
 ---
 
 # Redux Toolkit

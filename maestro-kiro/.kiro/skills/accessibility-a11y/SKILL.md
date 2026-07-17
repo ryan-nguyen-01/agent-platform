@@ -1,7 +1,9 @@
 ---
 name: accessibility-a11y
 description: Implement web accessibility (a11y) best practices following WCAG guidelines to create inclusive, accessible user interfaces.
-category: frontend
+metadata:
+  category: ui-styling
+  summary: Accessibility theo WCAG
 ---
 
 # Accessibility (a11y) Best Practices

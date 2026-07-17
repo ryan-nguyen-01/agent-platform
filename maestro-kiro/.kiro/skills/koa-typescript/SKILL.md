@@ -1,7 +1,9 @@
 ---
 name: koa-typescript
 description: Guidelines for building modern APIs with Koa.js and TypeScript, featuring the onion middleware model and async/await patterns
-category: backend
+metadata:
+  category: backend-node
+  summary: API Koa.js middleware onion + TypeScript
 ---
 
 # Koa TypeScript Development

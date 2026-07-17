@@ -1,7 +1,9 @@
 ---
 name: redis-best-practices
 description: Redis development best practices for caching, data structures, and high-performance key-value operations
-category: database
+metadata:
+  category: data-orm
+  summary: Cache / cấu trúc dữ liệu Redis
 ---
 
 # Redis Best Practices

@@ -1,7 +1,9 @@
 ---
 name: styled-components-best-practices
 description: styled-components best practices for CSS-in-JS development in React applications
-category: frontend
+metadata:
+  category: ui-styling
+  summary: styled-components
 ---
 
 # styled-components Best Practices

@@ -1,0 +1,11 @@
+{
+  // Cấu hình markdownlint cho CI. Tắt rule mỹ thuật; ta dùng header căn giữa (HTML) và dòng dài.
+  "config": {
+    "default": true,
+    "MD013": false, // độ dài dòng
+    "MD033": false, // inline HTML (header <div> căn giữa)
+    "MD041": false  // dòng đầu phải là heading (header căn giữa đứng trước)
+  },
+  "globs": ["README.md", "CONTRIBUTING.md"],
+  "ignores": [".kiro/skills/**", "node_modules/**"]
+}

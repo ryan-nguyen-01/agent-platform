@@ -1,16 +1,17 @@
 ---
 name: prisma-knowledge-patch
 description: "Prisma changes since training cutoff (latest: 7.3) — v7 ESM rewrite, prisma-client generator, driver adapters, prisma.config.ts, TypedSQL, SQL comments. Load before working with Prisma."
-category: knowledge-patch
 license: MIT
-version: "7.3"
 metadata:
   author: Nevaberry
+  category: data-orm
+  summary: Thay đổi Prisma gần đây (v7)
+  version: "7.3"
 ---
 
 # Prisma 5.19+ / 7.x Knowledge Patch
 
-Claude's baseline knowledge covers Prisma through 5.18. This skill provides changes from 5.19.0 onwards, with major focus on the Prisma 7 rewrite.
+The model's baseline knowledge may only cover Prisma through 5.18. This skill provides changes from 5.19.0 onwards, with major focus on the Prisma 7 rewrite.
 
 ## Prisma 7 Breaking Changes Quick Reference
 

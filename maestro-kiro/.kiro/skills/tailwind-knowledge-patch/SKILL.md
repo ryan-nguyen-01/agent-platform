@@ -1,16 +1,17 @@
 ---
 name: tailwind-knowledge-patch
 description: "Tailwind CSS changes since training cutoff (latest: 4.1) — text shadows, composable masks, overflow-wrap, safe alignment, @source directives, pointer/noscript variants. Load before working with Tailwind CSS."
-category: knowledge-patch
-version: "4.1"
 license: MIT
 metadata:
   author: Nevaberry
+  category: ui-styling
+  summary: Thay đổi Tailwind gần đây
+  version: "4.1"
 ---
 
 # Tailwind CSS Knowledge Patch
 
-Covers Tailwind CSS 4.1 (2025-04-03). Claude Opus 4.6 knows Tailwind CSS through 3.x. It is **unaware** of the features below.
+Covers Tailwind CSS 4.1 (2025-04-03). The model's baseline knowledge may only cover Tailwind CSS through 3.x and be **unaware** of the features below.
 
 ## Index
 

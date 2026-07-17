@@ -1,0 +1,17 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "inventory-on-new-shared",
+      "description": "Khi tạo file ở thư mục dùng chung, ghi nó vào inventory.md.",
+      "trigger": "PostFileCreate",
+      "matcher": "(components|hooks|common|shared|utils|lib)/.*\\.(tsx?|jsx?|java)$",
+      "action": {
+        "type": "agent",
+        "prompt": "Vừa có file được tạo ở thư mục dùng chung. Nếu nó định nghĩa một component/hook/helper/thành phần dùng chung, hãy thêm một dòng vào .kiro/steering/inventory.md (tên, đường dẫn, công dụng) bằng tiếng Việt để nhớ và tái dùng. Nếu không thì bỏ qua. KHÔNG chạy git."
+      },
+      "timeout": 0,
+      "enabled": false
+    }
+  ]
+}

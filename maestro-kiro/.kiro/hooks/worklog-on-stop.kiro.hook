@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "worklog-on-stop",
+      "description": "Sau lượt có đổi file, đảm bảo có mục WORKLOG.md tương ứng.",
+      "trigger": "Stop",
+      "action": {
+        "type": "agent",
+        "prompt": "Nếu lượt này có đổi file, hãy đảm bảo đầu WORKLOG.md có một mục cho nó (thời gian, yêu cầu, đã làm, files, ghi chú), bằng tiếng Việt. Nếu đang có task pipeline chạy (xem .kiro/team/board.md), đảm bảo board.md phản ánh đúng trạng thái. Nếu lượt này có trigger học-từ-lỗi (user sửa lưng, bug do Kiro gây ra, assumption sai, loay hoay >2 lần cùng lỗi) mà chưa đúc kết → thêm/cập nhật bài học vào .kiro/steering/lessons.md theo đúng format (khái quát, Vì sao, Áp dụng, chống trùng). Không ghi secret hay log dài. Không đổi gì hoặc đã đủ thì không làm gì. TUYỆT ĐỐI không chạy lệnh git."
+      },
+      "timeout": 0,
+      "enabled": false
+    }
+  ]
+}

@@ -1,26 +1,26 @@
-# Product
+# Sản phẩm
 
-> Template — fill this in for your project so Kiro understands the "why" behind technical decisions.
-> Kiro updates it as it learns more about the product.
+> Template — điền cho dự án của bạn để Kiro hiểu "vì sao" đằng sau các quyết định kỹ thuật.
+> Kiro cập nhật file này khi hiểu thêm về sản phẩm.
 
-## What this product is
+## Sản phẩm này là gì
 
-<one or two sentences: what it does, who it's for>
+<một hai câu: nó làm gì, cho ai>
 
-## Primary users
+## Người dùng chính
 
-<who uses it, and what they're trying to accomplish>
+<ai dùng, và họ muốn đạt được gì>
 
-## Key features
+## Tính năng chính
 
-- <feature>
-- <feature>
+- <tính năng>
+- <tính năng>
 
-## Goals & non-goals
+## Mục tiêu & không-mục-tiêu
 
-- **Goals:** <what success looks like>
-- **Non-goals:** <explicitly out of scope>
+- **Mục tiêu:** <thành công trông như thế nào>
+- **Không-mục-tiêu:** <cố tình nằm ngoài phạm vi>
 
-## Domain terms
+## Thuật ngữ nghiệp vụ
 
-<glossary of project-specific words so Kiro names things the way the team does>
+<glossary các từ riêng của dự án để Kiro đặt tên đúng cách team dùng>

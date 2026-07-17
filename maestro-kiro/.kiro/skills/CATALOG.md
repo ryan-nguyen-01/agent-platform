@@ -1,102 +1,116 @@
-# Skill catalog
+<!-- FILE SINH TỰ ĐỘNG từ frontmatter của skills — ĐỪNG SỬA TAY.
+     Đổi metadata.category / metadata.summary trong SKILL.md rồi chạy:
+     python3 scripts/build-skill-catalog.py -->
 
-57 curated how-to skills for full-stack web work across **Java/Spring Boot · Node.js · Next.js ·
-ReactJS · UI libraries · databases**. Each is a folder with a `SKILL.md`. Load the relevant skill(s)
-before writing code in that area; start with `legacy-code-comprehension` to read unfamiliar code.
+# Danh mục skills
+
+60 skill how-to đã tuyển cho web full-stack: **Java/Spring Boot · Node.js · Next.js · ReactJS · thư
+viện UI · database · QC/testing**. Mỗi skill là một thư mục có `SKILL.md` theo đúng format Agent
+Skills của Kiro (frontmatter `name` + `description`; tài liệu phụ trong `references/`, code chạy được
+trong `scripts/`, template trong `assets/`). Nạp skill liên quan trước khi viết code trong mảng đó;
+bắt đầu bằng `legacy-code-comprehension` để đọc code lạ.
 
 ## Backend — Java / Spring Boot
 
-| Skill | Use for |
-|-------|---------|
-| `java-spring-development` | Spring Boot app development end-to-end |
-| `spring-boot-engineer` | Spring Boot service patterns, starters, config |
-| `spring-framework` | Core Spring (DI, AOP, web, data) |
-| `java-architect` | Java architecture & design decisions |
-| `api-design-principles` | REST/GraphQL API design (resources, versioning, errors) |
+| Skill | Dùng cho |
+| --- | --- |
+| `api-design-principles` | Thiết kế API REST/GraphQL (resource, versioning, lỗi) |
+| `java-architect` | Kiến trúc & thiết kế Java enterprise (WebFlux, JPA, Security) |
+| `java-spring-development` | Phát triển app Spring Boot end-to-end |
+| `spring-boot-engineer` | Pattern service Spring Boot, starter, config |
+| `spring-framework` | Spring lõi (DI, AOP, web, data) |
 
-## Backend — Node.js / TypeScript
+## Backend — Node.js
 
-| Skill | Use for |
-|-------|---------|
-| `nodejs-backend-patterns` | Node.js backend architecture & patterns |
-| `nestjs-clean-typescript` | NestJS with clean architecture |
-| `fastify-typescript` | Fastify APIs in TypeScript |
-| `koa-typescript` | Koa APIs in TypeScript |
-| `graphql` | GraphQL schema/resolvers/clients |
-| `websocket-development` | Realtime/WebSocket services |
+| Skill | Dùng cho |
+| --- | --- |
+| `fastify-typescript` | API hiệu năng cao với Fastify + TypeScript |
+| `graphql` | GraphQL schema, resolver, tối ưu query |
+| `koa-typescript` | API Koa.js middleware onion + TypeScript |
+| `nestjs-clean-typescript` | NestJS + TypeScript sạch (module, DI, validation) |
+| `nodejs-backend-patterns` | Pattern backend Node.js (layering, error, config) |
+| `websocket-development` | Realtime WebSocket (thiết kế, reconnect, scale) |
 
-## Frontend — React
+## Frontend — ReactJS
 
-| Skill | Use for |
-|-------|---------|
-| `react` | React components, patterns, performance |
-| `react-modernization` | Modernizing/refactoring React code |
-| `react-query` | Server-state with TanStack Query |
-| `redux-toolkit` | Redux Toolkit state management |
-| `zustand-state-management` | Zustand stores |
-| `vite` | Vite build/dev config |
-| `typescript-advanced-types` | TypeScript types for app code |
+| Skill | Dùng cho |
+| --- | --- |
+| `react` | Component, pattern, hiệu năng React |
+| `react-modernization` | Hiện đại hoá/refactor code React cũ |
+| `react-query` | Server-state với TanStack Query |
+| `redux-toolkit` | Quản lý state Redux Toolkit |
+| `typescript-advanced-types` | Kiểu TypeScript nâng cao cho code app |
+| `vite` | Cấu hình build/dev Vite |
+| `zustand-state-management` | Store Zustand |
 
 ## Frontend — Next.js
 
-| Skill | Use for |
-|-------|---------|
-| `next-best-practices` | Next.js App Router patterns & best practices |
-| `next-cache-components` | Caching & React Server Components in Next.js |
-| `native-data-fetching` | Server-side data fetching / RSC patterns |
-| `vercel-react-best-practices` | React/Next best practices on Vercel |
-| `vercel-composition-patterns` | Composition patterns for React/Next |
-| `deploy-to-vercel` | Deploying Next.js/web apps to Vercel |
+| Skill | Dùng cho |
+| --- | --- |
+| `deploy-to-vercel` | Deploy app Next.js/web lên Vercel |
+| `native-data-fetching` | Data fetching phía server / pattern RSC |
+| `next-best-practices` | Pattern & best practice App Router Next.js |
+| `next-cache-components` | Caching & React Server Components trong Next.js |
+| `vercel-composition-patterns` | Composition pattern cho React/Next |
+| `vercel-react-best-practices` | Best practice hiệu năng React/Next của Vercel |
 
-## UI libraries & styling
+## Thư viện UI & styling
 
-| Skill | Use for |
-|-------|---------|
-| `shadcn` | shadcn/ui components |
-| `mui` | Material UI components |
-| `tailwindcss` | Tailwind CSS |
-| `tailwind-design-system` | Design system on Tailwind |
-| `tailwind-knowledge-patch` | Recent Tailwind changes |
-| `styled-components-best-practices` | styled-components |
-| `scss-best-practices` | SCSS/Sass |
+| Skill | Dùng cho |
+| --- | --- |
+| `accessibility-a11y` | Accessibility theo WCAG |
+| `framer-motion` | Animation (Framer Motion) |
+| `gsap` | Animation (GSAP) |
+| `mui` | Component Material UI v7 (sx, theme) |
 | `postcss-best-practices` | PostCSS |
-| `framer-motion` | Animations (Framer Motion) |
-| `gsap` | Animations (GSAP) |
-| `accessibility-a11y` | WCAG accessibility |
-| `web-design-guidelines` | UI/UX design guidelines |
+| `scss-best-practices` | SCSS/Sass |
+| `shadcn` | Component shadcn/ui |
+| `styled-components-best-practices` | styled-components |
+| `tailwind-design-system` | Design system trên Tailwind |
+| `tailwind-knowledge-patch` | Thay đổi Tailwind gần đây |
+| `tailwindcss` | Tailwind CSS |
+| `web-design-guidelines` | Hướng dẫn thiết kế UI/UX |
 
 ## Data & ORM
 
-| Skill | Use for |
-|-------|---------|
-| `postgresql-best-practices` | PostgreSQL schema, indexing, queries |
-| `mysql-best-practices` | MySQL schema & queries |
-| `neon-postgres` | Neon serverless Postgres |
-| `supabase` | Supabase (DB, auth, storage) |
-| `supabase-postgres-best-practices` | Postgres patterns on Supabase |
-| `redis-best-practices` | Redis caching / data structures |
-| `redis-js` | Redis from Node.js |
-| `upstash-redis-kv` | Upstash serverless Redis/KV |
-| `prisma` | Prisma ORM |
-| `prisma-development` | Building with Prisma |
-| `prisma-knowledge-patch` | Recent Prisma changes |
+| Skill | Dùng cho |
+| --- | --- |
+| `drizzle-knowledge-patch` | Thay đổi Drizzle gần đây |
 | `drizzle-orm` | Drizzle ORM |
-| `drizzle-knowledge-patch` | Recent Drizzle changes |
+| `mysql-best-practices` | Schema & query MySQL |
+| `neon-postgres` | Postgres serverless Neon |
+| `postgresql-best-practices` | Schema, index, query PostgreSQL |
+| `prisma` | Prisma ORM |
+| `prisma-development` | Làm việc với Prisma |
+| `prisma-knowledge-patch` | Thay đổi Prisma gần đây (v7) |
+| `redis-best-practices` | Cache / cấu trúc dữ liệu Redis |
+| `redis-js` | Redis từ Node.js |
+| `supabase` | Supabase (DB, auth, storage) |
+| `supabase-postgres-best-practices` | Pattern Postgres trên Supabase |
 | `typeorm` | TypeORM |
+| `upstash-redis-kv` | Redis/KV serverless Upstash |
 
 ## Auth
 
-| Skill | Use for |
-|-------|---------|
-| `better-auth-best-practices` | Auth (email/OAuth/plugins) with Better Auth |
+| Skill | Dùng cho |
+| --- | --- |
+| `better-auth-best-practices` | Auth (email/OAuth/plugin) với Better Auth |
 
-## Cross-cutting
+## QC / Testing (luồng TEST — như tester thực thụ)
 
-| Skill | Use for |
-|-------|---------|
-| `legacy-code-comprehension` | Read & understand an unfamiliar codebase (scan first) |
-| `test-driven-development` | TDD workflow |
-| `playwright-best-practices` | Playwright e2e tests |
-| `webapp-testing` | Web app testing strategy |
-| `systematic-debugging` | Methodical debugging |
-| `verification-before-completion` | Verify a change is actually done before claiming it |
+| Skill | Dùng cho |
+| --- | --- |
+| `playwright-best-practices` | Test e2e Playwright |
+| `qa-test-case-design` | Thiết kế test case đầy đủ TỪ TÀI LIỆU: hồ sơ validation từng field (kiểu, min/max, ký tự cho phép), ma trận biên/rỗng/sai kiểu/độc hại, phủ mọi AC/endpoint/màn hình |
+| `qa-test-execution` | Chạy test như tester thật: fail → bug → dev fix → retest; blocker → dừng case phụ thuộc, đợi fix OK mới chạy tiếp; done = 100% case + 0 bug mở |
+| `test-driven-development` | Quy trình TDD khi viết code mới |
+| `webapp-testing` | Chiến lược test web app |
+
+## Xuyên suốt
+
+| Skill | Dùng cho |
+| --- | --- |
+| `analyze-flow` | Trace luồng end-to-end FE→BE→DB→external theo từng tính năng + bản đồ phụ thuộc giữa tính năng — phục vụ fix bug & migration (monolith → microservices) |
+| `legacy-code-comprehension` | Đọc & hiểu codebase lạ (quét trước khi sửa) |
+| `systematic-debugging` | Debug có phương pháp — dò root cause khi fix bug |
+| `verification-before-completion` | Xác minh thay đổi thật sự xong trước khi nói xong |
